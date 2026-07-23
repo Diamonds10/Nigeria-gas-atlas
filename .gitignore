@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Project data conventions
+# Keep raw source downloads local; only processed outputs should be committed.
+data/raw/
+!data/raw/**/*.md
+!data/raw/**/*.txt
+!data/raw/**/*.csv
