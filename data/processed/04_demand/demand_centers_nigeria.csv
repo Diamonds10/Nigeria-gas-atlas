@@ -1,0 +1,29 @@
+demand_center,category,state_or_region,lat,lon,status,coordinate_source,notes
+Dangote Fertilizer (Lekki),fertiliser,Lagos,6.4418347,4.0482147,operating,OSM Nominatim (verified industrial landuse polygon),"Corrected from an originally supplied coordinate (lon 3.57), which was ~53 km off. That longitude falls outside the Lekki Free Trade Zone entirely (zone spans lon ~3.95-4.02 per OSM); this value matches GEM wiki within 100m"
+Dangote Refinery (Lekki),refinery,Lagos,6.4559899,4.0153389,operating,OSM Nominatim (verified industrial landuse polygon),"Corrected from an originally supplied coordinate (lon 3.57) - same ~53 km error pattern as Dangote Fertilizer above"
+Indorama Eleme (PH),fertiliser,Rivers,4.8355504,7.1029747,operating,OSM Nominatim (verified industrial landuse polygon),"Corrected from an originally supplied coordinate that was ~5.5 km off. Matches GEM wiki within 100m"
+Indorama Line 3 (PH),fertiliser,Rivers,4.8355504,7.1029747,operating,OSM Nominatim (verified industrial landuse polygon),Expansion line at the same Indorama Eleme site
+Notore Chemical (Onne),fertiliser,Rivers,4.72,7.15,operating,OSM Nominatim (Onne town center - plant-specific coordinate not independently verified),No independent plant-level coordinate found - town-level precision only
+Brass Fertilizer (Bayelsa),fertiliser,Bayelsa,4.31,6.246,proposed,Falls within OSM-verified Brass Island boundary - not independently distinguished further,Coincides with the Brass LNG Terminal site in the GGIT infrastructure data - likely the same industrial site
+PH Refinery (Eleme),refinery,Rivers,4.7855961,7.1171908,operating,OSM Nominatim (Alesa town node - the refinery's cited locality),"Refined using Alesa (Eleme LGA), the specific locality cited for this refinery in company/regulatory references"
+Warri Refinery,refinery,Delta,5.5663673,5.7164284,operating,OSM Nominatim (verified industrial landuse polygon),Corrected from an originally supplied coordinate that was ~7.5 km off
+Kaduna Refinery,refinery,Kaduna,10.4102645,7.4902123,operating,OSM Nominatim (verified industrial landuse polygon),"Corrected from an originally supplied coordinate that was ~13 km off. Matches Global Energy Observatory within 100m"
+Obajana Cement (Kogi),cement,Kogi,7.927327,6.425156,operating,GEM wiki (exact),Originally supplied coordinate was already a close match (~1.9 km)
+Ibese Cement (Ogun),cement,Ogun,7.0045713,3.0500759,operating,OSM Nominatim (verified industrial landuse polygon - the cement factory itself),Corrected to the actual cement factory node; previously used its co-located captive power station as a proxy
+Obu Cement (Edo),cement,Edo,7.3555245,6.4002353,operating,"OSM Nominatim (verified man_made=works node ""BUA Cement Plc Okpella"")","Resolved: this BUA plant is a genuinely distinct site from Dangote's Okpella plant below, ~10 km apart. An originally supplied table had given both plants the same coordinate, which was incorrect for both"
+Kalambaina Cement (Sokoto),cement,Sokoto,13.0584713,5.1716343,operating,OSM Nominatim (verified industrial landuse polygon),Matches GEM wiki within 500m
+Okpella Cement (Edo),cement,Edo,7.271964,6.344997,operating,OSM Nominatim (verified node at Okpella town),"Dangote Cement plant. Corrected from an originally supplied coordinate that was ~30 km off (and had been conflated with the separate BUA Obu plant above)"
+Itori Cement (Ogun),cement,Ogun,6.86,3.18,unknown,Not independently verified,Operator not yet confirmed; no OSM match found
+Mfamosing Cement (Cross River),cement,Cross River,5.0644144,8.5147116,operating,OSM Nominatim (verified industrial landuse relation),Corrected from an originally supplied coordinate that was ~16 km off
+Gboko Cement (Benue),cement,Benue,7.4113172,8.9737556,operating,OSM Nominatim (verified industrial landuse polygon),Corrected from an originally supplied coordinate that was ~8 km off
+Iluagba Cement (Kogi),cement,Kogi,7.88,6.7,unknown,Not independently verified,Operator not yet confirmed; no OSM match found
+Ewekoro Cement (Ogun),cement,Ogun,6.8982,3.2062,operating,GEM wiki (midpoint of two verified plant lines),Midpoint of Lafarge's Ewekoro 1 (6.893522/3.205342) and Ewekoro 2 (6.902791/3.207143) lines
+Sagamu Cement (Ogun),cement,Ogun,6.85,3.65,operating,Not independently verified,Lafarge Africa plant; no OSM match found
+Ashaka Cement (Gombe),cement,Gombe,10.9306092,11.4755373,operating,OSM Nominatim (verified industrial landuse polygon),Corrected from an originally supplied coordinate that was ~9.5 km off
+Onigbedu Cement (Ogun),cement,Ogun,6.95,3.15,unknown,Not independently verified,Operator not yet confirmed; no OSM match found
+Ajaokuta Steel (Kogi),steel,Kogi,7.5071229,6.6927650,construction,OSM Nominatim (verified industrial landuse polygon),"Matches GEM Steel Plant Tracker within 500m. Long-stalled despite ""construction"" status label"
+Premium Steel (Delta),steel,Delta,5.4810037,5.7700105,operating,OSM Nominatim (verified industrial landuse relation),"Corrected from an originally supplied coordinate that was ~33 km off. This is the same site as GEM's ""Delta Steel Company Warri plant"" record (same owner, Premium Steel and Mines Limited) - confirms they refer to one plant, not two"
+African Foundries (Ogun),steel,Ogun,6.75,3.35,operating,Not independently verified,No OSM match found
+Inner Galaxy Steel (Abia/Ogun),steel,Abia/Ogun,5.1,7.37,operating,Not independently verified,State attribution uncertain (given as Abia/Ogun); no OSM match found
+Squire Steel (Kogi),steel,Kogi,7.7,6.6,operating,Not independently verified,No OSM match found
+Jindal Steel (Planned),steel,Kogi (approx.),8.5,6.5,planned,Not independently verified - explicitly approximate in source,"Planned/announced project, not yet built"

@@ -1,0 +1,4 @@
+id,project,project_other,parent,owner,ownership,province,country,region,status,steel_capacity,iron_capacity,process,equipment,url,lat,lng
+SNG00001,Delta Steel Company Warri plant,,Premium Steel and Mines Limited (PSML) [100%],Delta Steel Co Ltd,,Delta State,Nigeria,Africa,operating,1300,1020,integrated_DRI,"DRI, EAF",https://www.gem.wiki/Premium_Steel_and_Mines_Limited_plant,5.480763,5.769839
+SNG00003,African Natural Resources & Mines Kaduna steel plant,,African Industries Group [100%],African Natural Resources & Mines,full,Kaduna State,Nigeria,Africa,construction,1000,1000,integrated_DRI,"DRI, EAF",,9.490992,7.695431
+SNG00002,Ajaokuta Steel plant,,Nigerian Iron Ore Mining [100%],Ajaokuta Steel Company Ltd,full,Kogi State,Nigeria,Africa,construction,1300,1355,integrated_BF,"BF, BOF",,7.511336,6.689364

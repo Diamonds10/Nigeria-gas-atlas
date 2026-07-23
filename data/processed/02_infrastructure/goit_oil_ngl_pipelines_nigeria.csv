@@ -1,0 +1,16 @@
+project,unit,type,parent,countries,status,start_year,capacity,geom,route,url
+Azuzuama-Tebidaba Oil Pipeline,,oil_pipelines,Eni S.p.A. [59.18%]; Nigerian National Petroleum Corporation [unknown %],Nigeria,operating,,,line,"4.69,5.96:4.556,5.919",https://www.gem.wiki/Azuzuama-Tebidaba_Oil_Pipeline
+Bonny-Port Harcourt Refinery Pipeline,,oil_pipelines,Nigerian National Petroleum Corporation [100.00%],Nigeria,operating,1965.0,60000.0,line,"4.424,7.158:4.76,7.1",https://www.gem.wiki/Bonny-Port_Harcourt_Refinery_Pipeline
+Brass Creek-Forcados Oil Pipeline,,oil_pipelines,Shell [100.00%],Nigeria,operating,,250000.0,line,"4.302,6.245:5.341,5.35",https://www.gem.wiki/Brass_Creek-Forcados_Oil_Pipeline
+Clough Creek-Tebidaba Oil Pipeline,,oil_pipelines,Eni S.p.A. [unknown %]; Nigerian National Petroleum Corporation [unknown %],Nigeria,operating,,,line,"4.851854,5.691443:4.556,5.919",https://www.gem.wiki/Clough_Creek-Tebidaba_Oil_Pipeline
+Edop-Qua Iboe Terminal Oil Pipeline,,oil_pipelines,ExxonMobil [100.00%],Nigeria,operating,,320000.0,line,"4.1,8.02:4.547,8.012",https://www.gem.wiki/Edop-Qua_Iboe_Terminal_Oil_Pipeline
+Eni Kwale-Brass Oil Pipeline Network,,oil_pipelines,Eni S.p.A. [100.00%],Nigeria,operating,,,line,"5.714,6.421:4.302,6.245",https://www.gem.wiki/Eni_Kwale-Brass_Oil_Pipeline_Network
+Escravos-Warri-Kaduna Oil Pipeline,,oil_pipelines,Nigerian National Petroleum Corporation [100.00%],Nigeria,operating,,,line,"5.61,5.204:5.566,5.713:10.411,7.488",https://www.gem.wiki/Escravos-Warri-Kaduna_Oil_Pipeline
+Idoho-Qua Iboe Terminal Oil Pipeline,,oil_pipelines,ExxonMobil [100.00%],Nigeria,operating,,,line,"4.42,7.97:4.547,8.012",https://www.gem.wiki/Idoho-Qua_Iboe_Terminal_Oil_Pipeline
+Kwale-Ogoda Oil Pipeline,,oil_pipelines,Eni S.p.A. [100.00%]; Nigerian National Petroleum Corporation [unknown %],Nigeria,operating,,,line,"5.714,6.421:5.266,5.915",https://www.gem.wiki/Kwale-Ogoda_Oil_Pipeline
+Nembe Creek Trunk Line,,oil_pipelines,Aiteo Group [45.00%]; Nigerian National Petroleum Corporation [35.00%]; TotalEnergies SE [10.00%]; Eni S.p.A. [5.00%],Nigeria,operating,2010.0,150000.0,line,"4.513119,6.270947:4.389901,6.996045",https://www.gem.wiki/Nembe_Creek_Trunk_Line
+Nkpoku-Bomu Oil Pipeline,,oil_pipelines,Shell [100.00%],Nigeria,operating,,,line,"4.798,7.019:4.633,7.354",https://www.gem.wiki/Nkpoku-Bomu_Oil_Pipeline
+Ogoda-Brass Oil Pipeline,,oil_pipelines,Eni S.p.A. [100.00%],Nigeria,operating,,,line,"5.266,5.915:4.302,6.245",https://www.gem.wiki/Ogoda-Brass_Oil_Pipeline
+Oso-Qua Iboe Terminal Oil Pipeline,,oil_pipelines,ExxonMobil [100.00%],Nigeria,operating,,,line,"4.24,7.67:4.547,8.012",https://www.gem.wiki/Oso-Qua_Iboe_Terminal_Oil_Pipeline
+Pennington Oilfield-Pennington Export Terminal Oil Pipeline,,oil_pipelines,Chevron [100.00%],Nigeria,operating,,20000.0,line,"4.41,5.71:4.29,5.81",https://www.gem.wiki/Pennington_Oilfield-Pennington_Export_Terminal_Oil_Pipeline
+Rapele-Forcados Oil Pipeline,,oil_pipelines,Shell [100.00%],Nigeria,operating,,,line,"5.577,5.667:5.341,5.35",https://www.gem.wiki/Rapele-Forcados_Oil_Pipeline

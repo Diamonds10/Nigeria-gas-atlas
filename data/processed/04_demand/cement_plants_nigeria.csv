@@ -1,0 +1,11 @@
+project,operator,state,lat,lng,cement_capacity_mtpa,clinker_capacity_mtpa,coordinate_source,capacity_source
+Obajana Cement Plant,Dangote Cement PLC,Kogi,7.927327,6.425156,16.25,,GEM wiki (exact),GEM wiki
+Gboko Cement Plant,Dangote Cement PLC,Benue,7.4113172,8.9737556,4.0,,OSM Nominatim (verified industrial landuse polygon; matches GEM wiki within 100m),GEM wiki
+Okpella Cement Plant,Dangote Cement PLC,Edo,7.271964,6.344997,6.0,2.2,OSM Nominatim (verified node; matches GEM wiki within 500m),GEM wiki
+Ibese Cement Plant,Dangote Cement PLC,Ogun,7.0045713,3.0500759,12.0,,"OSM Nominatim (verified industrial landuse polygon - the cement factory itself, distinct from its co-located captive power station)",Public reporting (Dangote Cement)
+Ewekoro 1 Cement Plant,Lafarge Africa PLC,Ogun,6.893522,3.205342,3.9,2.5,GEM wiki (exact),GEM wiki
+Ewekoro 2 Cement Plant,Lafarge Africa PLC,Ogun,6.902791,3.207143,2.5,,GEM wiki (exact),GEM wiki
+Ashaka Cement Plant,Lafarge Africa PLC,Gombe,10.9306092,11.4755373,1.0,,OSM Nominatim (verified industrial landuse polygon; matches GEM wiki within 100m),GEM wiki
+Mfamosing Cement Plant,Lafarge Africa PLC,Cross River,5.0644144,8.5147116,5.0,,OSM Nominatim (verified industrial landuse relation; matches GEM wiki within 100m),GEM wiki
+Kalambaina (Sokoto) Cement Plant,BUA Cement PLC,Sokoto,13.0584713,5.1716343,8.0,,OSM Nominatim (verified industrial landuse polygon; matches GEM wiki within 500m),Public reporting (BUA Cement)
+Obu (Okpella) Cement Plant,BUA Cement PLC,Edo,7.3555245,6.4002353,9.0,,"OSM Nominatim (verified man_made=works node ""BUA Cement Plc Okpella"" - confirmed ~10km from Dangote's separate Okpella plant)",Public reporting (BUA Cement)

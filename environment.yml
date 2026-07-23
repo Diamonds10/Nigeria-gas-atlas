@@ -16,3 +16,4 @@ dependencies:
   - jupyter
   - requests
   - openpyxl
+  - pdfplumber

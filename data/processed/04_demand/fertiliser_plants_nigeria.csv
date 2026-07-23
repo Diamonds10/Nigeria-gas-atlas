@@ -1,0 +1,5 @@
+project,operator,state,lat,lng,product,capacity_mtpa,coordinate_source,capacity_source
+Dangote Fertiliser Plant,Dangote Industries,Lagos,6.4418347,4.0482147,urea and ammonia,3.0,OSM Nominatim (verified industrial landuse polygon "Dangote Fertiliser Plant"; matches GEM wiki within 100m),Public reporting (Dangote)
+Indorama Eleme Fertilizer & Chemicals,Indorama Eleme Petrochemicals Limited,Rivers,4.8355504,7.1029747,urea and ammonia,1.4,OSM Nominatim (verified industrial landuse polygon; matches GEM wiki within 100m),Public reporting (Indorama)
+Notore Chemical Industries (Onne),Notore Chemical Industries Plc,Rivers,4.72,7.15,urea,0.5,OSM Nominatim (Onne town node - plant-specific coordinate not independently verified),Public reporting (Notore)
+Brass Fertilizer Plant,Unconfirmed (proposed),Bayelsa,4.31,6.246,urea and ammonia (proposed),,Falls within OSM-verified Brass Island boundary; coincides with the Brass LNG Terminal site in ggit_lng_terminals_nigeria.csv - not independently distinguished from that site,Public reporting
