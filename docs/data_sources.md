@@ -35,7 +35,12 @@
 ## Layer 5 — Connectivity
 | Dataset | Source | URL | Date accessed | License | Coverage | Known limitations |
 |---|---|---|---|---|---|---|
-| Road network | OpenStreetMap | https://download.geofabrik.de/africa/nigeria.html | | ODbL | Current | Completeness varies by state |
+| Major road network (motorway/trunk/primary/secondary) | OpenStreetMap, via Overpass API | https://www.openstreetmap.org (queried via overpass-api.de / overpass.kumi.systems) | 2026-07-23 | ODbL | Current; 22,242 way segments | Major roads only — residential/service/track roads excluded by design to keep volume relevant at national scale. Completeness of the underlying OSM mapping varies by state |
+| Railways | OpenStreetMap, via Overpass API | https://www.openstreetmap.org (queried via overpass-api.de / overpass.kumi.systems) | 2026-07-23 | ODbL | Current; 1381 rail way segments, 141 stations | Reflects OSM mapping completeness, not necessarily current operational status of Nigeria's rail network (much of which has had intermittent service) |
+| Electricity grid (transmission lines & substations) | OpenStreetMap, via Overpass API | https://www.openstreetmap.org (queried via overpass-api.de / overpass.kumi.systems) | 2026-07-23 | ODbL | Current; 885 transmission lines, 38 minor lines, 389 substations (25 as points, 364 as mapped footprints) | No voltage/capacity data for most features (`voltage` tag frequently blank) — geometry and substation locations are the reliable part, not electrical specs. Distribution-level lines are likely under-mapped relative to transmission |
+| Seaports & oil/gas terminals (World Port Index) | NGA (U.S. National Geospatial-Intelligence Agency), via HDX mirror | https://data.humdata.org/dataset/world-port-index | 2026-07-23 | Open (public U.S. government data) | 25 Nigerian ports/terminals, incl. Lagos, Port Harcourt, Calabar, Warri, Onne, plus numerous offshore oil terminals (Bonny, Forcados, Escravos, Qua Iboe, etc.) | Underlying file is dated 2017 — port locations are stable but facility-level attributes (cranes, rail service, depths) may be outdated. Overlaps conceptually with the LNG terminal data in Layer 2 (e.g. Bonny) — not deduplicated across layers |
+
+Overpass queries were run against Nigeria's OSM boundary (relation 192787 / area 3600192787) rather than a bounding box, to avoid picking up slivers of neighboring countries. Public Overpass instances are shared, rate-limited infrastructure — the download script retries across three mirrors (overpass-api.de, overpass.kumi.systems, overpass.openstreetmap.fr) with backoff, since single-mirror 406/429/504 errors were common during collection.
 
 ## Layer 6 — Security
 | Dataset | Source | URL | Date accessed | License | Coverage | Known limitations |
