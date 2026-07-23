@@ -70,7 +70,7 @@ What it does not yet offer cleanly:
 
 ## Why this matters for the atlas
 
-For the Nigeria Gas Atlas, this is the missing asset layer with the highest public value.
+For the Nigeria Infrastructure Atlas, this is the missing asset layer with the highest public value.
 
 A renewable off-grid / mini-grid layer would materially improve the atlas because it would:
 

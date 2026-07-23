@@ -77,4 +77,38 @@ The current processed data already contains a meaningful asset base for power-sy
 
 The repo also now includes a site-level renewable distributed-access layer for mini-grids. Verified public-source evidence currently comprises 66 mini-grid sites across 26 states and the FCT, with operational, under-construction, and commissioned status context where publicly reported.
 
+A concise evidence-quality interpretation is provided in [docs/public_evidence_quality.md](docs/public_evidence_quality.md). That note explains the public-screening strength of the current layer while keeping the boundary clear: it is not a complete registry of all off-grid solar activity.
+
+## Downloading the datasets
+
+The cleaned datasets are already available in `data/processed/` for direct analysis.
+
+To reproduce or refresh data from public source, use the repo’s downloader and processor scripts in `scripts/`. For example:
+
+- `scripts/02_infrastructure/01_download_gas_infrastructure.py`
+- `scripts/02_infrastructure/02_process_gas_infrastructure.py`
+- `scripts/07_renewables/01_download_minigrids.py`
+- `scripts/07_renewables/02_process_minigrids.py`
+
+This is the reproducible workflow:
+
+1. clone the repository
+2. create a Python environment from `environment.yml`
+3. run the layer-specific `01_download_*` script
+4. run the matching `0*_process_*` script
+5. consult `docs/data_sources.md` for source provenance and license details
+
+## Best uses for the datasets
+
+This repository is best used as a screening and planning atlas for:
+
+- infrastructure corridor and asset screening
+- distributed energy access planning
+- demand and industrial node analysis
+- environmental and security risk overlay
+- early-stage investment benchmarking
+- multidisciplinary energy-infrastructure system planning
+
+Use the public snapshot for quick visual context, and use the processed CSV files for deeper geospatial or tabular analysis.
+
 The missing public-facing improvement is not data absence; it is stronger visual communication of that asset context and a clearer narrative around what is confirmed versus provisional.

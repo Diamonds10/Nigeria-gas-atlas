@@ -6,7 +6,7 @@ If you use this repository in research, teaching, or public-facing work, the rec
 
 Suggested format:
 
-Nigeria Gas Atlas. 2026. Nigeria Gas Atlas repository. GitHub. Accessed on 2026-07-23.
+Nigeria Infrastructure Atlas. 2026. Nigeria Infrastructure Atlas repository. GitHub. Accessed on 2026-07-23.
 
 For a layer-specific citation, cite the relevant source dataset listed in `docs/data_sources.md` and the derived repository file used in your analysis.
 

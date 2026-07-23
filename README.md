@@ -1,10 +1,18 @@
-# Nigeria Gas Atlas
+# Nigeria Infrastructure Atlas
 
-A national-scale, geospatial evidence atlas for Nigeria's gas resources, infrastructure, environmental footprint, demand centres, connectivity, and security exposure.
+A national-scale, geospatial evidence atlas for Nigeria's infrastructure system, including energy, transport, demand centres, connectivity, and security exposure.
+
+## Quick start
+
+- Clone the repository and install dependencies from `environment.yml`.
+- Process or inspect the cleaned datasets in `data/processed/`.
+- View the public snapshot image at `outputs/maps/nigeria_public_asset_snapshot.png`.
+- Reproduce the raw data workflow with the download and process scripts in `scripts/`.
+- Read `docs/data_sources.md` before using the data for analysis.
 
 ## Why this repository exists
 
-Nigeria Gas Atlas is a public-interest, reproducible evidence repository for understanding how Nigeria's energy and infrastructure system is organized across multiple spatial layers.
+Nigeria Infrastructure Atlas is a public-interest, reproducible evidence repository for understanding how Nigeria's energy, transport, and infrastructure system is organized across multiple spatial layers.
 
 It is designed to support:
 
@@ -30,7 +38,57 @@ The public value of the atlas is not any single output file. It is the combinati
 
 A ready-to-use public snapshot image is now available in [outputs/maps/nigeria_public_asset_snapshot.png](outputs/maps/nigeria_public_asset_snapshot.png). It presents a concise, state-labeled public atlas view with the current asset-count callouts for the main layer categories.
 
+The snapshot image itself is explicitly framed as a public screening snapshot, not a complete operating registry. A companion benchmark summary JSON is also available in [outputs/maps/public_asset_benchmark_summary.json](outputs/maps/public_asset_benchmark_summary.json), highlighting the public mini-grid evidence strength, status distribution, technology mix, and geographic coverage.
+
+Public evidence-quality signal from the current benchmark:
+
+- 66 mini-grid sites across 26 states and the FCT
+- 50 operational, 13 under construction, 2 commissioned, 1 unknown
+- 43 solar, 22 hybrid mini-grid, 1 other technology
+- 66 records are exact-site geocoded, which is strong for a public screening layer
+
+For a concise repo-level interpretation of that benchmark, see [docs/public_evidence_quality.md](docs/public_evidence_quality.md).
+
 For quick visual browsing, see also [outputs/maps/README.md](outputs/maps/README.md).
+
+## Downloading the datasets
+
+This repository is open source and the cleaned, analysis-ready datasets are already available in `data/processed/`.
+
+If users want to reproduce the data ingestion from public source, they can run the downloader and processor scripts in `scripts/`:
+
+- `scripts/01_resource/` for resource and production datasets
+- `scripts/02_infrastructure/` for gas and power infrastructure
+- `scripts/03_environmental/` for environmental risk and protected-area sources
+- `scripts/04_demand/` for demand centres and industrial nodes
+- `scripts/05_connectivity/` for power-grid and OSM-based connectivity data
+- `scripts/07_renewables/` for mini-grid downloads and renewable asset intake
+
+The general pattern is:
+
+1. clone the repo
+2. install the environment with `environment.yml` or your preferred Python environment
+3. run the layer-specific `01_download_*.py` script to fetch raw source files
+4. run the matching `0*_process_*.py` script to generate the processed CSV outputs
+5. inspect `docs/data_sources.md` for provenance, source URLs, licenses, and caveats
+
+If readers only need the finished datasets, open the files in `data/processed/` directly or use the public snapshot image and benchmark JSON in `outputs/maps/`.
+
+## How to use the datasets for applications
+
+This atlas is best used as a public screening and planning foundation rather than an exhaustive operating registry.
+
+Recommended usage patterns:
+
+- infrastructure screening: combine `data/processed/02_infrastructure/` and `data/processed/05_connectivity/` to map corridors, stations, and grid assets
+- energy access planning: use `data/processed/07_renewables/` alongside demand centres and state boundaries to assess mini-grid coverage and site-level access gaps
+- investment benchmarking: compare asset clusters, status distributions, and technology mixes across states using `outputs/maps/public_asset_benchmark_summary.json`
+- environmental and security risk: overlay the environmental and security processed layers with infrastructure to identify risk-sensitive zones
+- multidisciplinary systems planning: use the repo’s structured layers together to align gas, power, demand, transport, and future telecom/data-centre expansions
+
+Always cross-check with the original source and consult `docs/data_sources.md` for each dataset’s license, access terms, and limitations.
+
+The current map palette has been chosen for clear UI visibility: distinct red, blue, green, and orange asset markers with soft state boundary contrast. It is suitable for public-facing screen and print use, while the `outputs/maps/README.md` notes how the snapshot should be interpreted.
 
 The repository already contains a meaningful evidence base for screening and research, including:
 

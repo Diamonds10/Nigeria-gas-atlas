@@ -1,0 +1,42 @@
+{
+  "asset_counts": {
+    "power_plants": 193,
+    "substations": 390,
+    "demand_centres": 28,
+    "mini_grids": 66
+  },
+  "mini_grid_benchmark": {
+    "states_covered": 26,
+    "capacity_coverage": 65,
+    "customers_coverage": 35,
+    "technology_coverage": 66,
+    "developer_coverage": 49,
+    "status_distribution": {
+      "operational": 50,
+      "under_construction": 13,
+      "commissioned": 2,
+      "unknown": 1
+    },
+    "technology_distribution": {
+      "solar": 43,
+      "hybrid_mini_grid": 22,
+      "other": 1
+    },
+    "geocode_precision_distribution": {
+      "exact_site": 66
+    }
+  },
+  "public_dashboard_signal": {
+    "best_for": [
+      "site-level mini-grid screening",
+      "state coverage benchmarking",
+      "status and capacity scans",
+      "public distributed-energy context"
+    ],
+    "limitations": [
+      "not a complete solar home system registry",
+      "not a full live operating asset database",
+      "public metadata is thinner than a commercial operating platform"
+    ]
+  }
+}

@@ -16,7 +16,7 @@ still carry useful programme-level context even though they aren't a site invent
 
 ## Objective
 
-This workflow provides a first practical intake path for adding renewable off-grid and mini-grid assets into the Nigeria Gas Atlas.
+This workflow provides a first practical intake path for adding renewable off-grid and mini-grid assets into the Nigeria Infrastructure Atlas.
 
 ## Intake principles
 

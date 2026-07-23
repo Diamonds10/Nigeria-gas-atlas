@@ -1,6 +1,6 @@
 # Executive summary
 
-Nigeria Gas Atlas is a multi-layer geospatial repository that brings together public evidence on Nigeria's gas resource base, supporting infrastructure, environmental footprint, industrial demand centers, connectivity, and security exposure.
+Nigeria Infrastructure Atlas is a multi-layer geospatial repository that brings together public evidence on Nigeria's resource base, supporting infrastructure, environmental footprint, industrial demand centers, connectivity, and security exposure.
 
 ## What the project shows
 

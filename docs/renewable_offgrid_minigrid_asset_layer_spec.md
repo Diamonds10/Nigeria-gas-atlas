@@ -10,7 +10,7 @@ are a candidate for a future extension, not yet built).
 
 ## Purpose
 
-This document proposes the next high-value public dataset to add to the Nigeria Gas Atlas: a distributed renewable energy asset layer for Nigeria.
+This document proposes the next high-value public dataset to add to the Nigeria Infrastructure Atlas: a distributed renewable energy asset layer for Nigeria.
 
 The goal is to create a map-ready public-source layer for:
 

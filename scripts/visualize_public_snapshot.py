@@ -8,10 +8,13 @@ CSV outputs already present in the repository and writes a single PNG snapshot
 into outputs/maps/ for public-facing use.
 """
 
+import json
 from pathlib import Path
 
 import geopandas as gpd
+import matplotlib.patheffects as pe
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
 import pandas as pd
 import requests
 import shapely.wkt
@@ -19,6 +22,7 @@ import shapely.wkt
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_DIR = ROOT / "outputs" / "maps"
 OUTPUT_FILE = OUTPUT_DIR / "nigeria_public_asset_snapshot.png"
+BENCHMARK_FILE = OUTPUT_DIR / "public_asset_benchmark_summary.json"
 
 STATE_BOUNDARY_URL = (
     "https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/"
@@ -74,6 +78,50 @@ def build_minigrids_gdf() -> gpd.GeoDataFrame:
     return gdf
 
 
+def build_benchmark_summary(
+    power_plants: pd.DataFrame,
+    substations: pd.DataFrame,
+    demand: pd.DataFrame,
+    mini_grids: pd.DataFrame,
+) -> dict:
+    mini_status = mini_grids["status"].value_counts(dropna=False).to_dict()
+    mini_technology = mini_grids["technology"].value_counts(dropna=False).to_dict()
+    mini_precision = mini_grids["geocode_precision"].value_counts(dropna=False).to_dict()
+
+    benchmark = {
+        "asset_counts": {
+            "power_plants": int(len(power_plants)),
+            "substations": int(len(substations)),
+            "demand_centres": int(len(demand)),
+            "mini_grids": int(len(mini_grids)),
+        },
+        "mini_grid_benchmark": {
+            "states_covered": int(mini_grids["state"].nunique()),
+            "capacity_coverage": int(mini_grids["capacity_kw"].notna().sum()),
+            "customers_coverage": int(mini_grids["customers_served"].notna().sum()),
+            "technology_coverage": int(mini_grids["technology"].notna().sum()),
+            "developer_coverage": int(mini_grids["developer"].notna().sum()),
+            "status_distribution": mini_status,
+            "technology_distribution": mini_technology,
+            "geocode_precision_distribution": mini_precision,
+        },
+        "public_dashboard_signal": {
+            "best_for": [
+                "site-level mini-grid screening",
+                "state coverage benchmarking",
+                "status and capacity scans",
+                "public distributed-energy context",
+            ],
+            "limitations": [
+                "not a complete solar home system registry",
+                "not a full live operating asset database",
+                "public metadata is thinner than a commercial operating platform",
+            ],
+        },
+    }
+    return benchmark
+
+
 def main() -> int:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -83,72 +131,133 @@ def main() -> int:
     demand = build_demand_gdf()
     mini_grids = build_minigrids_gdf()
 
+    power_plants_df = pd.read_csv(POWER_PLANTS_PATH)
+    substations_df = pd.read_csv(SUBSTATIONS_PATH)
+    substations_df = substations_df[substations_df["power"] == "substation"].copy()
+    demand_df = pd.read_csv(DEMAND_CENTERS_PATH)
+    mini_grids_df = pd.read_csv(MINI_GRIDS_PATH)
+
+    benchmark = build_benchmark_summary(
+        power_plants=power_plants_df,
+        substations=substations_df,
+        demand=demand_df,
+        mini_grids=mini_grids_df,
+    )
+    BENCHMARK_FILE.write_text(json.dumps(benchmark, indent=2), encoding="utf-8")
+
     states = states.to_crs(epsg=3857)
     power_plants = power_plants.to_crs(epsg=3857)
     substations = substations.to_crs(epsg=3857)
     demand = demand.to_crs(epsg=3857)
     mini_grids = mini_grids.to_crs(epsg=3857)
 
-    fig, ax = plt.subplots(figsize=(14, 14))
+    fig, ax = plt.subplots(figsize=(16, 14), facecolor="#f8fafc")
+    ax.set_facecolor("#f8fafc")
     states.plot(ax=ax, facecolor="#f5f7f9", edgecolor="#7d93a7", linewidth=0.6)
+    states.boundary.plot(ax=ax, color="#98a8b8", linewidth=0.45, alpha=0.8)
 
     for _, row in states.iterrows():
         centroid = row.geometry.centroid
-        ax.text(
+        label = row.get("shapeName", "")
+        text = ax.text(
             centroid.x,
             centroid.y,
-            row.get("shapeName", ""),
-            fontsize=5,
-            color="#4f5d75",
+            label,
+            fontsize=6,
+            color="#334155",
             ha="center",
             va="center",
-            alpha=0.75,
+            alpha=0.85,
+            weight="bold",
         )
+        text.set_path_effects([
+            pe.Stroke(linewidth=3, foreground="white"),
+            pe.Normal(),
+        ])
 
     power_plants.plot(
         ax=ax,
         color="#b22234",
-        markersize=8,
-        alpha=0.85,
-        label=f"Power-producing plants ({len(power_plants)})",
+        markersize=9,
+        alpha=0.9,
     )
     substations.plot(
         ax=ax,
         color="#1f77b4",
-        markersize=3,
-        alpha=0.7,
-        label=f"Substations ({len(substations)})",
+        markersize=4,
+        alpha=0.8,
     )
     demand.plot(
         ax=ax,
         color="#2ca02c",
-        markersize=80,
+        markersize=100,
         alpha=0.9,
-        label=f"Demand centres ({len(demand)})",
     )
     mini_grids.plot(
         ax=ax,
         color="#f0ad4e",
-        markersize=35,
-        alpha=0.9,
-        label=f"Mini-grids ({len(mini_grids)})",
+        markersize=55,
+        alpha=0.92,
     )
 
-    ax.set_title("Nigeria public energy atlas snapshot", fontsize=16, weight="bold")
+    legend_handles = [
+        Line2D([0], [0], marker="o", color="w", markerfacecolor="#b22234", markersize=8, label=f"Power-producing plants ({len(power_plants)})"),
+        Line2D([0], [0], marker="o", color="w", markerfacecolor="#1f77b4", markersize=7, label=f"Substations ({len(substations)})"),
+        Line2D([0], [0], marker="o", color="w", markerfacecolor="#2ca02c", markersize=10, label=f"Demand centres ({len(demand)})"),
+        Line2D([0], [0], marker="o", color="w", markerfacecolor="#f0ad4e", markersize=9, label=f"Mini-grids ({len(mini_grids)})"),
+    ]
+
+    ax.set_title(
+        "Nigeria public energy atlas snapshot",
+        fontsize=18,
+        weight="bold",
+        color="#0f172a",
+        pad=18,
+    )
     ax.set_axis_off()
-    ax.legend(loc="upper right", frameon=True, fontsize=9)
+    legend = ax.legend(
+        handles=legend_handles,
+        title="Public asset layers",
+        loc="upper right",
+        frameon=True,
+        fontsize=10,
+        title_fontsize=11,
+    )
+    legend.get_frame().set_facecolor("white")
+    legend.get_frame().set_edgecolor("#cbd5e1")
+
+    ax.text(
+        0.02,
+        0.94,
+        "Public screening snapshot — not a complete operating registry.",
+        transform=ax.transAxes,
+        fontsize=10,
+        color="#0f172a",
+        weight="semibold",
+        bbox=dict(boxstyle="round,pad=0.25", facecolor="white", alpha=0.92, edgecolor="#cbd5e1"),
+    )
+
     ax.text(
         0.02,
         0.02,
-        "Public-facing screening snapshot: 193 power-producing plants, 390 substations, 28 demand centres, and 66 mini-grids.",
+        (
+            "Public-facing screening snapshot: "
+            f"{benchmark['asset_counts']['power_plants']} power-producing plants, "
+            f"{benchmark['asset_counts']['substations']} substations, "
+            f"{benchmark['asset_counts']['demand_centres']} demand centres, and "
+            f"{benchmark['asset_counts']['mini_grids']} mini-grids. "
+            f"Mini-grid benchmark: {benchmark['mini_grid_benchmark']['states_covered']} states/territories, "
+            f"{benchmark['mini_grid_benchmark']['capacity_coverage']} with reported capacity, "
+            f"{benchmark['mini_grid_benchmark']['customers_coverage']} with customer counts."
+        ),
         transform=ax.transAxes,
-        fontsize=9,
+        fontsize=9.5,
         color="#1f2937",
-        bbox=dict(boxstyle="round,pad=0.35", facecolor="white", alpha=0.85),
+        bbox=dict(boxstyle="round,pad=0.45", facecolor="white", alpha=0.92),
     )
 
     plt.tight_layout()
-    plt.savefig(OUTPUT_FILE, dpi=200, bbox_inches="tight")
+    plt.savefig(OUTPUT_FILE, dpi=240, bbox_inches="tight")
     print(f"Saved public snapshot: {OUTPUT_FILE}")
     return 0
 
