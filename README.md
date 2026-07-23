@@ -28,6 +28,10 @@ The public value of the atlas is not any single output file. It is the combinati
 
 ## Current public-facing value
 
+A ready-to-use public snapshot image is now available in [outputs/maps/nigeria_public_asset_snapshot.png](outputs/maps/nigeria_public_asset_snapshot.png). It presents a concise, state-labeled public atlas view with the current asset-count callouts for the main layer categories.
+
+For quick visual browsing, see also [outputs/maps/README.md](outputs/maps/README.md).
+
 The repository already contains a meaningful evidence base for screening and research, including:
 
 - gas and oil infrastructure records

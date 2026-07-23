@@ -67,6 +67,8 @@ This repository already has the data and processing structure to support that. T
 
 ## Current map-readiness framing
 
+A public snapshot figure is available at [outputs/maps/nigeria_public_asset_snapshot.png](outputs/maps/nigeria_public_asset_snapshot.png). It is intended to provide a quick visual summary of the atlas's public asset context before readers dive into the layered CSV files.
+
 The current processed data already contains a meaningful asset base for power-system visualization, including the major counts reflected in the map-upgrade notes:
 
 - power-producing plants
