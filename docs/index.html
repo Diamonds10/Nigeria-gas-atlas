@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nigeria Infrastructure Atlas</title>
+<meta name="description" content="Interactive map of Nigeria's gas resources, infrastructure, environmental, demand, connectivity, and renewable energy assets." />
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/app.css" />
+</head>
+<body>
+
+<div id="app">
+  <header class="topbar">
+    <div class="wordmark">
+      <span class="mark">Nigeria Infrastructure Atlas</span>
+      <span class="sub">Interactive map</span>
+    </div>
+    <div class="spacer"></div>
+    <div class="stat"><span class="n" id="stat-visible">—</span><span class="l">assets shown</span></div>
+    <div class="stat"><span class="n" id="stat-total">—</span><span class="l">assets mapped</span></div>
+    <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark theme">◐</button>
+  </header>
+  <div class="layout">
+    <aside class="panel">
+      <div class="search-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="search-input" type="text" placeholder="Search assets, e.g. Obajana, Bonny…" autocomplete="off" />
+        <div id="search-results"></div>
+      </div>
+      <div id="category-list"></div>
+      <div class="panel-footer">
+        Data compiled from Global Energy Monitor, EIA, OPEC, World Bank GGFR, UNEP-WCMC/WDPA, OpenStreetMap, NGA World Port Index, and the Nigeria SE4ALL Open Data Portal. See <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">data_sources.md</a> in the repository for provenance and known limitations per layer. Built for research and planning use — verify before operational decisions.
+      </div>
+    </aside>
+    <main class="mapwrap">
+      <div id="map"></div>
+      <div id="loading"><div class="spinner"></div><div class="loading-text">Loading atlas data…</div></div>
+      <div class="scale-note">Click any marker or line for asset details</div>
+    </main>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="./assets/app.js"></script>
+</body>
+</html>
