@@ -4,14 +4,17 @@ The atlas is built as a reproducible geospatial evidence pipeline that converts 
 
 ## Core design
 
-The repository is organized around six analytical layers:
+The `v0.1` public atlas is organized around six implemented analytical layers:
 
 - Resource: reserves, production, discoveries, and field-level site information.
 - Infrastructure: pipelines, LNG terminals, refineries, and power assets.
 - Environmental: flaring and protected-area context.
 - Demand: industrial and demand-center locations relevant to gas consumption.
 - Connectivity: roads, rail, ports, and grid infrastructure.
-- Security: conflict and infrastructure-attack exposure context.
+- Renewables: site-level off-grid and mini-grid assets.
+
+Security is a planned seventh layer. Candidate sources are documented, but no
+security dataset is currently processed, validated, or published in the map.
 
 Each layer is stored and documented separately so users can combine them for different analytical questions.
 
@@ -25,6 +28,13 @@ The workflow generally follows this pattern:
 4. Publish final outputs to `data/final/`.
 
 The scripts under `scripts/` are meant to be the reproducibility backbone for that pipeline.
+
+The final public map bundle is generated from processed CSVs with `make atlas`
+(or `python scripts/build_public_atlas_data.py`). For browser performance, that
+build publishes motorway and trunk roads, simplifies display geometry to a
+screening-appropriate tolerance, and retains the full-resolution major-road
+table in `data/processed/`. Release checks in `tests/` verify the committed
+bundle, expected counts, key schemas, and coordinate bounds.
 
 ## Data quality principles
 
@@ -51,7 +61,7 @@ For a wider audience, the project is not merely a collection of files. It is a r
 
 - Where are Nigeria's gas assets, bottlenecks, and demand centers?
 - Which industrial corridors are most relevant for gas-based development?
-- Where environmental and security risks intersect with infrastructure?
+- Where environmental constraints intersect with infrastructure?
 - How compatible are public datasets for national planning and research?
 
 That framing is what makes the repository usable beyond a narrow technical audience.

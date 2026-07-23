@@ -1,11 +1,14 @@
 # Nigeria Infrastructure Atlas
 
-A national-scale, geospatial evidence atlas for Nigeria's infrastructure system, including energy, transport, demand centres, connectivity, and security exposure.
+A national-scale, geospatial evidence atlas for Nigeria's infrastructure
+system, including energy, transport, demand centres, connectivity, renewables,
+and environmental exposure.
 
 ## Quick start
 
 - Clone the repository and install dependencies from `environment.yml`.
 - Process or inspect the cleaned datasets in `data/processed/`.
+- Open the canonical interactive atlas in `docs/index.html` or through GitHub Pages.
 - View the public snapshot image at `outputs/maps/nigeria_public_asset_snapshot.png`.
 - Reproduce the raw data workflow with the download and process scripts in `scripts/`.
 - Read `docs/data_sources.md` before using the data for analysis.
@@ -23,14 +26,18 @@ It is designed to support:
 
 ## What the atlas contains
 
-The repository is organized into six linked analytical layers:
+The current public atlas is organized into six published analytical layers:
 
 1. Resource
 2. Infrastructure
 3. Environmental
 4. Demand
 5. Connectivity
-6. Security
+6. Renewables
+
+A seventh security layer is planned, but it is not part of the `v0.1` processed
+dataset or public map. This boundary is intentional: the source register records
+candidate security sources without presenting them as implemented evidence.
 
 The public value of the atlas is not any single output file. It is the combination of transparent provenance, reproducible workflows, and a structured way to compare upstream resources with downstream infrastructure and demand.
 
@@ -71,6 +78,8 @@ The general pattern is:
 3. run the layer-specific `01_download_*.py` script to fetch raw source files
 4. run the matching `0*_process_*.py` script to generate the processed CSV outputs
 5. inspect `docs/data_sources.md` for provenance, source URLs, licenses, and caveats
+6. rebuild the Pages map bundle with `make atlas` (or
+   `python scripts/build_public_atlas_data.py`)
 
 If readers only need the finished datasets, open the files in `data/processed/` directly or use the public snapshot image and benchmark JSON in `outputs/maps/`.
 
@@ -83,10 +92,13 @@ Recommended usage patterns:
 - infrastructure screening: combine `data/processed/02_infrastructure/` and `data/processed/05_connectivity/` to map corridors, stations, and grid assets
 - energy access planning: use `data/processed/07_renewables/` alongside demand centres and state boundaries to assess mini-grid coverage and site-level access gaps
 - investment benchmarking: compare asset clusters, status distributions, and technology mixes across states using `outputs/maps/public_asset_benchmark_summary.json`
-- environmental and security risk: overlay the environmental and security processed layers with infrastructure to identify risk-sensitive zones
+- environmental risk: overlay protected-area context with infrastructure to identify risk-sensitive zones
 - multidisciplinary systems planning: use the repo’s structured layers together to align gas, power, demand, transport, and future telecom/data-centre expansions
 
-Always cross-check with the original source and consult `docs/data_sources.md` for each dataset’s license, access terms, and limitations.
+Always cross-check with the original source and consult `docs/data_sources.md`
+and `THIRD_PARTY_DATA.md` for each dataset’s license, access terms, attribution,
+and limitations. The repository's CC0 dedication does not override third-party
+data rights.
 
 The current map palette has been chosen for clear UI visibility: distinct red, blue, green, and orange asset markers with soft state boundary contrast. It is suitable for public-facing screen and print use, while the `outputs/maps/README.md` notes how the snapshot should be interpreted.
 
@@ -95,7 +107,7 @@ The repository already contains a meaningful evidence base for screening and res
 - gas and oil infrastructure records
 - power-producing plant and substation context
 - demand-centre reference points
-- environmental and security overlays where publicly available
+- environmental overlays, with security documented as a planned future layer
 - a verified site-level mini-grid inventory covering 66 sites across 26 states and the FCT, with public-source status, capacity, and operator context
 - a first conservative intake framework for renewable off-grid and mini-grid assets beyond the currently structured mini-grid layer
 
@@ -118,6 +130,7 @@ For the map layer specifically, the current asset visibility notes already ident
 - `data/processed/`: normalized, analysis-ready datasets
 - `data/final/`: publishable geospatial outputs
 - `scripts/`: reproducible download and processing pipelines
+- `tests/`: release-gate checks for schemas, counts, coordinates, and the web bundle
 - `docs/`: methodology, provenance, and public-repo guidance
 - `notebooks/`: exploratory and visualization workflows
 - `outputs/`: generated maps and derived artifacts
@@ -136,7 +149,8 @@ To understand the repository quickly, start in this order:
 8. Use `docs/renewable_offgrid_minigrid_asset_layer_spec.md` for the proposed asset-layer schema.
 9. Use `docs/renewable_asset_intake_workflow.md` for the first practical intake workflow.
 10. Use `docs/citation_and_reuse.md` when you plan to cite or reuse the repository externally.
-11. Check `docs/release_notes.md` for current status and public-readiness framing.
+11. Check `docs/release_notes.md` for the current release boundary.
+12. Read `THIRD_PARTY_DATA.md` before redistributing derived datasets.
 
 ## Public repo interpretation
 

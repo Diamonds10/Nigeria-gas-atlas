@@ -2,6 +2,10 @@
 
 This folder collects ready-to-share visual artifacts for the Nigeria Infrastructure Atlas.
 
+The canonical interactive public product is the Leaflet/GitHub Pages site in
+`docs/`. HTML files generated in this output folder are exploratory and are not
+the versioned public release.
+
 The current snapshot is intentionally a public screening view. It is designed to show where major energy and distributed-energy assets appear in Nigeria, not to act as a complete or live operating registry.
 
 ## Current snapshot

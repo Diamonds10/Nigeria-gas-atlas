@@ -1,34 +1,39 @@
 # Release notes
 
-## Current status
+## v0.1.0 — Public Atlas
 
-This repository is currently best understood as a research-grade, public-data atlas in active development.
+Released 2026-07-23.
 
-## What is currently strong
+This milestone establishes a reproducible, research-grade public atlas release.
 
-- layered geospatial structure
-- reproducible source-to-output pipeline
-- documented sources and caveats
-- usable processed datasets for downstream analysis
-- a verified mini-grid asset inventory in the renewables layer, currently covering 66 sites across 26 states and the FCT
+### Included
 
-## What is still evolving
+- canonical Leaflet/GitHub Pages atlas with 9,531 public-map features across 15 sublayers
+- deterministic `scripts/build_public_atlas_data.py` web-bundle build
+- committed simplified ADM1 boundary input under `data/final/`
+- automated schema, count, coordinate, JavaScript, and reproducibility checks
+- GitHub Actions validation workflow
+- six implemented layers: resource, infrastructure, environmental, demand,
+  connectivity, and renewables
+- 66-site mini-grid inventory across 26 states and the FCT
+- machine-readable citation metadata and explicit third-party data-rights guidance
 
-- public-facing narrative clarity
-- visual output gallery
-- clearer release/version labeling
-- stronger non-technical onboarding
+### Explicitly not included
 
-## Public-readiness assessment
+- a processed security layer; candidate sources are documented for future work
+- a complete live operating registry
+- standalone solar-home-system coverage
+- field verification or commercial diligence
 
-The repository already has the evidence backbone needed for external use. The remaining work is mainly about making the project easier to understand, easier to trust, and easier to cite.
+### Canonical map
 
-## Recommended next publishing milestone
+The static Leaflet application under `docs/` is the canonical public map. The
+PNG snapshot remains the canonical print/static summary. Experimental Folium
+outputs are not versioned release artifacts.
 
-Before a broader public announcement, the following should be completed:
+### Known follow-up work
 
-- final README framing for all target audiences
-- one-page executive summary
-- stable citation and reuse instructions
-- map or figure examples for the main layers
-- a short release log of what is verified versus provisional
+- verify ambiguous redistribution terms with source publishers
+- add the security layer only after source licensing and processing are complete
+- extend renewable coverage beyond the current mini-grid inventory
+- introduce dated dataset snapshots as sources are refreshed

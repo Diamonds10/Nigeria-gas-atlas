@@ -3,22 +3,26 @@
 This repository is designed to help four audiences use the same evidence base in different ways:
 
 - Investors: screening infrastructure exposure, demand centres, and market adjacency.
-- Academics: reproducible geospatial analysis across resources, infrastructure, environmental risk, connectivity, and security.
+- Academics: reproducible geospatial analysis across resources, infrastructure,
+  environmental risk, connectivity, and renewables.
 - Students: learning how to move from raw public datasets to a national-scale atlas with clear provenance.
 - Practitioners: planning, policy, and field operations with a shared baseline of evidence.
 
 ## What the atlas contains
 
-The atlas organizes Nigeria's gas-related system into six linked layers:
+The `v0.1` public atlas organizes Nigeria's infrastructure system into six
+implemented layers:
 
 1. Resource
 2. Infrastructure
 3. Environmental
 4. Demand
 5. Connectivity
-6. Security
+6. Renewables
 
 Those layers can be used separately or combined into a national systems view.
+Security is a planned extension and is not yet represented by a processed
+dataset or public-map layer.
 
 ## How to navigate the repository
 
@@ -30,6 +34,8 @@ Those layers can be used separately or combined into a national systems view.
 - `data/processed/`: cleaned and normalized datasets ready for analysis.
 - `data/final/`: final publishable geospatial outputs.
 - `scripts/`: reproducible pipeline code for downloading and processing raw inputs.
+- `scripts/build_public_atlas_data.py`: deterministic build for the canonical Pages map.
+- `tests/`: automated release checks.
 - `notebooks/`: exploratory workflows and visual analysis.
 
 ## Recommended reading order
@@ -41,6 +47,7 @@ If you are new to the repo, start here:
 3. Review `docs/data_sources.md` before drawing conclusions.
 4. Inspect the processed data in `data/processed/` to understand the most usable analysis-ready tables.
 5. Use the scripts to reproduce or extend the workflow.
+6. Rebuild the canonical web bundle with `make atlas`.
 
 ## Interpretation advice
 
@@ -67,7 +74,10 @@ This repository already has the data and processing structure to support that. T
 
 ## Current map-readiness framing
 
-A public snapshot figure is available at [outputs/maps/nigeria_public_asset_snapshot.png](outputs/maps/nigeria_public_asset_snapshot.png). It is intended to provide a quick visual summary of the atlas's public asset context before readers dive into the layered CSV files.
+A public snapshot figure is available at
+[outputs/maps/nigeria_public_asset_snapshot.png](../outputs/maps/nigeria_public_asset_snapshot.png).
+It is intended to provide a quick visual summary of the atlas's public asset
+context before readers dive into the layered CSV files.
 
 The current processed data already contains a meaningful asset base for power-system visualization, including the major counts reflected in the map-upgrade notes:
 
@@ -77,7 +87,10 @@ The current processed data already contains a meaningful asset base for power-sy
 
 The repo also now includes a site-level renewable distributed-access layer for mini-grids. Verified public-source evidence currently comprises 66 mini-grid sites across 26 states and the FCT, with operational, under-construction, and commissioned status context where publicly reported.
 
-A concise evidence-quality interpretation is provided in [docs/public_evidence_quality.md](docs/public_evidence_quality.md). That note explains the public-screening strength of the current layer while keeping the boundary clear: it is not a complete registry of all off-grid solar activity.
+A concise evidence-quality interpretation is provided in
+[public_evidence_quality.md](public_evidence_quality.md). That note explains the
+public-screening strength of the current layer while keeping the boundary clear:
+it is not a complete registry of all off-grid solar activity.
 
 ## Downloading the datasets
 
@@ -105,10 +118,12 @@ This repository is best used as a screening and planning atlas for:
 - infrastructure corridor and asset screening
 - distributed energy access planning
 - demand and industrial node analysis
-- environmental and security risk overlay
+- environmental risk overlay
 - early-stage investment benchmarking
 - multidisciplinary energy-infrastructure system planning
 
 Use the public snapshot for quick visual context, and use the processed CSV files for deeper geospatial or tabular analysis.
 
-The missing public-facing improvement is not data absence; it is stronger visual communication of that asset context and a clearer narrative around what is confirmed versus provisional.
+The canonical public product is the custom Leaflet application in `docs/`.
+Standalone Folium outputs may be useful for exploration, but they are not the
+versioned release artifact.

@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this atlas, cite the repository and the original datasets listed in docs/data_sources.md."
+title: "Nigeria Infrastructure Atlas"
+type: dataset
+authors:
+  - name: "Nigeria Infrastructure Atlas contributors"
+repository-code: "https://github.com/Diamonds10/Nigeria-gas-atlas"
+url: "https://diamonds10.github.io/Nigeria-gas-atlas/"
+license: CC0-1.0
+version: 0.1.0
+date-released: 2026-07-23
+keywords:
+  - Nigeria
+  - infrastructure
+  - geospatial
+  - energy
+  - transport
+  - mini-grid

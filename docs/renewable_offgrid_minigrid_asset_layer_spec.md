@@ -23,7 +23,10 @@ This layer should complement the existing gas, power, connectivity, and demand l
 
 ## Why this layer matters
 
-The current atlas already has a strong gas-resource and power-grid footprint, but it does not yet show the renewable distributed-access layer that is increasingly important for investors, policymakers, lecturers, students, and practitioners.
+The atlas already had a strong gas-resource and power-grid footprint. The
+implemented mini-grid dataset and public map now provide the first renewable
+distributed-access layer for investors, policymakers, lecturers, students, and
+practitioners.
 
 That missing layer would let the atlas answer questions such as:
 
@@ -134,9 +137,11 @@ The most useful framing for the repository is:
 - it is useful for understanding where distributed renewable access is emerging
 - it should be combined with the existing gas and power layers for a more complete systems view
 
-## Recommended next implementation step
+## Next extension
 
-The immediate next step should be a small pilot build that pulls together the public-facing programme pages and records only the fields that are clearly supported by public documentation.
+The next step is to extend the implemented 66-site layer only where additional
+public records have defensible site identity, provenance, and coordinate
+precision.
 
 That pilot should prioritize:
 
