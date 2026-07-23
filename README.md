@@ -1,4 +1,4 @@
-# Nigeria Gas Atlas
+# Nigeria Infrastructure Atlas
 
 A national-scale, geospatial evidence atlas for Nigeria's gas resources, infrastructure, environmental footprint, demand centres, connectivity, and security exposure.
 
