@@ -4,7 +4,7 @@ The atlas is built as a reproducible geospatial evidence pipeline that converts 
 
 ## Core design
 
-The `v0.2` public atlas is organized around six implemented analytical layers:
+The `v0.3` public atlas is organized around six implemented analytical layers:
 
 - Resource: reserves, production, discoveries, and field-level site information.
 - Infrastructure: pipelines, LNG terminals, refineries, and power assets.
@@ -61,6 +61,26 @@ The website catalogue uses three concise screening grades:
 
 Grades describe fitness for public screening. They are not certifications of
 accuracy, legal reuse, or commercial reliability.
+
+## Status and time filters
+
+Source status labels are preserved and also mapped into six interface groups:
+operating, development, proposed, inactive, other, and unknown. The normalized
+group is stored as `_status_group` on every public API feature.
+
+Time filtering is intentionally conservative. `_year` is populated only where
+a layer supports a defensible discovery, start, commissioning, or designation
+year, and `_year_label` records that meaning. When a cutoff is enabled, the
+atlas includes only dated records at or before the selected year. Undated
+records are excluded rather than silently assumed to have existed historically.
+
+## Static API and filtered downloads
+
+API v1 is generated with the map bundle and served from `docs/api/v1/`. It
+contains a manifest, catalogue, state profiles, ADM1 boundaries, and one
+GeoJSON FeatureCollection per map layer. Browser-generated national and state
+downloads use the same status and time predicates as the visible map and record
+the active selection in `atlas_selection`.
 
 ## Data quality principles
 

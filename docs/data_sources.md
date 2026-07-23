@@ -43,7 +43,7 @@
 Overpass queries were run against Nigeria's OSM boundary (relation 192787 / area 3600192787) rather than a bounding box, to avoid picking up slivers of neighboring countries. Public Overpass instances are shared, rate-limited infrastructure — the download script retries across three mirrors (overpass-api.de, overpass.kumi.systems, overpass.openstreetmap.fr) with backoff, since single-mirror 406/429/504 errors were common during collection.
 
 ## Layer 6 — Security
-**Implementation status: planned, not published in `v0.2`.** The entries below
+**Implementation status: planned, not published in `v0.3`.** The entries below
 are candidate sources only. No tracked download/processing script, processed
 dataset, or public-map security layer currently exists.
 

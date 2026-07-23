@@ -13,6 +13,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 BUNDLE_PATH = ROOT / "docs" / "assets" / "atlas_data.json"
 BUILDER_PATH = ROOT / "scripts" / "build_public_atlas_data.py"
+API_DIR = ROOT / "docs" / "api" / "v1"
 
 
 def load_builder():
@@ -139,6 +140,61 @@ class PublicAtlasTests(unittest.TestCase):
             self.assertIn(metadata["quality"], {"A", "B", "C"})
             self.assertTrue(metadata["download_url"].startswith("https://"))
             self.assertTrue((ROOT / metadata["path"]).exists())
+
+    def test_status_and_temporal_filter_metadata(self):
+        bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
+        filters = bundle["filters"]
+        self.assertEqual(sum(filters["status_groups"].values()), 9531)
+        self.assertEqual(
+            filters["temporal"]["dated_records"]
+            + filters["temporal"]["undated_records"],
+            9531,
+        )
+        self.assertEqual(filters["temporal"]["minimum_year"], 1912)
+        self.assertEqual(filters["temporal"]["maximum_year"], 2026)
+
+        valid_statuses = set(filters["status_groups"])
+        for layer in bundle["layers"].values():
+            for definition in layer["sublayers"].values():
+                for feature in definition["data"]["features"]:
+                    props = feature["properties"]
+                    self.assertIn(props["_status_group"], valid_statuses)
+                    if "_year" in props:
+                        self.assertGreaterEqual(props["_year"], 1912)
+                        self.assertLessEqual(props["_year"], 2026)
+                        self.assertTrue(props["_year_label"])
+
+    def test_static_api_is_reproducible_and_complete(self):
+        builder = load_builder()
+        bundle = builder.build_bundle()
+        with tempfile.TemporaryDirectory() as directory:
+            rebuilt_api = Path(directory) / "v1"
+            builder.write_api_outputs(bundle, rebuilt_api)
+            expected_files = {
+                path.relative_to(rebuilt_api)
+                for path in rebuilt_api.rglob("*")
+                if path.is_file()
+            }
+            committed_files = {
+                path.relative_to(API_DIR)
+                for path in API_DIR.rglob("*")
+                if path.is_file() and path.name != "README.md"
+            }
+            self.assertEqual(committed_files, expected_files)
+            for relative_path in expected_files:
+                self.assertEqual(
+                    (API_DIR / relative_path).read_bytes(),
+                    (rebuilt_api / relative_path).read_bytes(),
+                    f"API artifact differs: {relative_path}",
+                )
+
+        manifest = json.loads((API_DIR / "manifest.json").read_text())
+        self.assertEqual(manifest["api_version"], "v1")
+        self.assertEqual(len(manifest["layers"]), 15)
+        for layer in manifest["layers"]:
+            endpoint = API_DIR / layer["endpoint"]
+            payload = json.loads(endpoint.read_text())
+            self.assertEqual(len(payload["features"]), layer["record_count"])
 
 
 if __name__ == "__main__":

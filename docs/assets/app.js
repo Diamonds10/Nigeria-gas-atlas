@@ -321,7 +321,7 @@
         onEachFeature: function (feature, lyr) {
           lyr.bindPopup(popupHtml(sub.label, catColorVar, feature.properties), { maxWidth: 300 });
           var lbl = titleOf(feature.properties);
-          if (lbl) allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr });
+          if (lbl) allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr, feature: feature });
         }
       });
     } else if (geomType === "line") {
@@ -336,7 +336,7 @@
         onEachFeature: function (feature, lyr) {
           lyr.bindPopup(popupHtml(sub.label, catColorVar, feature.properties), { maxWidth: 300 });
           var lbl = titleOf(feature.properties);
-          if (lbl && lbl !== "Untitled asset") allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr });
+          if (lbl && lbl !== "Untitled asset") allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr, feature: feature });
         }
       });
     } else {
@@ -352,11 +352,13 @@
         onEachFeature: function (feature, lyr) {
           lyr.bindPopup(popupHtml(sub.label, catColorVar, feature.properties), { maxWidth: 300 });
           var lbl = titleOf(feature.properties);
-          if (lbl) allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr });
+          if (lbl) allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr, feature: feature });
         }
       });
     }
-    return { layer: layer, getMarker: null, refresh: null };
+    var children = [];
+    layer.eachLayer(function (child) { children.push(child); });
+    return { layer: layer, children: children };
   }
 
   var totalFeatures = 0;
@@ -369,7 +371,7 @@
       totalFeatures += count;
       var built = buildSublayer(catKey, subKey, sub);
       registry[subKey] = {
-        leafletLayer: built.layer, getMarker: built.getMarker, refresh: built.refresh,
+        leafletLayer: built.layer, children: built.children,
         catKey: catKey, geomType: sub.geomType, label: sub.label, count: count
       };
       if (DEFAULT_ON[subKey]) built.layer.addTo(map);
@@ -445,7 +447,7 @@
         '<input type="checkbox" ' + (DEFAULT_ON[subKey] ? "checked" : "") + ' data-sub="' + subKey + '"/>' +
         '<span class="glyph">' + glyphHtml + '</span>' +
         '<span class="sname">' + sub.label + '</span>' +
-        '<span class="scount">' + sub.data.features.length.toLocaleString() + '</span>';
+        '<span class="scount" data-sub-count="' + subKey + '">' + sub.data.features.length.toLocaleString() + '</span>';
       subWrap.appendChild(row);
       row.querySelector("input").addEventListener("change", function (e) {
         var entry = registry[subKey];
@@ -460,7 +462,15 @@
   function updateVisibleStat() {
     var n = 0;
     Object.keys(registry).forEach(function (k) {
-      if (map.hasLayer(registry[k].leafletLayer)) n += registry[k].count;
+      var entry = registry[k];
+      var filteredCount = entry.children.reduce(function (sum, child) {
+        return sum + (entry.leafletLayer.hasLayer(child) ? 1 : 0);
+      }, 0);
+      var countEl = document.querySelector('[data-sub-count="' + k + '"]');
+      if (countEl) countEl.textContent = filteredCount === entry.count
+        ? entry.count.toLocaleString()
+        : filteredCount.toLocaleString() + "/" + entry.count.toLocaleString();
+      if (map.hasLayer(entry.leafletLayer)) n += filteredCount;
     });
     document.getElementById("stat-visible").textContent = n.toLocaleString();
   }
@@ -514,7 +524,13 @@
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +
       '<p class="profile-note">Lines and protected areas are counted when their display geometry intersects the state. Unit-level datasets can contain several records at one facility. Offshore or unassigned records remain national.</p>';
-    downloadStateButton.textContent = selectedState ? "Download state GeoJSON" : "Download national GeoJSON";
+    updateDownloadLabel();
+  }
+
+  function updateDownloadLabel() {
+    var filtersActive = statusFilter && (statusFilter.value !== "all" || timeFilterEnabled.checked);
+    var scope = selectedState ? "state" : "national";
+    downloadStateButton.textContent = "Download " + (filtersActive ? "filtered " : "") + scope + " GeoJSON";
   }
 
   function selectState(name, fitBounds) {
@@ -544,6 +560,12 @@
       type: "FeatureCollection",
       name: selectedState || "Nigeria",
       atlas_release: ATLAS.release,
+      atlas_selection: {
+        state: selectedState || null,
+        status_group: statusFilter && statusFilter.value !== "all" ? statusFilter.value : null,
+        year_cutoff: timeFilterEnabled && timeFilterEnabled.checked ? Number(yearCutoff.value) : null,
+        time_semantics: ATLAS.filters.temporal.semantics
+      },
       features: []
     };
     CAT_ORDER.forEach(function (catKey) {
@@ -552,6 +574,7 @@
         category.sublayers[subKey].data.features.forEach(function (sourceFeature) {
           var memberships = sourceFeature.properties._states || [];
           if (selectedState && memberships.indexOf(selectedState) === -1) return;
+          if (!featureMatches(sourceFeature)) return;
           var item = JSON.parse(JSON.stringify(sourceFeature));
           item.properties.atlas_category = category.label;
           item.properties.atlas_layer = category.sublayers[subKey].label;
@@ -599,6 +622,92 @@
 
   var initialState = new URLSearchParams(window.location.search).get("state") || "";
   selectState(initialState, Boolean(initialState));
+
+  // ---------------- Status and time filters ----------------
+  var statusFilter = document.getElementById("status-filter");
+  var timeFilterEnabled = document.getElementById("time-filter-enabled");
+  var timeFilterControls = document.getElementById("time-filter-controls");
+  var yearCutoff = document.getElementById("year-cutoff");
+  var yearCutoffOutput = document.getElementById("year-cutoff-output");
+  var filterSummary = document.getElementById("filter-summary");
+  var resetFiltersButton = document.getElementById("reset-filters");
+  var temporal = ATLAS.filters.temporal;
+  var statusCounts = ATLAS.filters.status_groups;
+
+  Array.prototype.forEach.call(statusFilter.options, function (option) {
+    if (option.value !== "all") {
+      option.textContent += " (" + formatNumber(statusCounts[option.value]) + ")";
+    }
+  });
+  yearCutoff.min = temporal.minimum_year;
+  yearCutoff.max = temporal.maximum_year;
+  yearCutoff.value = temporal.maximum_year;
+  yearCutoffOutput.textContent = yearCutoff.value;
+
+  function featureMatches(feature) {
+    feature = feature || {};
+    var props = feature.properties || {};
+    if (statusFilter.value !== "all" && props._status_group !== statusFilter.value) return false;
+    if (timeFilterEnabled.checked) {
+      if (!props._year || Number(props._year) > Number(yearCutoff.value)) return false;
+    }
+    return true;
+  }
+
+  function syncFilterUrl() {
+    var url = new URL(window.location.href);
+    if (statusFilter.value !== "all") url.searchParams.set("status", statusFilter.value);
+    else url.searchParams.delete("status");
+    if (timeFilterEnabled.checked) url.searchParams.set("year", yearCutoff.value);
+    else url.searchParams.delete("year");
+    window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+  }
+
+  function applyFilters(updateUrl) {
+    var matchedRecords = 0;
+    Object.keys(registry).forEach(function (subKey) {
+      var entry = registry[subKey];
+      entry.children.forEach(function (child) {
+        var matches = featureMatches(child.feature);
+        var included = entry.leafletLayer.hasLayer(child);
+        if (matches && !included) entry.leafletLayer.addLayer(child);
+        else if (!matches && included) entry.leafletLayer.removeLayer(child);
+        if (matches) matchedRecords += 1;
+      });
+    });
+    timeFilterControls.setAttribute("aria-disabled", timeFilterEnabled.checked ? "false" : "true");
+    yearCutoff.disabled = !timeFilterEnabled.checked;
+    yearCutoffOutput.textContent = yearCutoff.value;
+    var summary = formatNumber(matchedRecords) + " records match";
+    if (timeFilterEnabled.checked) summary += " · dated through " + yearCutoff.value;
+    filterSummary.textContent = summary;
+    updateDownloadLabel();
+    updateVisibleStat();
+    if (updateUrl) syncFilterUrl();
+  }
+
+  statusFilter.addEventListener("change", function () { applyFilters(true); });
+  timeFilterEnabled.addEventListener("change", function () { applyFilters(true); });
+  yearCutoff.addEventListener("input", function () {
+    yearCutoffOutput.textContent = yearCutoff.value;
+    applyFilters(true);
+  });
+  resetFiltersButton.addEventListener("click", function () {
+    statusFilter.value = "all";
+    timeFilterEnabled.checked = false;
+    yearCutoff.value = temporal.maximum_year;
+    applyFilters(true);
+  });
+
+  var initialParams = new URLSearchParams(window.location.search);
+  var initialStatus = initialParams.get("status");
+  if (initialStatus && statusCounts[initialStatus] !== undefined) statusFilter.value = initialStatus;
+  var initialYear = Number(initialParams.get("year"));
+  if (initialYear >= temporal.minimum_year && initialYear <= temporal.maximum_year) {
+    timeFilterEnabled.checked = true;
+    yearCutoff.value = initialYear;
+  }
+  applyFilters(false);
 
   // ---------------- Data catalogue ----------------
   var catalogueDialog = document.getElementById("data-catalogue");
@@ -657,7 +766,7 @@
     var q = searchInput.value.trim().toLowerCase();
     if (q.length < 2) { searchResults.classList.remove("open"); searchResults.innerHTML = ""; return; }
     var matches = allFeaturesIndex.filter(function (item) {
-      return item.label.toLowerCase().indexOf(q) !== -1;
+      return item.label.toLowerCase().indexOf(q) !== -1 && featureMatches(item.feature);
     }).slice(0, 8);
     if (!matches.length) {
       searchResults.innerHTML = '<div class="result">No matches</div>';

@@ -1,0 +1,132 @@
+{
+  "api_version": "v1",
+  "atlas_release": {
+    "version": "0.3.0",
+    "date": "2026-07-24",
+    "title": "Status, Time Filters, Downloads, and Static API"
+  },
+  "base_url": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/",
+  "formats": [
+    "GeoJSON",
+    "JSON"
+  ],
+  "filter_fields": {
+    "_states": "ADM1 names intersected by the public display geometry",
+    "_status_group": "Normalized status group",
+    "_year": "Relevant discovery, start, commissioning, or designation year",
+    "_year_label": "Meaning of _year for the record"
+  },
+  "endpoints": {
+    "catalogue": "catalogue.json",
+    "schema": "schema.json",
+    "state_profiles": "state-profiles.json",
+    "states": "states.geojson"
+  },
+  "layers": [
+    {
+      "key": "fields",
+      "label": "Oil & Gas Fields",
+      "category": "resource",
+      "record_count": 180,
+      "endpoint": "layers/fields.geojson"
+    },
+    {
+      "key": "gas_pipelines",
+      "label": "Gas Pipelines",
+      "category": "infrastructure",
+      "record_count": 24,
+      "endpoint": "layers/gas_pipelines.geojson"
+    },
+    {
+      "key": "oil_pipelines",
+      "label": "Oil & NGL Pipelines",
+      "category": "infrastructure",
+      "record_count": 15,
+      "endpoint": "layers/oil_pipelines.geojson"
+    },
+    {
+      "key": "lng_terminals",
+      "label": "LNG Terminals",
+      "category": "infrastructure",
+      "record_count": 24,
+      "endpoint": "layers/lng_terminals.geojson"
+    },
+    {
+      "key": "power_plants",
+      "label": "Gas & Oil Power Plants",
+      "category": "infrastructure",
+      "record_count": 193,
+      "endpoint": "layers/power_plants.geojson"
+    },
+    {
+      "key": "refineries",
+      "label": "Refineries",
+      "category": "infrastructure",
+      "record_count": 4,
+      "endpoint": "layers/refineries.geojson"
+    },
+    {
+      "key": "protected_areas",
+      "label": "Protected Areas (WDPA)",
+      "category": "environmental",
+      "record_count": 1005,
+      "endpoint": "layers/protected_areas.geojson"
+    },
+    {
+      "key": "demand_centers",
+      "label": "Demand Centers",
+      "category": "demand",
+      "record_count": 28,
+      "endpoint": "layers/demand_centers.geojson"
+    },
+    {
+      "key": "roads",
+      "label": "Major Roads",
+      "category": "connectivity",
+      "record_count": 5124,
+      "endpoint": "layers/roads.geojson"
+    },
+    {
+      "key": "railways",
+      "label": "Railways",
+      "category": "connectivity",
+      "record_count": 1381,
+      "endpoint": "layers/railways.geojson"
+    },
+    {
+      "key": "rail_stations",
+      "label": "Railway Stations",
+      "category": "connectivity",
+      "record_count": 141,
+      "endpoint": "layers/rail_stations.geojson"
+    },
+    {
+      "key": "power_grid",
+      "label": "Power Grid Lines",
+      "category": "connectivity",
+      "record_count": 931,
+      "endpoint": "layers/power_grid.geojson"
+    },
+    {
+      "key": "substations",
+      "label": "Substations",
+      "category": "connectivity",
+      "record_count": 390,
+      "endpoint": "layers/substations.geojson"
+    },
+    {
+      "key": "ports",
+      "label": "Ports & Terminals",
+      "category": "connectivity",
+      "record_count": 25,
+      "endpoint": "layers/ports.geojson"
+    },
+    {
+      "key": "minigrids",
+      "label": "Off-grid & Mini-grids",
+      "category": "renewables",
+      "record_count": 66,
+      "endpoint": "layers/minigrids.geojson"
+    }
+  ]
+}

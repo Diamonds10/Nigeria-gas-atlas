@@ -1,0 +1,1606 @@
+{
+  "atlas_release": {
+    "version": "0.3.0",
+    "date": "2026-07-24",
+    "title": "Status, Time Filters, Downloads, and Static API"
+  },
+  "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
+  "profiles": {
+    "Nigeria": {
+      "name": "Nigeria",
+      "mapped_records": 9531,
+      "counts": {
+        "fields": 180,
+        "gas_pipelines": 24,
+        "oil_pipelines": 15,
+        "lng_terminals": 24,
+        "power_plants": 193,
+        "refineries": 4,
+        "protected_areas": 1005,
+        "demand_centers": 28,
+        "roads": 5124,
+        "railways": 1381,
+        "rail_stations": 141,
+        "power_grid": 931,
+        "substations": 390,
+        "ports": 25,
+        "minigrids": 66
+      },
+      "category_counts": {
+        "resource": 180,
+        "infrastructure": 260,
+        "environmental": 1005,
+        "demand": 28,
+        "connectivity": 7992,
+        "renewables": 66
+      },
+      "capacity": {
+        "power_mw": 36108.0,
+        "refinery_bpd": 1095000.0,
+        "minigrid_kw": 3016.0
+      },
+      "status": {
+        "operating": 358,
+        "development": 38,
+        "proposed": 119,
+        "inactive": 30,
+        "other": 994,
+        "unknown": 7992
+      }
+    },
+    "Cross River": {
+      "name": "Cross River",
+      "mapped_records": 217,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 1,
+        "oil_pipelines": 0,
+        "lng_terminals": 4,
+        "power_plants": 11,
+        "refineries": 0,
+        "protected_areas": 22,
+        "demand_centers": 1,
+        "roads": 153,
+        "railways": 0,
+        "rail_stations": 3,
+        "power_grid": 11,
+        "substations": 8,
+        "ports": 1,
+        "minigrids": 2
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 16,
+        "environmental": 22,
+        "demand": 1,
+        "connectivity": 176,
+        "renewables": 2
+      },
+      "capacity": {
+        "power_mw": 1383.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 68.0
+      },
+      "status": {
+        "operating": 9,
+        "development": 0,
+        "proposed": 6,
+        "inactive": 4,
+        "other": 22,
+        "unknown": 176
+      }
+    },
+    "Abuja Federal Capital Territory": {
+      "name": "Abuja Federal Capital Territory",
+      "mapped_records": 600,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 2,
+        "oil_pipelines": 1,
+        "lng_terminals": 0,
+        "power_plants": 3,
+        "refineries": 0,
+        "protected_areas": 21,
+        "demand_centers": 0,
+        "roads": 468,
+        "railways": 26,
+        "rail_stations": 7,
+        "power_grid": 51,
+        "substations": 17,
+        "ports": 0,
+        "minigrids": 4
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 6,
+        "environmental": 21,
+        "demand": 0,
+        "connectivity": 569,
+        "renewables": 4
+      },
+      "capacity": {
+        "power_mw": 1350.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 83.0
+      },
+      "status": {
+        "operating": 4,
+        "development": 4,
+        "proposed": 1,
+        "inactive": 0,
+        "other": 22,
+        "unknown": 569
+      }
+    },
+    "Ogun": {
+      "name": "Ogun",
+      "mapped_records": 505,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 4,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 4,
+        "refineries": 0,
+        "protected_areas": 21,
+        "demand_centers": 6,
+        "roads": 266,
+        "railways": 112,
+        "rail_stations": 5,
+        "power_grid": 52,
+        "substations": 32,
+        "ports": 0,
+        "minigrids": 3
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 8,
+        "environmental": 21,
+        "demand": 6,
+        "connectivity": 467,
+        "renewables": 3
+      },
+      "capacity": {
+        "power_mw": 1154.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 200.0
+      },
+      "status": {
+        "operating": 12,
+        "development": 1,
+        "proposed": 1,
+        "inactive": 2,
+        "other": 22,
+        "unknown": 467
+      }
+    },
+    "Oyo": {
+      "name": "Oyo",
+      "mapped_records": 466,
+      "counts": {
+        "fields": 1,
+        "gas_pipelines": 2,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 26,
+        "demand_centers": 0,
+        "roads": 336,
+        "railways": 68,
+        "rail_stations": 4,
+        "power_grid": 12,
+        "substations": 16,
+        "ports": 0,
+        "minigrids": 1
+      },
+      "category_counts": {
+        "resource": 1,
+        "infrastructure": 2,
+        "environmental": 26,
+        "demand": 0,
+        "connectivity": 436,
+        "renewables": 1
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 100.0
+      },
+      "status": {
+        "operating": 2,
+        "development": 1,
+        "proposed": 2,
+        "inactive": 0,
+        "other": 25,
+        "unknown": 436
+      }
+    },
+    "Sokoto": {
+      "name": "Sokoto",
+      "mapped_records": 198,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 36,
+        "demand_centers": 1,
+        "roads": 107,
+        "railways": 0,
+        "rail_stations": 0,
+        "power_grid": 48,
+        "substations": 3,
+        "ports": 0,
+        "minigrids": 3
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 36,
+        "demand": 1,
+        "connectivity": 158,
+        "renewables": 3
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 150.0
+      },
+      "status": {
+        "operating": 4,
+        "development": 0,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 36,
+        "unknown": 158
+      }
+    },
+    "Zamfara": {
+      "name": "Zamfara",
+      "mapped_records": 195,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 1,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 23,
+        "demand_centers": 0,
+        "roads": 139,
+        "railways": 21,
+        "rail_stations": 6,
+        "power_grid": 3,
+        "substations": 2,
+        "ports": 0,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 1,
+        "environmental": 23,
+        "demand": 0,
+        "connectivity": 171,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 0,
+        "development": 0,
+        "proposed": 1,
+        "inactive": 0,
+        "other": 23,
+        "unknown": 171
+      }
+    },
+    "Lagos": {
+      "name": "Lagos",
+      "mapped_records": 791,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 4,
+        "oil_pipelines": 0,
+        "lng_terminals": 1,
+        "power_plants": 28,
+        "refineries": 1,
+        "protected_areas": 2,
+        "demand_centers": 2,
+        "roads": 478,
+        "railways": 111,
+        "rail_stations": 13,
+        "power_grid": 109,
+        "substations": 42,
+        "ports": 0,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 34,
+        "environmental": 2,
+        "demand": 2,
+        "connectivity": 753,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 7410.0,
+        "refinery_bpd": 650000.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 13,
+        "development": 0,
+        "proposed": 21,
+        "inactive": 2,
+        "other": 2,
+        "unknown": 753
+      }
+    },
+    "Akwa Ibom": {
+      "name": "Akwa Ibom",
+      "mapped_records": 211,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 4,
+        "oil_pipelines": 3,
+        "lng_terminals": 0,
+        "power_plants": 16,
+        "refineries": 0,
+        "protected_areas": 5,
+        "demand_centers": 0,
+        "roads": 146,
+        "railways": 0,
+        "rail_stations": 0,
+        "power_grid": 24,
+        "substations": 12,
+        "ports": 0,
+        "minigrids": 1
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 23,
+        "environmental": 5,
+        "demand": 0,
+        "connectivity": 182,
+        "renewables": 1
+      },
+      "capacity": {
+        "power_mw": 2379.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 80.0
+      },
+      "status": {
+        "operating": 11,
+        "development": 0,
+        "proposed": 9,
+        "inactive": 5,
+        "other": 4,
+        "unknown": 182
+      }
+    },
+    "Bayelsa": {
+      "name": "Bayelsa",
+      "mapped_records": 52,
+      "counts": {
+        "fields": 15,
+        "gas_pipelines": 1,
+        "oil_pipelines": 6,
+        "lng_terminals": 0,
+        "power_plants": 7,
+        "refineries": 0,
+        "protected_areas": 14,
+        "demand_centers": 0,
+        "roads": 0,
+        "railways": 0,
+        "rail_stations": 0,
+        "power_grid": 5,
+        "substations": 2,
+        "ports": 0,
+        "minigrids": 2
+      },
+      "category_counts": {
+        "resource": 15,
+        "infrastructure": 14,
+        "environmental": 14,
+        "demand": 0,
+        "connectivity": 7,
+        "renewables": 2
+      },
+      "capacity": {
+        "power_mw": 780.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 134.0
+      },
+      "status": {
+        "operating": 26,
+        "development": 0,
+        "proposed": 7,
+        "inactive": 0,
+        "other": 12,
+        "unknown": 7
+      }
+    },
+    "Ondo": {
+      "name": "Ondo",
+      "mapped_records": 140,
+      "counts": {
+        "fields": 2,
+        "gas_pipelines": 3,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 8,
+        "refineries": 0,
+        "protected_areas": 27,
+        "demand_centers": 0,
+        "roads": 57,
+        "railways": 0,
+        "rail_stations": 0,
+        "power_grid": 31,
+        "substations": 7,
+        "ports": 0,
+        "minigrids": 5
+      },
+      "category_counts": {
+        "resource": 2,
+        "infrastructure": 11,
+        "environmental": 27,
+        "demand": 0,
+        "connectivity": 95,
+        "renewables": 5
+      },
+      "capacity": {
+        "power_mw": 1866.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 85.0
+      },
+      "status": {
+        "operating": 10,
+        "development": 3,
+        "proposed": 5,
+        "inactive": 2,
+        "other": 25,
+        "unknown": 95
+      }
+    },
+    "Delta": {
+      "name": "Delta",
+      "mapped_records": 325,
+      "counts": {
+        "fields": 34,
+        "gas_pipelines": 5,
+        "oil_pipelines": 6,
+        "lng_terminals": 0,
+        "power_plants": 47,
+        "refineries": 1,
+        "protected_areas": 21,
+        "demand_centers": 2,
+        "roads": 68,
+        "railways": 88,
+        "rail_stations": 3,
+        "power_grid": 34,
+        "substations": 11,
+        "ports": 5,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 34,
+        "infrastructure": 59,
+        "environmental": 21,
+        "demand": 2,
+        "connectivity": 209,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 6312.0,
+        "refinery_bpd": 125000.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 60,
+        "development": 3,
+        "proposed": 20,
+        "inactive": 12,
+        "other": 21,
+        "unknown": 209
+      }
+    },
+    "Rivers": {
+      "name": "Rivers",
+      "mapped_records": 255,
+      "counts": {
+        "fields": 20,
+        "gas_pipelines": 9,
+        "oil_pipelines": 3,
+        "lng_terminals": 15,
+        "power_plants": 15,
+        "refineries": 1,
+        "protected_areas": 11,
+        "demand_centers": 4,
+        "roads": 80,
+        "railways": 39,
+        "rail_stations": 1,
+        "power_grid": 31,
+        "substations": 18,
+        "ports": 4,
+        "minigrids": 4
+      },
+      "category_counts": {
+        "resource": 20,
+        "infrastructure": 43,
+        "environmental": 11,
+        "demand": 4,
+        "connectivity": 173,
+        "renewables": 4
+      },
+      "capacity": {
+        "power_mw": 2142.0,
+        "refinery_bpd": 210000.0,
+        "minigrid_kw": 81.0
+      },
+      "status": {
+        "operating": 59,
+        "development": 3,
+        "proposed": 9,
+        "inactive": 1,
+        "other": 10,
+        "unknown": 173
+      }
+    },
+    "Kwara": {
+      "name": "Kwara",
+      "mapped_records": 307,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 1,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 33,
+        "demand_centers": 0,
+        "roads": 237,
+        "railways": 20,
+        "rail_stations": 5,
+        "power_grid": 6,
+        "substations": 5,
+        "ports": 0,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 1,
+        "environmental": 33,
+        "demand": 0,
+        "connectivity": 273,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 0,
+        "development": 0,
+        "proposed": 2,
+        "inactive": 0,
+        "other": 32,
+        "unknown": 273
+      }
+    },
+    "Kogi": {
+      "name": "Kogi",
+      "mapped_records": 419,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 5,
+        "oil_pipelines": 1,
+        "lng_terminals": 0,
+        "power_plants": 23,
+        "refineries": 0,
+        "protected_areas": 37,
+        "demand_centers": 4,
+        "roads": 160,
+        "railways": 140,
+        "rail_stations": 4,
+        "power_grid": 34,
+        "substations": 9,
+        "ports": 0,
+        "minigrids": 2
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 29,
+        "environmental": 37,
+        "demand": 4,
+        "connectivity": 347,
+        "renewables": 2
+      },
+      "capacity": {
+        "power_mw": 3556.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 160.0
+      },
+      "status": {
+        "operating": 16,
+        "development": 1,
+        "proposed": 19,
+        "inactive": 0,
+        "other": 36,
+        "unknown": 347
+      }
+    },
+    "Benue": {
+      "name": "Benue",
+      "mapped_records": 229,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 1,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 35,
+        "demand_centers": 1,
+        "roads": 137,
+        "railways": 28,
+        "rail_stations": 7,
+        "power_grid": 17,
+        "substations": 2,
+        "ports": 0,
+        "minigrids": 1
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 1,
+        "environmental": 35,
+        "demand": 1,
+        "connectivity": 191,
+        "renewables": 1
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 24.0
+      },
+      "status": {
+        "operating": 3,
+        "development": 0,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 35,
+        "unknown": 191
+      }
+    },
+    "Borno": {
+      "name": "Borno",
+      "mapped_records": 247,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 1,
+        "refineries": 0,
+        "protected_areas": 78,
+        "demand_centers": 0,
+        "roads": 113,
+        "railways": 28,
+        "rail_stations": 4,
+        "power_grid": 10,
+        "substations": 13,
+        "ports": 0,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 1,
+        "environmental": 78,
+        "demand": 0,
+        "connectivity": 168,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 50.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 0,
+        "development": 1,
+        "proposed": 1,
+        "inactive": 0,
+        "other": 77,
+        "unknown": 168
+      }
+    },
+    "Katsina": {
+      "name": "Katsina",
+      "mapped_records": 245,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 71,
+        "demand_centers": 0,
+        "roads": 137,
+        "railways": 7,
+        "rail_stations": 3,
+        "power_grid": 19,
+        "substations": 6,
+        "ports": 0,
+        "minigrids": 2
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 71,
+        "demand": 0,
+        "connectivity": 172,
+        "renewables": 2
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 46.0
+      },
+      "status": {
+        "operating": 1,
+        "development": 1,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 71,
+        "unknown": 172
+      }
+    },
+    "Plateau": {
+      "name": "Plateau",
+      "mapped_records": 240,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 37,
+        "demand_centers": 0,
+        "roads": 130,
+        "railways": 25,
+        "rail_stations": 3,
+        "power_grid": 22,
+        "substations": 18,
+        "ports": 0,
+        "minigrids": 5
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 37,
+        "demand": 0,
+        "connectivity": 198,
+        "renewables": 5
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 459.0
+      },
+      "status": {
+        "operating": 3,
+        "development": 2,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 37,
+        "unknown": 198
+      }
+    },
+    "Edo": {
+      "name": "Edo",
+      "mapped_records": 357,
+      "counts": {
+        "fields": 5,
+        "gas_pipelines": 6,
+        "oil_pipelines": 1,
+        "lng_terminals": 0,
+        "power_plants": 11,
+        "refineries": 0,
+        "protected_areas": 48,
+        "demand_centers": 2,
+        "roads": 152,
+        "railways": 55,
+        "rail_stations": 4,
+        "power_grid": 42,
+        "substations": 27,
+        "ports": 0,
+        "minigrids": 4
+      },
+      "category_counts": {
+        "resource": 5,
+        "infrastructure": 18,
+        "environmental": 48,
+        "demand": 2,
+        "connectivity": 280,
+        "renewables": 4
+      },
+      "capacity": {
+        "power_mw": 2168.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 150.0
+      },
+      "status": {
+        "operating": 21,
+        "development": 3,
+        "proposed": 8,
+        "inactive": 0,
+        "other": 45,
+        "unknown": 280
+      }
+    },
+    "Jigawa": {
+      "name": "Jigawa",
+      "mapped_records": 116,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 71,
+        "demand_centers": 0,
+        "roads": 18,
+        "railways": 9,
+        "rail_stations": 4,
+        "power_grid": 4,
+        "substations": 9,
+        "ports": 0,
+        "minigrids": 1
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 71,
+        "demand": 0,
+        "connectivity": 44,
+        "renewables": 1
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 1,
+        "development": 0,
+        "proposed": 1,
+        "inactive": 0,
+        "other": 70,
+        "unknown": 44
+      }
+    },
+    "Anambra": {
+      "name": "Anambra",
+      "mapped_records": 139,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 4,
+        "refineries": 0,
+        "protected_areas": 12,
+        "demand_centers": 0,
+        "roads": 92,
+        "railways": 0,
+        "rail_stations": 0,
+        "power_grid": 19,
+        "substations": 9,
+        "ports": 0,
+        "minigrids": 3
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 4,
+        "environmental": 12,
+        "demand": 0,
+        "connectivity": 120,
+        "renewables": 3
+      },
+      "capacity": {
+        "power_mw": 1624.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 147.0
+      },
+      "status": {
+        "operating": 3,
+        "development": 0,
+        "proposed": 2,
+        "inactive": 3,
+        "other": 11,
+        "unknown": 120
+      }
+    },
+    "Kano": {
+      "name": "Kano",
+      "mapped_records": 308,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 1,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 4,
+        "refineries": 0,
+        "protected_areas": 16,
+        "demand_centers": 0,
+        "roads": 133,
+        "railways": 65,
+        "rail_stations": 3,
+        "power_grid": 71,
+        "substations": 15,
+        "ports": 0,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 5,
+        "environmental": 16,
+        "demand": 0,
+        "connectivity": 287,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 1500.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 0,
+        "development": 1,
+        "proposed": 4,
+        "inactive": 0,
+        "other": 16,
+        "unknown": 287
+      }
+    },
+    "Nasarawa": {
+      "name": "Nasarawa",
+      "mapped_records": 204,
+      "counts": {
+        "fields": 35,
+        "gas_pipelines": 2,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 34,
+        "demand_centers": 0,
+        "roads": 107,
+        "railways": 13,
+        "rail_stations": 2,
+        "power_grid": 5,
+        "substations": 5,
+        "ports": 0,
+        "minigrids": 1
+      },
+      "category_counts": {
+        "resource": 35,
+        "infrastructure": 2,
+        "environmental": 34,
+        "demand": 0,
+        "connectivity": 132,
+        "renewables": 1
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 4.0
+      },
+      "status": {
+        "operating": 36,
+        "development": 1,
+        "proposed": 1,
+        "inactive": 0,
+        "other": 34,
+        "unknown": 132
+      }
+    },
+    "Kebbi": {
+      "name": "Kebbi",
+      "mapped_records": 225,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 17,
+        "demand_centers": 0,
+        "roads": 67,
+        "railways": 0,
+        "rail_stations": 0,
+        "power_grid": 135,
+        "substations": 5,
+        "ports": 0,
+        "minigrids": 1
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 17,
+        "demand": 0,
+        "connectivity": 207,
+        "renewables": 1
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 100.0
+      },
+      "status": {
+        "operating": 1,
+        "development": 0,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 17,
+        "unknown": 207
+      }
+    },
+    "Imo": {
+      "name": "Imo",
+      "mapped_records": 84,
+      "counts": {
+        "fields": 3,
+        "gas_pipelines": 1,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 4,
+        "refineries": 0,
+        "protected_areas": 5,
+        "demand_centers": 0,
+        "roads": 55,
+        "railways": 0,
+        "rail_stations": 0,
+        "power_grid": 10,
+        "substations": 6,
+        "ports": 0,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 3,
+        "infrastructure": 5,
+        "environmental": 5,
+        "demand": 0,
+        "connectivity": 71,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 466.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 3,
+        "development": 3,
+        "proposed": 1,
+        "inactive": 1,
+        "other": 5,
+        "unknown": 71
+      }
+    },
+    "Gombe": {
+      "name": "Gombe",
+      "mapped_records": 185,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 34,
+        "demand_centers": 1,
+        "roads": 67,
+        "railways": 55,
+        "rail_stations": 4,
+        "power_grid": 16,
+        "substations": 5,
+        "ports": 0,
+        "minigrids": 3
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 34,
+        "demand": 1,
+        "connectivity": 147,
+        "renewables": 3
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 103.0
+      },
+      "status": {
+        "operating": 4,
+        "development": 0,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 34,
+        "unknown": 147
+      }
+    },
+    "Adamawa": {
+      "name": "Adamawa",
+      "mapped_records": 201,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 21,
+        "demand_centers": 0,
+        "roads": 163,
+        "railways": 0,
+        "rail_stations": 0,
+        "power_grid": 11,
+        "substations": 5,
+        "ports": 0,
+        "minigrids": 1
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 21,
+        "demand": 0,
+        "connectivity": 179,
+        "renewables": 1
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 85.0
+      },
+      "status": {
+        "operating": 0,
+        "development": 1,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 21,
+        "unknown": 179
+      }
+    },
+    "Yobe": {
+      "name": "Yobe",
+      "mapped_records": 136,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 40,
+        "demand_centers": 0,
+        "roads": 68,
+        "railways": 19,
+        "rail_stations": 2,
+        "power_grid": 4,
+        "substations": 3,
+        "ports": 0,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 40,
+        "demand": 0,
+        "connectivity": 96,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 0,
+        "development": 0,
+        "proposed": 1,
+        "inactive": 0,
+        "other": 39,
+        "unknown": 96
+      }
+    },
+    "Abia": {
+      "name": "Abia",
+      "mapped_records": 127,
+      "counts": {
+        "fields": 1,
+        "gas_pipelines": 2,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 6,
+        "refineries": 0,
+        "protected_areas": 7,
+        "demand_centers": 1,
+        "roads": 65,
+        "railways": 6,
+        "rail_stations": 1,
+        "power_grid": 27,
+        "substations": 11,
+        "ports": 0,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 1,
+        "infrastructure": 8,
+        "environmental": 7,
+        "demand": 1,
+        "connectivity": 110,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 1068.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 6,
+        "development": 2,
+        "proposed": 1,
+        "inactive": 1,
+        "other": 7,
+        "unknown": 110
+      }
+    },
+    "Ekiti": {
+      "name": "Ekiti",
+      "mapped_records": 20,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 14,
+        "demand_centers": 0,
+        "roads": 0,
+        "railways": 0,
+        "rail_stations": 0,
+        "power_grid": 1,
+        "substations": 5,
+        "ports": 0,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 14,
+        "demand": 0,
+        "connectivity": 6,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 0,
+        "development": 0,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 14,
+        "unknown": 6
+      }
+    },
+    "Osun": {
+      "name": "Osun",
+      "mapped_records": 129,
+      "counts": {
+        "fields": 1,
+        "gas_pipelines": 2,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 11,
+        "demand_centers": 0,
+        "roads": 59,
+        "railways": 14,
+        "rail_stations": 6,
+        "power_grid": 24,
+        "substations": 11,
+        "ports": 0,
+        "minigrids": 1
+      },
+      "category_counts": {
+        "resource": 1,
+        "infrastructure": 2,
+        "environmental": 11,
+        "demand": 0,
+        "connectivity": 114,
+        "renewables": 1
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 24.0
+      },
+      "status": {
+        "operating": 3,
+        "development": 0,
+        "proposed": 1,
+        "inactive": 0,
+        "other": 11,
+        "unknown": 114
+      }
+    },
+    "Bauchi": {
+      "name": "Bauchi",
+      "mapped_records": 255,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 71,
+        "demand_centers": 0,
+        "roads": 105,
+        "railways": 62,
+        "rail_stations": 6,
+        "power_grid": 4,
+        "substations": 3,
+        "ports": 0,
+        "minigrids": 4
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 71,
+        "demand": 0,
+        "connectivity": 180,
+        "renewables": 4
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 46.0
+      },
+      "status": {
+        "operating": 4,
+        "development": 0,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 71,
+        "unknown": 180
+      }
+    },
+    "Niger": {
+      "name": "Niger",
+      "mapped_records": 463,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 2,
+        "oil_pipelines": 1,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 88,
+        "demand_centers": 1,
+        "roads": 175,
+        "railways": 91,
+        "rail_stations": 12,
+        "power_grid": 73,
+        "substations": 15,
+        "ports": 0,
+        "minigrids": 5
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 3,
+        "environmental": 88,
+        "demand": 1,
+        "connectivity": 366,
+        "renewables": 5
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 283.0
+      },
+      "status": {
+        "operating": 6,
+        "development": 0,
+        "proposed": 4,
+        "inactive": 0,
+        "other": 87,
+        "unknown": 366
+      }
+    },
+    "Kaduna": {
+      "name": "Kaduna",
+      "mapped_records": 782,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 2,
+        "oil_pipelines": 1,
+        "lng_terminals": 0,
+        "power_plants": 1,
+        "refineries": 1,
+        "protected_areas": 85,
+        "demand_centers": 1,
+        "roads": 313,
+        "railways": 292,
+        "rail_stations": 28,
+        "power_grid": 41,
+        "substations": 14,
+        "ports": 0,
+        "minigrids": 3
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 5,
+        "environmental": 85,
+        "demand": 1,
+        "connectivity": 688,
+        "renewables": 3
+      },
+      "capacity": {
+        "power_mw": 900.0,
+        "refinery_bpd": 110000.0,
+        "minigrid_kw": 114.0
+      },
+      "status": {
+        "operating": 5,
+        "development": 2,
+        "proposed": 2,
+        "inactive": 0,
+        "other": 85,
+        "unknown": 688
+      }
+    },
+    "Enugu": {
+      "name": "Enugu",
+      "mapped_records": 182,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 1,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 14,
+        "demand_centers": 0,
+        "roads": 112,
+        "railways": 21,
+        "rail_stations": 1,
+        "power_grid": 25,
+        "substations": 8,
+        "ports": 0,
+        "minigrids": 0
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 1,
+        "environmental": 14,
+        "demand": 0,
+        "connectivity": 167,
+        "renewables": 0
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 0.0
+      },
+      "status": {
+        "operating": 0,
+        "development": 0,
+        "proposed": 2,
+        "inactive": 0,
+        "other": 13,
+        "unknown": 167
+      }
+    },
+    "Taraba": {
+      "name": "Taraba",
+      "mapped_records": 259,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 0,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 42,
+        "demand_centers": 0,
+        "roads": 202,
+        "railways": 0,
+        "rail_stations": 0,
+        "power_grid": 7,
+        "substations": 7,
+        "ports": 0,
+        "minigrids": 1
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 0,
+        "environmental": 42,
+        "demand": 0,
+        "connectivity": 216,
+        "renewables": 1
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 91.0
+      },
+      "status": {
+        "operating": 0,
+        "development": 1,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 42,
+        "unknown": 216
+      }
+    },
+    "Ebonyi": {
+      "name": "Ebonyi",
+      "mapped_records": 85,
+      "counts": {
+        "fields": 0,
+        "gas_pipelines": 1,
+        "oil_pipelines": 0,
+        "lng_terminals": 0,
+        "power_plants": 0,
+        "refineries": 0,
+        "protected_areas": 10,
+        "demand_centers": 0,
+        "roads": 57,
+        "railways": 2,
+        "rail_stations": 0,
+        "power_grid": 9,
+        "substations": 3,
+        "ports": 0,
+        "minigrids": 3
+      },
+      "category_counts": {
+        "resource": 0,
+        "infrastructure": 1,
+        "environmental": 10,
+        "demand": 0,
+        "connectivity": 71,
+        "renewables": 3
+      },
+      "capacity": {
+        "power_mw": 0.0,
+        "refinery_bpd": 0.0,
+        "minigrid_kw": 199.0
+      },
+      "status": {
+        "operating": 1,
+        "development": 2,
+        "proposed": 1,
+        "inactive": 0,
+        "other": 10,
+        "unknown": 71
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Static API · Nigeria Infrastructure Atlas</title>
+  <meta name="description" content="Versioned static API documentation for the Nigeria Infrastructure Atlas." />
+  <style>
+    :root { color-scheme: light dark; --ink:#14201c; --muted:#5f6c63; --paper:#f4f5ef; --card:#fff; --line:#ccd1c5; --accent:#9a5a0c; }
+    @media (prefers-color-scheme:dark) { :root { --ink:#edf0e9; --muted:#aab7ac; --paper:#0e1e1a; --card:#16281f; --line:#304137; --accent:#d99a3d; } }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--paper); color:var(--ink); font:15px/1.6 system-ui,sans-serif; }
+    main { width:min(920px,calc(100% - 32px)); margin:0 auto; padding:48px 0 70px; }
+    h1,h2 { font-family:Georgia,serif; line-height:1.15; }
+    h1 { margin:4px 0 10px; font-size:clamp(32px,6vw,56px); }
+    h2 { margin:0 0 8px; font-size:21px; }
+    .eyebrow { color:var(--accent); font-size:12px; font-weight:750; letter-spacing:.1em; text-transform:uppercase; }
+    .lede { max-width:700px; color:var(--muted); font-size:17px; }
+    .base { margin:24px 0; padding:13px 16px; border:1px solid var(--line); border-radius:9px; background:var(--card); overflow:auto; }
+    code { font-family:ui-monospace,monospace; }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin:28px 0; }
+    .card { border:1px solid var(--line); border-radius:10px; background:var(--card); padding:17px; }
+    .card p { margin:0 0 10px; color:var(--muted); }
+    a { color:var(--accent); font-weight:700; }
+    pre { padding:16px; border-radius:9px; background:#101b18; color:#e8efe9; overflow:auto; }
+    .note { padding:14px 16px; border-left:4px solid var(--accent); background:var(--card); color:var(--muted); }
+    @media(max-width:650px) { main{padding-top:28px}.grid{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+<main>
+  <a href="../">← Interactive atlas</a>
+  <div class="eyebrow">Developer access · API v1</div>
+  <h1>Nigeria Infrastructure Atlas static API</h1>
+  <p class="lede">Versioned, read-only JSON and GeoJSON endpoints served through GitHub Pages. No API key is required.</p>
+  <div class="base"><code>https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/</code></div>
+  <div class="grid">
+    <section class="card"><h2>Manifest</h2><p>Release, endpoint, count, and filter-field contract.</p><a href="./v1/manifest.json">Open manifest.json</a></section>
+    <section class="card"><h2>Data catalogue</h2><p>Provenance, quality, dates, licenses, and limitations.</p><a href="./v1/catalogue.json">Open catalogue.json</a></section>
+    <section class="card"><h2>State profiles</h2><p>Nigeria and ADM1 public-screening summaries.</p><a href="./v1/state-profiles.json">Open state-profiles.json</a></section>
+    <section class="card"><h2>State boundaries</h2><p>Simplified ADM1 boundaries used by the public atlas.</p><a href="./v1/states.geojson">Open states.geojson</a></section>
+    <section class="card"><h2>Feature schema</h2><p>JSON Schema for normalized state, status, and year fields.</p><a href="./v1/schema.json">Open schema.json</a></section>
+  </div>
+  <h2>Example</h2>
+  <pre><code>curl https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/layers/minigrids.geojson</code></pre>
+  <p class="note">Time filters include only records with a supported <code>_year</code> at or before the cutoff. Undated records are excluded rather than silently treated as historical.</p>
+  <p>See the <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/api/v1/README.md">full API notes</a> and <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/data_sources.md">source register</a>.</p>
+</main>
+</body>
+</html>

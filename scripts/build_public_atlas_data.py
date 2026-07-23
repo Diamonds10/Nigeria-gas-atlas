@@ -23,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROCESSED = ROOT / "data" / "processed"
 DEFAULT_STATES = ROOT / "data" / "final" / "nigeria_adm1_simplified.geojson"
 DEFAULT_OUTPUT = ROOT / "docs" / "assets" / "atlas_data.json"
+DEFAULT_API_DIR = ROOT / "docs" / "api" / "v1"
 PUBLIC_SIMPLIFY_TOLERANCE = 0.005
 PUBLIC_COORDINATE_PRECISION = 5
 REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main"
@@ -303,6 +304,30 @@ def status_bucket(props: dict[str, Any]) -> str:
     return "other"
 
 
+def feature_year(sublayer_key: str, props: dict[str, Any]) -> tuple[int | None, str | None]:
+    candidates = {
+        "fields": ("discovery_year", "Discovery year"),
+        "gas_pipelines": ("start_year", "Start year"),
+        "oil_pipelines": ("start_year", "Start year"),
+        "lng_terminals": ("start_year", "Start year"),
+        "power_plants": ("start_year", "Start year"),
+        "refineries": ("commissioned_year", "Commissioned year"),
+        "protected_areas": ("STATUS_YR", "Designation/status year"),
+    }
+    candidate = candidates.get(sublayer_key)
+    if not candidate:
+        return None, None
+    field, label = candidate
+    value = props.get(field)
+    try:
+        year = int(float(value))
+    except (TypeError, ValueError):
+        return None, None
+    if year < 1800 or year > 2026:
+        return None, None
+    return year, label
+
+
 def empty_profile(name: str, sublayer_keys: list[str]) -> dict[str, Any]:
     return {
         "name": name,
@@ -371,6 +396,15 @@ def add_catalogue_and_state_profiles(
         profiles[state_name] = empty_profile(state_name, sublayer_keys)
 
     catalogue = []
+    temporal_years = []
+    status_counts = {
+        "operating": 0,
+        "development": 0,
+        "proposed": 0,
+        "inactive": 0,
+        "other": 0,
+        "unknown": 0,
+    }
     for category_key, layer in bundle["layers"].items():
         for sublayer_key, definition in layer["sublayers"].items():
             metadata = dict(CATALOGUE[sublayer_key])
@@ -388,6 +422,13 @@ def add_catalogue_and_state_profiles(
             catalogue.append(metadata)
 
             for item in definition["data"]["features"]:
+                item["properties"]["_status_group"] = status_bucket(item["properties"])
+                status_counts[item["properties"]["_status_group"]] += 1
+                year, year_label = feature_year(sublayer_key, item["properties"])
+                if year is not None:
+                    item["properties"]["_year"] = year
+                    item["properties"]["_year_label"] = year_label
+                    temporal_years.append(year)
                 geometry = shape(item["geometry"])
                 if geometry.geom_type == "Point":
                     state_names = [
@@ -421,12 +462,158 @@ def add_catalogue_and_state_profiles(
             profile["capacity"][capacity_key] = round(value, 2)
 
     bundle["release"] = {
-        "version": "0.2.0",
+        "version": "0.3.0",
         "date": "2026-07-24",
-        "title": "State Intelligence and Data Catalogue",
+        "title": "Status, Time Filters, Downloads, and Static API",
     }
     bundle["catalogue"] = catalogue
     bundle["state_profiles"] = profiles
+    bundle["filters"] = {
+        "status_groups": status_counts,
+        "temporal": {
+            "dated_records": len(temporal_years),
+            "undated_records": profiles["Nigeria"]["mapped_records"] - len(temporal_years),
+            "minimum_year": min(temporal_years),
+            "maximum_year": max(temporal_years),
+            "semantics": "When enabled, the cutoff includes only records with a known relevant year at or before the selected year.",
+        },
+    }
+
+
+def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -> None:
+    """Write stable, versioned static API resources for GitHub Pages."""
+    layers_dir = api_dir / "layers"
+    layers_dir.mkdir(parents=True, exist_ok=True)
+
+    manifest_layers = []
+    for category_key, category in bundle["layers"].items():
+        for sublayer_key, definition in category["sublayers"].items():
+            endpoint = f"layers/{sublayer_key}.geojson"
+            layer_payload = {
+                "type": "FeatureCollection",
+                "name": sublayer_key,
+                "atlas_release": bundle["release"],
+                "metadata": definition["metadata"],
+                "features": definition["data"]["features"],
+            }
+            (api_dir / endpoint).write_text(
+                json.dumps(
+                    layer_payload,
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                    allow_nan=False,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            manifest_layers.append(
+                {
+                    "key": sublayer_key,
+                    "label": definition["label"],
+                    "category": category_key,
+                    "record_count": len(definition["data"]["features"]),
+                    "endpoint": endpoint,
+                }
+            )
+
+    states_payload = {
+        "type": "FeatureCollection",
+        "name": "nigeria_adm1",
+        "atlas_release": bundle["release"],
+        "features": bundle["states"]["features"],
+    }
+    (api_dir / "states.geojson").write_text(
+        json.dumps(states_payload, ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
+    (api_dir / "catalogue.json").write_text(
+        json.dumps(
+            {
+                "atlas_release": bundle["release"],
+                "datasets": bundle["catalogue"],
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    (api_dir / "state-profiles.json").write_text(
+        json.dumps(
+            {
+                "atlas_release": bundle["release"],
+                "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
+                "profiles": bundle["state_profiles"],
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    schema = {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "$id": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/schema.json",
+        "title": "Nigeria Infrastructure Atlas public GeoJSON feature",
+        "type": "object",
+        "required": ["type", "properties", "geometry"],
+        "properties": {
+            "type": {"const": "Feature"},
+            "properties": {
+                "type": "object",
+                "required": ["_status_group", "_states"],
+                "properties": {
+                    "_states": {
+                        "type": "array",
+                        "items": {"type": "string"},
+                        "uniqueItems": True,
+                    },
+                    "_status_group": {
+                        "enum": [
+                            "operating",
+                            "development",
+                            "proposed",
+                            "inactive",
+                            "other",
+                            "unknown",
+                        ]
+                    },
+                    "_year": {"type": "integer", "minimum": 1800, "maximum": 2026},
+                    "_year_label": {"type": "string"},
+                },
+                "additionalProperties": True,
+            },
+            "geometry": {"type": "object"},
+        },
+        "additionalProperties": True,
+    }
+    (api_dir / "schema.json").write_text(
+        json.dumps(schema, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    manifest = {
+        "api_version": "v1",
+        "atlas_release": bundle["release"],
+        "base_url": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/",
+        "formats": ["GeoJSON", "JSON"],
+        "filter_fields": {
+            "_states": "ADM1 names intersected by the public display geometry",
+            "_status_group": "Normalized status group",
+            "_year": "Relevant discovery, start, commissioning, or designation year",
+            "_year_label": "Meaning of _year for the record",
+        },
+        "endpoints": {
+            "catalogue": "catalogue.json",
+            "schema": "schema.json",
+            "state_profiles": "state-profiles.json",
+            "states": "states.geojson",
+        },
+        "layers": manifest_layers,
+    }
+    (api_dir / "manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
@@ -451,13 +638,16 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
     )
     oil_pipelines = route_features(
         PROCESSED / "02_infrastructure/goit_oil_ngl_pipelines_nigeria.csv",
-        ["project", "parent", "status", "capacity", "url"],
+        ["project", "parent", "status", "start_year", "capacity", "url"],
         "project",
     )
     lng_terminals = point_features(
         PROCESSED / "02_infrastructure/ggit_lng_terminals_nigeria.csv",
         "lng", "lat",
-        ["project", "unit", "parent", "status", "capacity", "capacity_units", "url"],
+        [
+            "project", "unit", "parent", "status", "start_year", "capacity",
+            "capacity_units", "url",
+        ],
         "project",
     )
     power_plants = point_features(
@@ -599,6 +789,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--states", type=Path, default=DEFAULT_STATES)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument("--api-dir", type=Path, default=DEFAULT_API_DIR)
     return parser.parse_args()
 
 
@@ -606,12 +797,16 @@ def main() -> int:
     args = parse_args()
     bundle = build_bundle(args.states.resolve())
     write_bundle(bundle, args.output.resolve())
+    write_api_outputs(bundle, args.api_dir.resolve())
     total = sum(
         len(sub["data"]["features"])
         for layer in bundle["layers"].values()
         for sub in layer["sublayers"].values()
     )
-    print(f"Saved {args.output} with {total:,} public map features")
+    print(
+        f"Saved {args.output} with {total:,} public map features "
+        f"and API resources under {args.api_dir}"
+    )
     return 0
 
 

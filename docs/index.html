@@ -50,13 +50,42 @@
           <button id="copy-state-link" class="button-secondary" type="button">Copy link</button>
         </div>
       </section>
+      <section class="map-filters" aria-labelledby="map-filters-title">
+        <div class="filter-heading">
+          <div>
+            <span class="eyebrow">Map filters</span>
+            <h2 id="map-filters-title">Status and time</h2>
+          </div>
+          <button id="reset-filters" type="button">Reset</button>
+        </div>
+        <label class="select-label" for="status-filter">Normalized status</label>
+        <select id="status-filter">
+          <option value="all">All statuses</option>
+          <option value="operating">Operating / active</option>
+          <option value="development">Construction / development</option>
+          <option value="proposed">Proposed / planned</option>
+          <option value="inactive">Inactive / retired</option>
+          <option value="other">Other reported status</option>
+          <option value="unknown">No reported status</option>
+        </select>
+        <label class="time-toggle" for="time-filter-enabled">
+          <input id="time-filter-enabled" type="checkbox" />
+          <span>Use evidence-year cutoff</span>
+        </label>
+        <div id="time-filter-controls" class="time-filter-controls" aria-disabled="true">
+          <input id="year-cutoff" type="range" />
+          <output id="year-cutoff-output" for="year-cutoff">—</output>
+        </div>
+        <p id="filter-summary" class="filter-summary"></p>
+        <p class="filter-note">A year cutoff shows only dated records at or before that year. Undated records are excluded while it is active.</p>
+      </section>
       <div class="layers-heading">
         <span class="eyebrow">Map layers</span>
         <span>Toggle public screening layers</span>
       </div>
       <div id="category-list"></div>
       <div class="panel-footer">
-        v0.2 · State profiles count public-map records intersecting each state; they are screening summaries, not official administrative statistics. See <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">sources and limitations</a> and <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/THIRD_PARTY_DATA.md" target="_blank" rel="noopener">third-party data rights</a>.
+        v0.3 · State profiles count public-map records intersecting each state; they are screening summaries, not official administrative statistics. See <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">sources and limitations</a> and <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/THIRD_PARTY_DATA.md" target="_blank" rel="noopener">third-party data rights</a>.
       </div>
     </aside>
     <main class="mapwrap">
@@ -85,6 +114,7 @@
     <footer class="catalogue-footer">
       Quality grades describe public screening fitness, not legal or commercial assurance.
       Review the <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">full source register</a> before reuse.
+      Developers can use the <a href="./api/" target="_blank" rel="noopener">versioned static API</a>.
     </footer>
   </div>
 </dialog>

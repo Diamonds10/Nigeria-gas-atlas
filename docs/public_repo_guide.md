@@ -10,7 +10,7 @@ This repository is designed to help four audiences use the same evidence base in
 
 ## What the atlas contains
 
-The `v0.2` public atlas organizes Nigeria's infrastructure system into six
+The `v0.3` public atlas organizes Nigeria's infrastructure system into six
 implemented layers:
 
 1. Resource
@@ -82,6 +82,14 @@ URL, zooms to its boundary, and enables a state-specific GeoJSON download.
 The website's data catalogue documents all 15 public sublayers with their
 sources, access dates, reuse terms, quality grades, limitations, record counts,
 and direct processed-CSV links.
+
+Normalized status filters and an opt-in evidence-year cutoff apply to map
+rendering, search, visible counts, shareable URLs, and generated GeoJSON. The
+year filter includes only records with a supported discovery, start,
+commissioning, or designation year; undated records are excluded.
+
+The versioned static API under `docs/api/v1/` provides machine-readable access
+to the catalogue, profiles, state boundaries, and every public GeoJSON layer.
 
 A public snapshot figure is available at
 [outputs/maps/nigeria_public_asset_snapshot.png](../outputs/maps/nigeria_public_asset_snapshot.png).

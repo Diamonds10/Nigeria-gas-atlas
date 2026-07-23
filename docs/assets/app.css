@@ -281,7 +281,7 @@
     margin-bottom: 5px;
     text-transform: uppercase;
   }
-  #state-select {
+  #state-select, #status-filter {
     width: 100%;
     padding: 8px 30px 8px 9px;
     border: 1px solid var(--line);
@@ -290,7 +290,7 @@
     color: var(--text-primary);
     font-size: 12.5px;
   }
-  #state-select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  #state-select:focus-visible, #status-filter:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
   .state-profile { margin-top: 12px; }
   .profile-title-row {
     display: flex;
@@ -373,6 +373,78 @@
     margin-bottom: -9px;
   }
   .layers-heading > span:last-child { color: var(--text-muted); font-size: 9.5px; }
+
+  .map-filters {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 13px;
+    background: var(--surface-raised);
+  }
+  .filter-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .filter-heading h2 {
+    margin: 1px 0 11px;
+    font-size: 18px;
+    line-height: 1.15;
+  }
+  #reset-filters {
+    border: none;
+    background: transparent;
+    color: var(--accent);
+    padding: 2px;
+    font-size: 10.5px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .time-toggle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 12px;
+    color: var(--text-secondary);
+    font-size: 11.5px;
+    cursor: pointer;
+  }
+  .time-toggle input {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--accent);
+  }
+  .time-filter-controls {
+    display: grid;
+    grid-template-columns: 1fr 42px;
+    align-items: center;
+    gap: 9px;
+    margin-top: 8px;
+  }
+  .time-filter-controls[aria-disabled="true"] { opacity: 0.38; }
+  #year-cutoff {
+    width: 100%;
+    accent-color: var(--accent);
+  }
+  #year-cutoff-output {
+    color: var(--text-primary);
+    font-family: ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: right;
+  }
+  .filter-summary {
+    margin: 9px 0 0;
+    color: var(--text-primary);
+    font-size: 10.5px;
+    font-weight: 650;
+  }
+  .filter-note {
+    margin: 4px 0 0;
+    color: var(--text-muted);
+    font-size: 9.5px;
+    line-height: 1.4;
+  }
 
   .category-group {
     border: 1px solid var(--line);

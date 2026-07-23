@@ -1,5 +1,28 @@
 # Release notes
 
+## v0.3.0 — Status, Time Filters, Downloads, and Static API
+
+Released 2026-07-24.
+
+### Included
+
+- normalized operating, development, proposed, inactive, other, and unknown status groups
+- opt-in evidence-year cutoff with explicit exclusion of undated records
+- filter-aware map rendering, search results, layer counts, and visible-record totals
+- shareable URLs preserving state, status, and year selections
+- national and state GeoJSON downloads using the active filters
+- download metadata recording the active selection and time semantics
+- stable `/api/v1/` static API with no API key requirement
+- API manifest, catalogue, state profiles, ADM1 boundaries, and 15 layer endpoints
+- human-readable developer documentation and reproducibility tests
+
+### Temporal coverage
+
+The current release has 266 records with a defensible relevant year between
+1912 and 2026. The remaining records are marked undated and are excluded when
+the time cutoff is active. This avoids implying historical presence where the
+source provides no usable date.
+
 ## v0.2.0 — State Intelligence and Data Catalogue
 
 Released 2026-07-24.

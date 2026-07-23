@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/schema.json",
+  "title": "Nigeria Infrastructure Atlas public GeoJSON feature",
+  "type": "object",
+  "required": [
+    "type",
+    "properties",
+    "geometry"
+  ],
+  "properties": {
+    "type": {
+      "const": "Feature"
+    },
+    "properties": {
+      "type": "object",
+      "required": [
+        "_status_group",
+        "_states"
+      ],
+      "properties": {
+        "_states": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "_status_group": {
+          "enum": [
+            "operating",
+            "development",
+            "proposed",
+            "inactive",
+            "other",
+            "unknown"
+          ]
+        },
+        "_year": {
+          "type": "integer",
+          "minimum": 1800,
+          "maximum": 2026
+        },
+        "_year_label": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "geometry": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

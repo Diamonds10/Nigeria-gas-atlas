@@ -35,7 +35,7 @@ The current public atlas is organized into six published analytical layers:
 5. Connectivity
 6. Renewables
 
-A seventh security layer is planned, but it is not part of the `v0.2` processed
+A seventh security layer is planned, but it is not part of the `v0.3` processed
 dataset or public map. This boundary is intentional: the source register records
 candidate security sources without presenting them as implemented evidence.
 
@@ -43,11 +43,18 @@ The public value of the atlas is not any single output file. It is the combinati
 
 ## Current public-facing value
 
-A live `v0.2` state-intelligence experience is available at
+A live `v0.3` state-intelligence experience is available at
 [diamonds10.github.io/Nigeria-gas-atlas](https://diamonds10.github.io/Nigeria-gas-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
 links and GeoJSON downloads, and a searchable catalogue covering all 15
-published map datasets.
+published map datasets. Normalized status and evidence-year filters apply
+consistently to the map, search results, visible counts, shared URLs, and
+downloads.
+
+Developers can use the versioned, read-only static API at
+[diamonds10.github.io/Nigeria-gas-atlas/api/](https://diamonds10.github.io/Nigeria-gas-atlas/api/).
+API v1 publishes a manifest, catalogue, state profiles, ADM1 boundaries, and
+one GeoJSON endpoint per public map layer without requiring an API key.
 
 A ready-to-use public snapshot image is now available in [outputs/maps/nigeria_public_asset_snapshot.png](outputs/maps/nigeria_public_asset_snapshot.png). It presents a concise, state-labeled public atlas view with the current asset-count callouts for the main layer categories.
 

@@ -7,7 +7,7 @@ If you use this repository in research, teaching, or public-facing work, the rec
 Suggested format:
 
 Nigeria Infrastructure Atlas contributors. 2026. *Nigeria Infrastructure
-Atlas*, version 0.1.0. GitHub. Accessed YYYY-MM-DD.
+Atlas*, version 0.3.0. GitHub. Accessed YYYY-MM-DD.
 
 The repository also includes machine-readable citation metadata in
 `CITATION.cff`.
