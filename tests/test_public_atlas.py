@@ -97,6 +97,49 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(counts["demand_centres"], 28)
         self.assertEqual(counts["mini_grids"], 66)
 
+    def test_state_profiles_are_complete_and_consistent(self):
+        bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
+        profiles = bundle["state_profiles"]
+        state_names = {
+            feature["properties"]["name"]
+            for feature in bundle["states"]["features"]
+        }
+        self.assertEqual(set(profiles), state_names | {"Nigeria"})
+        self.assertEqual(len(profiles), 38)
+
+        national = profiles["Nigeria"]
+        self.assertEqual(national["mapped_records"], 9531)
+        self.assertEqual(national["counts"]["power_plants"], 193)
+        self.assertEqual(national["counts"]["substations"], 390)
+        self.assertEqual(national["counts"]["minigrids"], 66)
+        self.assertAlmostEqual(national["capacity"]["minigrid_kw"], 3016.0)
+
+        for layer in bundle["layers"].values():
+            for definition in layer["sublayers"].values():
+                for feature in definition["data"]["features"]:
+                    memberships = feature["properties"]["_states"]
+                    self.assertTrue(set(memberships).issubset(state_names))
+
+    def test_catalogue_covers_every_public_sublayer(self):
+        bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
+        catalogue = {item["key"]: item for item in bundle["catalogue"]}
+        sublayers = {
+            key: definition
+            for layer in bundle["layers"].values()
+            for key, definition in layer["sublayers"].items()
+        }
+        self.assertEqual(set(catalogue), set(sublayers))
+        for key, definition in sublayers.items():
+            metadata = catalogue[key]
+            self.assertEqual(metadata, definition["metadata"])
+            self.assertEqual(
+                metadata["record_count"],
+                len(definition["data"]["features"]),
+            )
+            self.assertIn(metadata["quality"], {"A", "B", "C"})
+            self.assertTrue(metadata["download_url"].startswith("https://"))
+            self.assertTrue((ROOT / metadata["path"]).exists())
+
 
 if __name__ == "__main__":
     unittest.main()

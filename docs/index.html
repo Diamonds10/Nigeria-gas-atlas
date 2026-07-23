@@ -18,11 +18,12 @@
   <header class="topbar">
     <div class="wordmark">
       <span class="mark">Nigeria Infrastructure Atlas</span>
-      <span class="sub">Interactive map</span>
+      <span class="sub">State intelligence</span>
     </div>
     <div class="spacer"></div>
     <div class="stat"><span class="n" id="stat-visible">—</span><span class="l">assets shown</span></div>
     <div class="stat"><span class="n" id="stat-total">—</span><span class="l">assets mapped</span></div>
+    <button class="top-action" id="catalogue-button" type="button">Data catalogue</button>
     <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark theme">◐</button>
   </header>
   <div class="layout">
@@ -32,9 +33,30 @@
         <input id="search-input" type="text" placeholder="Search assets, e.g. Obajana, Bonny…" autocomplete="off" />
         <div id="search-results"></div>
       </div>
+      <section class="state-intelligence" aria-labelledby="state-intelligence-title">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">State intelligence</span>
+            <h2 id="state-intelligence-title">Explore a state</h2>
+          </div>
+        </div>
+        <label class="select-label" for="state-select">State or territory</label>
+        <select id="state-select">
+          <option value="">Nigeria — national view</option>
+        </select>
+        <div id="state-profile" class="state-profile" aria-live="polite"></div>
+        <div class="profile-actions">
+          <button id="download-state" class="button-primary" type="button">Download GeoJSON</button>
+          <button id="copy-state-link" class="button-secondary" type="button">Copy link</button>
+        </div>
+      </section>
+      <div class="layers-heading">
+        <span class="eyebrow">Map layers</span>
+        <span>Toggle public screening layers</span>
+      </div>
       <div id="category-list"></div>
       <div class="panel-footer">
-        v0.1 · Data compiled from Global Energy Monitor, EIA, OPEC, World Bank GGFR, UNEP-WCMC/WDPA, OpenStreetMap, NGA World Port Index, and the Nigeria SE4ALL Open Data Portal. See <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">sources and limitations</a> and <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/THIRD_PARTY_DATA.md" target="_blank" rel="noopener">third-party data rights</a>. Built for screening and research — verify before operational decisions.
+        v0.2 · State profiles count public-map records intersecting each state; they are screening summaries, not official administrative statistics. See <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">sources and limitations</a> and <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/THIRD_PARTY_DATA.md" target="_blank" rel="noopener">third-party data rights</a>.
       </div>
     </aside>
     <main class="mapwrap">
@@ -44,6 +66,28 @@
     </main>
   </div>
 </div>
+
+<dialog id="data-catalogue" aria-labelledby="catalogue-title">
+  <div class="catalogue-shell">
+    <header class="catalogue-header">
+      <div>
+        <span class="eyebrow">Public data inventory</span>
+        <h2 id="catalogue-title">Data catalogue</h2>
+        <p>Coverage, provenance, reuse terms, and direct downloads for every published map layer.</p>
+      </div>
+      <button id="catalogue-close" class="dialog-close" type="button" aria-label="Close data catalogue">×</button>
+    </header>
+    <div class="catalogue-tools">
+      <input id="catalogue-search" type="search" placeholder="Filter by dataset, category, or source…" />
+      <div id="catalogue-summary" class="catalogue-summary"></div>
+    </div>
+    <div id="catalogue-grid" class="catalogue-grid"></div>
+    <footer class="catalogue-footer">
+      Quality grades describe public screening fitness, not legal or commercial assurance.
+      Review the <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">full source register</a> before reuse.
+    </footer>
+  </div>
+</dialog>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="./assets/app.js"></script>

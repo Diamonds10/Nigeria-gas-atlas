@@ -35,13 +35,19 @@ The current public atlas is organized into six published analytical layers:
 5. Connectivity
 6. Renewables
 
-A seventh security layer is planned, but it is not part of the `v0.1` processed
+A seventh security layer is planned, but it is not part of the `v0.2` processed
 dataset or public map. This boundary is intentional: the source register records
 candidate security sources without presenting them as implemented evidence.
 
 The public value of the atlas is not any single output file. It is the combination of transparent provenance, reproducible workflows, and a structured way to compare upstream resources with downstream infrastructure and demand.
 
 ## Current public-facing value
+
+A live `v0.2` state-intelligence experience is available at
+[diamonds10.github.io/Nigeria-gas-atlas](https://diamonds10.github.io/Nigeria-gas-atlas/).
+It provides profiles for all 36 states and the FCT, state-specific shareable
+links and GeoJSON downloads, and a searchable catalogue covering all 15
+published map datasets.
 
 A ready-to-use public snapshot image is now available in [outputs/maps/nigeria_public_asset_snapshot.png](outputs/maps/nigeria_public_asset_snapshot.png). It presents a concise, state-labeled public atlas view with the current asset-count callouts for the main layer categories.
 
@@ -118,11 +124,9 @@ Current verified public-facing asset snapshot:
 - 28 demand-centre records
 - 66 mini-grid records
 
-For the map layer specifically, the current asset visibility notes already identify the main public-facing upgrade path:
-
-- add state names and state-boundary context
-- surface visible counts for power-producing plants and substations
-- clarify which layers are operational, policy-led, or provisional
+The interactive map now surfaces state-level screening summaries, direct
+processed-data downloads, quality grades, source dates, licensing caveats, and
+visible counts for every published layer.
 
 ## Repository structure
 

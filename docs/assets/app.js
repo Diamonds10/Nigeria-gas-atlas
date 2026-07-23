@@ -235,14 +235,27 @@
     subdomains: "abcd"
   }).addTo(map);
 
+  var selectedState = "";
+  var stateLayersByName = {};
+  function stateStyle(feature) {
+    var name = feature.properties && feature.properties.name;
+    var selected = selectedState && name === selectedState;
+    return {
+      color: selected ? cssVar("--accent") : cssVar("--line"),
+      weight: selected ? 2.8 : 1.4,
+      fillColor: selected ? cssVar("--accent") : cssVar("--paper-100"),
+      fillOpacity: selected ? 0.22 : 0.35
+    };
+  }
+
   var statesLayer = L.geoJSON(ATLAS.states, {
-    style: function () {
-      return { color: cssVar("--line"), weight: 1.4, fillColor: cssVar("--paper-100"), fillOpacity: 0.35 };
-    },
+    style: stateStyle,
     onEachFeature: function (feature, lyr) {
       var name = feature.properties && feature.properties.name;
       if (!name) return;
+      stateLayersByName[name] = lyr;
       lyr.bindTooltip(name, { permanent: true, direction: "center", className: "state-label", interactive: false });
+      lyr.on("click", function () { selectState(name, true); });
     }
   }).addTo(map);
   statesLayer.bringToBack();
@@ -392,7 +405,7 @@
         }
       });
     });
-    statesLayer.setStyle({ color: cssVar("--line"), fillColor: cssVar("--paper-100") });
+    statesLayer.setStyle(stateStyle);
   }
 
   // ---------------- Panel UI ----------------
@@ -452,6 +465,190 @@
     document.getElementById("stat-visible").textContent = n.toLocaleString();
   }
   updateVisibleStat();
+
+  // ---------------- State intelligence ----------------
+  var stateSelect = document.getElementById("state-select");
+  var stateProfileEl = document.getElementById("state-profile");
+  var downloadStateButton = document.getElementById("download-state");
+  var copyStateLinkButton = document.getElementById("copy-state-link");
+  var stateNames = Object.keys(ATLAS.state_profiles || {}).filter(function (name) { return name !== "Nigeria"; }).sort();
+
+  stateNames.forEach(function (name) {
+    var option = document.createElement("option");
+    option.value = name;
+    option.textContent = name;
+    stateSelect.appendChild(option);
+  });
+
+  function formatNumber(value, maximumFractionDigits) {
+    return Number(value || 0).toLocaleString(undefined, {
+      maximumFractionDigits: maximumFractionDigits === undefined ? 0 : maximumFractionDigits
+    });
+  }
+
+  function profileMetric(value, label) {
+    return '<div class="profile-metric"><strong>' + formatNumber(value) + '</strong><span>' + escapeHtml(label) + '</span></div>';
+  }
+
+  function renderStateProfile() {
+    var profileName = selectedState || "Nigeria";
+    var profile = ATLAS.state_profiles[profileName];
+    if (!profile) return;
+    var counts = profile.counts;
+    var capacity = profile.capacity;
+    var scopeLabel = selectedState ? "records intersecting state" : "national public-map records";
+    var capacityBits = [];
+    if (capacity.power_mw) capacityBits.push("<strong>" + formatNumber(capacity.power_mw, 1) + " MW</strong> reported power");
+    if (capacity.minigrid_kw) capacityBits.push("<strong>" + formatNumber(capacity.minigrid_kw, 1) + " kW</strong> mini-grid");
+    if (capacity.refinery_bpd) capacityBits.push("<strong>" + formatNumber(capacity.refinery_bpd) + " bpd</strong> refinery");
+
+    stateProfileEl.innerHTML =
+      '<div class="profile-title-row"><h3>' + escapeHtml(profileName) + '</h3><span>' + formatNumber(profile.mapped_records) + " " + escapeHtml(scopeLabel) + '</span></div>' +
+      '<div class="profile-metrics">' +
+        profileMetric(counts.power_plants, "Power-plant units") +
+        profileMetric(counts.substations, "Substations") +
+        profileMetric(counts.demand_centers, "Demand centres") +
+        profileMetric(counts.minigrids, "Mini-grids") +
+        profileMetric(counts.fields, "Oil & gas fields") +
+        profileMetric(counts.ports, "Ports & terminals") +
+      '</div>' +
+      (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +
+      '<p class="profile-note">Lines and protected areas are counted when their display geometry intersects the state. Unit-level datasets can contain several records at one facility. Offshore or unassigned records remain national.</p>';
+    downloadStateButton.textContent = selectedState ? "Download state GeoJSON" : "Download national GeoJSON";
+  }
+
+  function selectState(name, fitBounds) {
+    if (name && !ATLAS.state_profiles[name]) return;
+    selectedState = name || "";
+    stateSelect.value = selectedState;
+    statesLayer.setStyle(stateStyle);
+    if (selectedState && stateLayersByName[selectedState]) {
+      if (fitBounds) map.fitBounds(stateLayersByName[selectedState].getBounds(), { padding: [24, 24] });
+    } else if (fitBounds) {
+      map.fitBounds(NIGERIA_BOUNDS);
+    }
+    renderStateProfile();
+
+    var url = new URL(window.location.href);
+    if (selectedState) url.searchParams.set("state", selectedState);
+    else url.searchParams.delete("state");
+    window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+  }
+
+  stateSelect.addEventListener("change", function () {
+    selectState(stateSelect.value, true);
+  });
+
+  function selectedGeoJSON() {
+    var output = {
+      type: "FeatureCollection",
+      name: selectedState || "Nigeria",
+      atlas_release: ATLAS.release,
+      features: []
+    };
+    CAT_ORDER.forEach(function (catKey) {
+      var category = ATLAS.layers[catKey];
+      Object.keys(category.sublayers).forEach(function (subKey) {
+        category.sublayers[subKey].data.features.forEach(function (sourceFeature) {
+          var memberships = sourceFeature.properties._states || [];
+          if (selectedState && memberships.indexOf(selectedState) === -1) return;
+          var item = JSON.parse(JSON.stringify(sourceFeature));
+          item.properties.atlas_category = category.label;
+          item.properties.atlas_layer = category.sublayers[subKey].label;
+          item.properties.atlas_states = item.properties._states;
+          delete item.properties._states;
+          output.features.push(item);
+        });
+      });
+    });
+    return output;
+  }
+
+  downloadStateButton.addEventListener("click", function () {
+    var data = JSON.stringify(selectedGeoJSON());
+    var blob = new Blob([data], { type: "application/geo+json" });
+    var href = URL.createObjectURL(blob);
+    var anchor = document.createElement("a");
+    var slug = (selectedState || "nigeria").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    anchor.href = href;
+    anchor.download = "nigeria-infrastructure-atlas-" + slug + "-v" + ATLAS.release.version + ".geojson";
+    document.body.appendChild(anchor);
+    anchor.click();
+    anchor.remove();
+    URL.revokeObjectURL(href);
+  });
+
+  copyStateLinkButton.addEventListener("click", function () {
+    var original = copyStateLinkButton.textContent;
+    function showResult(label) {
+      copyStateLinkButton.textContent = label;
+      window.setTimeout(function () { copyStateLinkButton.textContent = original; }, 1400);
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(window.location.href).then(function () { showResult("Copied"); });
+    } else {
+      var temporary = document.createElement("textarea");
+      temporary.value = window.location.href;
+      document.body.appendChild(temporary);
+      temporary.select();
+      document.execCommand("copy");
+      temporary.remove();
+      showResult("Copied");
+    }
+  });
+
+  var initialState = new URLSearchParams(window.location.search).get("state") || "";
+  selectState(initialState, Boolean(initialState));
+
+  // ---------------- Data catalogue ----------------
+  var catalogueDialog = document.getElementById("data-catalogue");
+  var catalogueButton = document.getElementById("catalogue-button");
+  var catalogueClose = document.getElementById("catalogue-close");
+  var catalogueSearch = document.getElementById("catalogue-search");
+  var catalogueGrid = document.getElementById("catalogue-grid");
+  var catalogueSummary = document.getElementById("catalogue-summary");
+
+  function catalogueCard(item) {
+    return (
+      '<article class="catalogue-card">' +
+        '<div class="catalogue-card-head"><h3>' + escapeHtml(item.label) + '</h3><span class="quality-badge quality-' + escapeAttr(item.quality.toLowerCase()) + '" title="' + escapeAttr(item.quality_note) + '">' + escapeHtml(item.quality) + '</span></div>' +
+        '<div class="catalogue-category">' + escapeHtml(item.category_label) + ' · ' + formatNumber(item.record_count) + ' records</div>' +
+        '<p class="catalogue-description">' + escapeHtml(item.description) + '</p>' +
+        '<dl class="catalogue-facts">' +
+          '<div><dt>Source</dt><dd>' + escapeHtml(item.source) + '</dd></div>' +
+          '<div><dt>Accessed</dt><dd>' + escapeHtml(item.source_date) + '</dd></div>' +
+          '<div><dt>Reuse</dt><dd>' + escapeHtml(item.license) + '</dd></div>' +
+        '</dl>' +
+        '<p class="quality-note"><strong>Quality ' + escapeHtml(item.quality) + ':</strong> ' + escapeHtml(item.quality_note) + '</p>' +
+        '<a class="download-link" href="' + escapeAttr(item.download_url) + '" target="_blank" rel="noopener">Download processed CSV ↗</a>' +
+      '</article>'
+    );
+  }
+
+  function renderCatalogue(query) {
+    var normalized = (query || "").trim().toLowerCase();
+    var items = (ATLAS.catalogue || []).filter(function (item) {
+      if (!normalized) return true;
+      return [item.label, item.category_label, item.source, item.description, item.license]
+        .join(" ").toLowerCase().indexOf(normalized) !== -1;
+    });
+    catalogueGrid.innerHTML = items.map(catalogueCard).join("");
+    var records = items.reduce(function (sum, item) { return sum + item.record_count; }, 0);
+    catalogueSummary.textContent = items.length + " datasets · " + formatNumber(records) + " map records";
+  }
+
+  catalogueButton.addEventListener("click", function () {
+    renderCatalogue(catalogueSearch.value);
+    if (catalogueDialog.showModal) catalogueDialog.showModal();
+    else catalogueDialog.setAttribute("open", "");
+    catalogueSearch.focus();
+  });
+  catalogueClose.addEventListener("click", function () { catalogueDialog.close(); });
+  catalogueDialog.addEventListener("click", function (event) {
+    if (event.target === catalogueDialog) catalogueDialog.close();
+  });
+  catalogueSearch.addEventListener("input", function () { renderCatalogue(catalogueSearch.value); });
+  renderCatalogue("");
 
   // ---------------- Search ----------------
   var searchInput = document.getElementById("search-input");

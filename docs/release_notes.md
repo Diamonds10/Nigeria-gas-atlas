@@ -1,5 +1,27 @@
 # Release notes
 
+## v0.2.0 — State Intelligence and Data Catalogue
+
+Released 2026-07-24.
+
+### Included
+
+- reproducible profiles for Nigeria, all 36 states, and the FCT
+- per-feature ADM1 memberships derived from the committed state boundaries
+- state selection by dropdown or direct map click
+- shareable state URLs and state-specific GeoJSON downloads
+- national and state summaries for key asset counts and reported capacities
+- searchable catalogue for all 15 public map datasets
+- source, access-date, reuse, quality, limitation, record-count, and CSV-download metadata
+- automated profile and catalogue consistency checks
+
+### Interpretation boundary
+
+State figures count public-map records whose display geometry intersects a
+state. Lines and polygons can appear in multiple profiles, unit-level datasets
+can contain several records at one facility, and offshore features remain
+national rather than being forced into coastal states.
+
 ## v0.1.0 — Public Atlas
 
 Released 2026-07-23.

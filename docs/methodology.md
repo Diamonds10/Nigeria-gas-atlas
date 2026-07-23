@@ -4,7 +4,7 @@ The atlas is built as a reproducible geospatial evidence pipeline that converts 
 
 ## Core design
 
-The `v0.1` public atlas is organized around six implemented analytical layers:
+The `v0.2` public atlas is organized around six implemented analytical layers:
 
 - Resource: reserves, production, discoveries, and field-level site information.
 - Infrastructure: pipelines, LNG terminals, refineries, and power assets.
@@ -35,6 +35,32 @@ build publishes motorway and trunk roads, simplifies display geometry to a
 screening-appropriate tolerance, and retains the full-resolution major-road
 table in `data/processed/`. Release checks in `tests/` verify the committed
 bundle, expected counts, key schemas, and coordinate bounds.
+
+## State intelligence method
+
+The public build assigns each display feature to every ADM1 boundary its
+geometry intersects. Point features normally belong to one state; pipelines,
+roads, railways, grid lines, and protected areas may intersect several states.
+Offshore features remain in the Nigeria profile but are not artificially
+assigned to a coastal state.
+
+State profiles therefore report **public-map records intersecting a state**,
+not unique facilities or official administrative statistics. Power totals sum
+unit-level reported capacity, refinery totals sum reported nameplate capacity,
+and mini-grid totals sum records with published capacity. These summaries are
+appropriate for screening and comparison but require source-level review before
+operational or investment use.
+
+## Catalogue quality grades
+
+The website catalogue uses three concise screening grades:
+
+- A: authoritative or exact-site source geometry suitable for strong public screening
+- B: usable public geometry with material currency, completeness, or attribute caveats
+- C: derived or partly approximate compilation requiring closer source review
+
+Grades describe fitness for public screening. They are not certifications of
+accuracy, legal reuse, or commercial reliability.
 
 ## Data quality principles
 
