@@ -637,9 +637,9 @@ def add_catalogue_and_state_profiles(
     }
 
     bundle["release"] = {
-        "version": "0.4.1",
+        "version": "0.4.2",
         "date": "2026-07-24",
-        "title": "National Mini-grid Coverage Correction",
+        "title": "Mini-grid and Off-grid Layer Clarification",
     }
     bundle["catalogue"] = catalogue
     bundle["state_profiles"] = profiles
@@ -1031,7 +1031,7 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
                 "label": "Renewables",
                 "sublayers": {
                     "minigrids": sublayer(
-                        "Catalogued Off-grid Sites", "point", minigrids
+                        "Catalogued Mini-grid & Off-grid Sites", "point", minigrids
                     )
                 },
             },

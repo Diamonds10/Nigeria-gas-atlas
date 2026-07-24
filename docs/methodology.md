@@ -69,7 +69,7 @@ The accompanying audit covers all 36 states and the FCT. It distinguishes:
   geocoded commissioned record;
 - public-evidence gaps.
 
-Counts are therefore labelled **catalogued off-grid sites**. Zero means the
+Counts are therefore labelled **catalogued mini-grid and off-grid sites**. Zero means the
 implemented sources did not yield a verified map record; it never establishes
 that a state has no off-grid assets. Programme announcements and tenders are
 not promoted to asset records until location and delivery status are supported.

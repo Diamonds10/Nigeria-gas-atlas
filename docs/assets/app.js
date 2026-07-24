@@ -578,13 +578,13 @@
         profileMetric(counts.power_plants, "Power-plant units") +
         profileMetric(counts.substations, "Substations") +
         profileMetric(counts.demand_centers, "Demand centres") +
-        profileMetric(counts.minigrids, "Catalogued off-grid sites") +
+        profileMetric(counts.minigrids, "Catalogued mini-grid & off-grid sites") +
         profileMetric(counts.fields_oil + counts.fields_gas + counts.fields_mixed, "Oil & gas fields") +
         profileMetric(counts.ports, "Ports & terminals") +
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +
       (minigridCoverage.coverage_interpretation
-        ? '<div class="coverage-strip"><strong>Off-grid coverage note:</strong> ' +
+        ? '<div class="coverage-strip"><strong>Mini-grid & off-grid coverage note:</strong> ' +
           escapeHtml(minigridCoverage.coverage_interpretation) +
           (minigridCoverage.programme_evidence
             ? ' ' + escapeHtml(minigridCoverage.programme_evidence)

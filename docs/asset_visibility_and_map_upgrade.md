@@ -19,7 +19,7 @@ The map should display a compact asset-callout block such as:
 - 193 power-producing plants
 - 390 substations
 - 28 demand centres
-- 80 catalogued off-grid sites
+- 80 catalogued mini-grid and off-grid sites
 
 This makes the visual layer legible to public readers before they open the source tables.
 
@@ -45,7 +45,7 @@ Recommended visible summary blocks:
 - `power-producing plants`: 193
 - `substations`: 390
 - `demand centers`: 28
-- `catalogued off-grid sites`: 80
+- `catalogued mini-grid and off-grid sites`: 80
 
 These counts should appear in the map caption or legend area, not only in CSV files.
 

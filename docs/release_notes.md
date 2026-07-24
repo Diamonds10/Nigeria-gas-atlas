@@ -1,5 +1,16 @@
 # Release notes
 
+## v0.4.2 — Mini-grid and Off-grid Layer Clarification
+
+Released: 24 July 2026
+
+- renamed the public map layer and state metric to “Catalogued Mini-grid &
+  Off-grid Sites”
+- clarified the state coverage notice and site footer so both mini-grid and
+  off-grid systems are explicitly represented
+- retained “catalogued” because the public-source inventory is evidence-backed
+  but not an exhaustive national asset registry
+
 ## v0.4.1 — National Mini-grid Coverage Correction
 
 Released 2026-07-24.
@@ -13,7 +24,8 @@ Released 2026-07-24.
 - exact-site, facility, campus, and community coordinate-precision fields
 - a reproducible 37-state/FCT coverage audit
 - programme-only evidence for Abia, Borno, Ekiti, Enugu, Imo, and Zamfara
-- interface wording changed from implied asset totals to “catalogued off-grid sites”
+- interface wording changed from implied asset totals to explicitly catalogued
+  public-site counts
 - explicit warning that zero catalogued records does not mean zero assets
 
 ## v0.4.0 — Population, Settlements, and Electricity-access Context

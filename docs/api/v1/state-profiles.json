@@ -1,8 +1,8 @@
 {
   "atlas_release": {
-    "version": "0.4.1",
+    "version": "0.4.2",
     "date": "2026-07-24",
-    "title": "National Mini-grid Coverage Correction"
+    "title": "Mini-grid and Off-grid Layer Clarification"
   },
   "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
   "profiles": {

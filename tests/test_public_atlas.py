@@ -246,7 +246,7 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.4.1")
+        self.assertEqual(manifest["atlas_release"]["version"], "0.4.2")
         self.assertEqual(len(manifest["layers"]), 22)
         for layer in manifest["layers"]:
             endpoint = API_DIR / layer["endpoint"]

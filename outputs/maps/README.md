@@ -59,7 +59,7 @@ The snapshot is best understood as a public screening view rather than a complet
 - 193 power-producing plant records are shown
 - 390 substation records are shown
 - 28 demand-centre records are shown
-- 80 catalogued off-grid records are shown
+- 80 catalogued mini-grid and off-grid records are shown
 
 The mini-grid layer is especially useful because it provides a public, site-level, geocoded distributed-energy view with evidence on status and technology mix.
 

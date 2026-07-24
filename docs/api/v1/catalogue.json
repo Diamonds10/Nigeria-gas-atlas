@@ -1,8 +1,8 @@
 {
   "atlas_release": {
-    "version": "0.4.1",
+    "version": "0.4.2",
     "date": "2026-07-24",
-    "title": "National Mini-grid Coverage Correction"
+    "title": "Mini-grid and Off-grid Layer Clarification"
   },
   "datasets": [
     {
@@ -301,7 +301,7 @@
       "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
       "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
       "key": "minigrids",
-      "label": "Catalogued Off-grid Sites",
+      "label": "Catalogued Mini-grid & Off-grid Sites",
       "category": "renewables",
       "category_label": "Renewables",
       "record_count": 80,

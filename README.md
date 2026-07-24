@@ -68,7 +68,7 @@ The snapshot image itself is explicitly framed as a public screening snapshot, n
 
 Public evidence-quality signal from the current benchmark:
 
-- 80 catalogued off-grid sites across 30 states and the FCT
+- 80 catalogued mini-grid and off-grid sites across 30 states and the FCT
 - 52 operational, 13 under construction, 13 commissioned, 1 under
   rehabilitation, and 1 unknown
 - 66 Nigeria SE4ALL records plus 14 named official-source additions
@@ -145,7 +145,7 @@ Current verified public-facing asset snapshot:
 - 193 oil/gas power-producing plant records
 - 390 substation records
 - 28 demand-centre records
-- 80 catalogued off-grid records
+- 80 catalogued mini-grid and off-grid records
 
 The interactive map now surfaces state-level screening summaries, direct
 processed-data downloads, quality grades, source dates, licensing caveats, and

@@ -6,7 +6,7 @@ The mini-grid layer in this repository is now strong enough to support public sc
 
 ### Current evidence quality
 
-- 80 catalogued off-grid records
+- 80 catalogued mini-grid and off-grid records
 - 30 states and the FCT covered
 - 52 operational sites
 - 13 under construction
