@@ -38,6 +38,15 @@ CATALOGUE = {
         "quality_note": "Verified source points; field snapshot dates from August 2023.",
         "path": "data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
     },
+    "gas_field_polygons": {
+        "description": "Oil and gas field boundary polygons, including field names not present in the GOGET point inventory above.",
+        "source": "Nigeria SE4ALL Open Data Portal",
+        "source_date": "2026-07-24",
+        "license": "Public portal; explicit redistribution terms not stated",
+        "quality": "B",
+        "quality_note": "Adds real field footprints plus 33 field names not covered by GOGET; 8 of 124 polygons carry no field name in the source.",
+        "path": "data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv",
+    },
     "gas_pipelines": {
         "description": "Gas transmission pipeline routes that include Nigeria.",
         "source": "Global Energy Monitor / GreenInfo Network GGIT mirror",
@@ -82,6 +91,15 @@ CATALOGUE = {
         "quality": "C",
         "quality_note": "Major refineries only; some coordinates are approximate and modular refineries are incomplete.",
         "path": "data/processed/02_infrastructure/refineries_nigeria.csv",
+    },
+    "gas_infrastructure": {
+        "description": "Upstream and midstream oil/gas point infrastructure: compressor stations, gas plants, flow stations, and FPSOs (floating production, storage & offloading vessels).",
+        "source": "Nigeria SE4ALL Open Data Portal",
+        "source_date": "2026-07-24",
+        "license": "Public portal; explicit redistribution terms not stated",
+        "quality": "C",
+        "quality_note": "Status, operator, and capacity fields are inconsistently populated. Records matching a facility already tracked in refineries or LNG terminals above are excluded here to avoid double-counting.",
+        "path": "data/processed/02_infrastructure/se4all_gas_infrastructure_nigeria_2026-07.csv",
     },
     "protected_areas": {
         "description": "Protected and conserved areas including forest reserves, parks, and wetlands.",
@@ -235,12 +253,15 @@ def wkt_features(
     label_column: str,
     *,
     where: tuple[str, set[str]] | None = None,
+    exclude_notna: str | None = None,
     centroid: bool = False,
 ) -> list[dict[str, Any]]:
     frame = pd.read_csv(path)
     if where:
         column, allowed = where
         frame = frame[frame[column].isin(allowed)]
+    if exclude_notna:
+        frame = frame[frame[exclude_notna].isna()]
     frame = frame.dropna(subset=[geometry_column])
     output = []
     for _, row in frame.iterrows():
@@ -299,7 +320,7 @@ def status_bucket(props: dict[str, Any]) -> str:
         return "development"
     if any(value in raw for value in ("proposed", "planned", "announced", "discovered")):
         return "proposed"
-    if any(value in raw for value in ("mothballed", "cancelled", "shelved", "shut in", "retired")):
+    if any(value in raw for value in ("mothballed", "cancelled", "shelved", "shut in", "retired", "down")):
         return "inactive"
     return "other"
 
@@ -628,6 +649,15 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         ],
         "project",
     )
+    gas_field_polygons = wkt_features(
+        PROCESSED / "01_resource/se4all_gas_fields_nigeria_2026-07.csv",
+        "geometry",
+        ["name", "field_type", "in_goget_fields"],
+        "name",
+    )
+    for item in gas_field_polygons:
+        if "in_goget_fields" in item["properties"]:
+            item["properties"]["in_goget_fields"] = "Yes" if item["properties"]["in_goget_fields"] else "No"
     gas_pipelines = route_features(
         PROCESSED / "02_infrastructure/ggit_gas_pipelines_nigeria.csv",
         [
@@ -664,6 +694,13 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         "lng", "lat",
         ["project", "operator", "state", "status", "capacity_bpd", "commissioned_year"],
         "project",
+    )
+    gas_infrastructure = wkt_features(
+        PROCESSED / "02_infrastructure/se4all_gas_infrastructure_nigeria_2026-07.csv",
+        "geometry",
+        ["name", "type", "status", "company", "location", "design_cap", "date_of_co"],
+        "name",
+        exclude_notna="possible_duplicate_of",
     )
     protected_areas = wkt_features(
         PROCESSED / "03_environmental/wdpa_protected_areas_nigeria.csv",
@@ -728,7 +765,10 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         "layers": {
             "resource": {
                 "label": "Resource",
-                "sublayers": {"fields": sublayer("Oil & Gas Fields", "point", fields)},
+                "sublayers": {
+                    "fields": sublayer("Oil & Gas Fields", "point", fields),
+                    "gas_field_polygons": sublayer("Field Boundaries", "polygon", gas_field_polygons),
+                },
             },
             "infrastructure": {
                 "label": "Infrastructure",
@@ -738,6 +778,7 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
                     "lng_terminals": sublayer("LNG Terminals", "point", lng_terminals),
                     "power_plants": sublayer("Gas & Oil Power Plants", "point", power_plants),
                     "refineries": sublayer("Refineries", "point", refineries),
+                    "gas_infrastructure": sublayer("Gas & Oil Point Infrastructure", "point", gas_infrastructure),
                 },
             },
             "environmental": {

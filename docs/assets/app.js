@@ -54,6 +54,7 @@
     lng_terminals: "hex",
     power_plants: "square",
     refineries: "triangle",
+    gas_infrastructure: "diamond",
     demand_centers: "diamond",
     rail_stations: "square",
     substations: "triangle",
@@ -69,11 +70,13 @@
   };
   var DEFAULT_ON = {
     fields: true,
+    gas_field_polygons: false,
     gas_pipelines: true,
     oil_pipelines: true,
     lng_terminals: true,
     power_plants: true,
     refineries: true,
+    gas_infrastructure: true,
     protected_areas: false,
     demand_centers: true,
     roads: false,
@@ -176,7 +179,10 @@
     PORT_NAME: "Port", HARBORSIZE: "Harbor size", HARBORTYPE: "Harbor type",
     CARGOWHARF: "Cargo wharf", CRANEFIXED: "Fixed crane", RAILWAY: "Rail service", MAX_VESSEL: "Max vessel size",
     asset_name: "Site", lga: "LGA", capacity_kw: "Capacity (kW)", customers_served: "Customers served",
-    financing_source: "Financing", source_url: "Source"
+    financing_source: "Financing", source_url: "Source",
+    field_type: "Field type", in_goget_fields: "Also in GOGET inventory",
+    type: "Asset type", company: "Operator", location: "Location",
+    design_cap: "Design capacity", date_of_co: "Commissioned"
   };
   var SKIP_IN_ROWS = { project: 1, url: 1, NAME: 1, demand_center: 1, name: 1, PORT_NAME: 1, status: 1, STATUS: 1, asset_name: 1, source_url: 1 };
 

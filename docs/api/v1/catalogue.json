@@ -21,6 +21,21 @@
       "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/01_resource/goget_fields_nigeria_2023-08.csv"
     },
     {
+      "description": "Oil and gas field boundary polygons, including field names not present in the GOGET point inventory above.",
+      "source": "Nigeria SE4ALL Open Data Portal",
+      "source_date": "2026-07-24",
+      "license": "Public portal; explicit redistribution terms not stated",
+      "quality": "B",
+      "quality_note": "Adds real field footprints plus 33 field names not covered by GOGET; 8 of 124 polygons carry no field name in the source.",
+      "path": "data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv",
+      "key": "gas_field_polygons",
+      "label": "Field Boundaries",
+      "category": "resource",
+      "category_label": "Resource",
+      "record_count": 124,
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv"
+    },
+    {
       "description": "Gas transmission pipeline routes that include Nigeria.",
       "source": "Global Energy Monitor / GreenInfo Network GGIT mirror",
       "source_date": "2026-07-21",
@@ -94,6 +109,21 @@
       "category_label": "Infrastructure",
       "record_count": 4,
       "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/02_infrastructure/refineries_nigeria.csv"
+    },
+    {
+      "description": "Upstream and midstream oil/gas point infrastructure: compressor stations, gas plants, flow stations, and FPSOs (floating production, storage & offloading vessels).",
+      "source": "Nigeria SE4ALL Open Data Portal",
+      "source_date": "2026-07-24",
+      "license": "Public portal; explicit redistribution terms not stated",
+      "quality": "C",
+      "quality_note": "Status, operator, and capacity fields are inconsistently populated. Records matching a facility already tracked in refineries or LNG terminals above are excluded here to avoid double-counting.",
+      "path": "data/processed/02_infrastructure/se4all_gas_infrastructure_nigeria_2026-07.csv",
+      "key": "gas_infrastructure",
+      "label": "Gas & Oil Point Infrastructure",
+      "category": "infrastructure",
+      "category_label": "Infrastructure",
+      "record_count": 98,
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/02_infrastructure/se4all_gas_infrastructure_nigeria_2026-07.csv"
     },
     {
       "description": "Protected and conserved areas including forest reserves, parks, and wetlands.",

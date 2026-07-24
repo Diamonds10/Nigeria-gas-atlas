@@ -8,14 +8,16 @@
   "profiles": {
     "Nigeria": {
       "name": "Nigeria",
-      "mapped_records": 9531,
+      "mapped_records": 9753,
       "counts": {
         "fields": 180,
+        "gas_field_polygons": 124,
         "gas_pipelines": 24,
         "oil_pipelines": 15,
         "lng_terminals": 24,
         "power_plants": 193,
         "refineries": 4,
+        "gas_infrastructure": 98,
         "protected_areas": 1005,
         "demand_centers": 28,
         "roads": 5124,
@@ -27,8 +29,8 @@
         "minigrids": 66
       },
       "category_counts": {
-        "resource": 180,
-        "infrastructure": 260,
+        "resource": 304,
+        "infrastructure": 358,
         "environmental": 1005,
         "demand": 28,
         "connectivity": 7992,
@@ -40,24 +42,26 @@
         "minigrid_kw": 3016.0
       },
       "status": {
-        "operating": 358,
-        "development": 38,
-        "proposed": 119,
-        "inactive": 30,
-        "other": 994,
-        "unknown": 7992
+        "operating": 386,
+        "development": 40,
+        "proposed": 120,
+        "inactive": 43,
+        "other": 1011,
+        "unknown": 8153
       }
     },
     "Cross River": {
       "name": "Cross River",
-      "mapped_records": 217,
+      "mapped_records": 218,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 1,
         "oil_pipelines": 0,
         "lng_terminals": 4,
         "power_plants": 11,
         "refineries": 0,
+        "gas_infrastructure": 1,
         "protected_areas": 22,
         "demand_centers": 1,
         "roads": 153,
@@ -70,7 +74,7 @@
       },
       "category_counts": {
         "resource": 0,
-        "infrastructure": 16,
+        "infrastructure": 17,
         "environmental": 22,
         "demand": 1,
         "connectivity": 176,
@@ -87,7 +91,7 @@
         "proposed": 6,
         "inactive": 4,
         "other": 22,
-        "unknown": 176
+        "unknown": 177
       }
     },
     "Abuja Federal Capital Territory": {
@@ -95,11 +99,13 @@
       "mapped_records": 600,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 2,
         "oil_pipelines": 1,
         "lng_terminals": 0,
         "power_plants": 3,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 21,
         "demand_centers": 0,
         "roads": 468,
@@ -134,14 +140,16 @@
     },
     "Ogun": {
       "name": "Ogun",
-      "mapped_records": 505,
+      "mapped_records": 506,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 4,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 4,
         "refineries": 0,
+        "gas_infrastructure": 1,
         "protected_areas": 21,
         "demand_centers": 6,
         "roads": 266,
@@ -154,7 +162,7 @@
       },
       "category_counts": {
         "resource": 0,
-        "infrastructure": 8,
+        "infrastructure": 9,
         "environmental": 21,
         "demand": 6,
         "connectivity": 467,
@@ -167,7 +175,7 @@
       },
       "status": {
         "operating": 12,
-        "development": 1,
+        "development": 2,
         "proposed": 1,
         "inactive": 2,
         "other": 22,
@@ -179,11 +187,13 @@
       "mapped_records": 466,
       "counts": {
         "fields": 1,
+        "gas_field_polygons": 0,
         "gas_pipelines": 2,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 26,
         "demand_centers": 0,
         "roads": 336,
@@ -221,11 +231,13 @@
       "mapped_records": 198,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 36,
         "demand_centers": 1,
         "roads": 107,
@@ -263,11 +275,13 @@
       "mapped_records": 195,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 1,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 23,
         "demand_centers": 0,
         "roads": 139,
@@ -302,14 +316,16 @@
     },
     "Lagos": {
       "name": "Lagos",
-      "mapped_records": 791,
+      "mapped_records": 793,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 4,
         "oil_pipelines": 0,
         "lng_terminals": 1,
         "power_plants": 28,
         "refineries": 1,
+        "gas_infrastructure": 2,
         "protected_areas": 2,
         "demand_centers": 2,
         "roads": 478,
@@ -322,7 +338,7 @@
       },
       "category_counts": {
         "resource": 0,
-        "infrastructure": 34,
+        "infrastructure": 36,
         "environmental": 2,
         "demand": 2,
         "connectivity": 753,
@@ -335,23 +351,25 @@
       },
       "status": {
         "operating": 13,
-        "development": 0,
+        "development": 1,
         "proposed": 21,
         "inactive": 2,
         "other": 2,
-        "unknown": 753
+        "unknown": 754
       }
     },
     "Akwa Ibom": {
       "name": "Akwa Ibom",
-      "mapped_records": 211,
+      "mapped_records": 213,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 4,
         "oil_pipelines": 3,
         "lng_terminals": 0,
         "power_plants": 16,
         "refineries": 0,
+        "gas_infrastructure": 2,
         "protected_areas": 5,
         "demand_centers": 0,
         "roads": 146,
@@ -364,7 +382,7 @@
       },
       "category_counts": {
         "resource": 0,
-        "infrastructure": 23,
+        "infrastructure": 25,
         "environmental": 5,
         "demand": 0,
         "connectivity": 182,
@@ -378,22 +396,24 @@
       "status": {
         "operating": 11,
         "development": 0,
-        "proposed": 9,
+        "proposed": 10,
         "inactive": 5,
         "other": 4,
-        "unknown": 182
+        "unknown": 183
       }
     },
     "Bayelsa": {
       "name": "Bayelsa",
-      "mapped_records": 52,
+      "mapped_records": 82,
       "counts": {
         "fields": 15,
+        "gas_field_polygons": 20,
         "gas_pipelines": 1,
         "oil_pipelines": 6,
         "lng_terminals": 0,
         "power_plants": 7,
         "refineries": 0,
+        "gas_infrastructure": 10,
         "protected_areas": 14,
         "demand_centers": 0,
         "roads": 0,
@@ -405,8 +425,8 @@
         "minigrids": 2
       },
       "category_counts": {
-        "resource": 15,
-        "infrastructure": 14,
+        "resource": 35,
+        "infrastructure": 24,
         "environmental": 14,
         "demand": 0,
         "connectivity": 7,
@@ -418,12 +438,12 @@
         "minigrid_kw": 134.0
       },
       "status": {
-        "operating": 26,
+        "operating": 27,
         "development": 0,
         "proposed": 7,
         "inactive": 0,
-        "other": 12,
-        "unknown": 7
+        "other": 19,
+        "unknown": 29
       }
     },
     "Ondo": {
@@ -431,11 +451,13 @@
       "mapped_records": 140,
       "counts": {
         "fields": 2,
+        "gas_field_polygons": 0,
         "gas_pipelines": 3,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 8,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 27,
         "demand_centers": 0,
         "roads": 57,
@@ -470,14 +492,16 @@
     },
     "Delta": {
       "name": "Delta",
-      "mapped_records": 325,
+      "mapped_records": 376,
       "counts": {
         "fields": 34,
+        "gas_field_polygons": 24,
         "gas_pipelines": 5,
         "oil_pipelines": 6,
         "lng_terminals": 0,
         "power_plants": 47,
         "refineries": 1,
+        "gas_infrastructure": 27,
         "protected_areas": 21,
         "demand_centers": 2,
         "roads": 68,
@@ -489,8 +513,8 @@
         "minigrids": 0
       },
       "category_counts": {
-        "resource": 34,
-        "infrastructure": 59,
+        "resource": 58,
+        "infrastructure": 86,
         "environmental": 21,
         "demand": 2,
         "connectivity": 209,
@@ -502,24 +526,26 @@
         "minigrid_kw": 0.0
       },
       "status": {
-        "operating": 60,
+        "operating": 66,
         "development": 3,
         "proposed": 20,
-        "inactive": 12,
-        "other": 21,
-        "unknown": 209
+        "inactive": 24,
+        "other": 24,
+        "unknown": 239
       }
     },
     "Rivers": {
       "name": "Rivers",
-      "mapped_records": 255,
+      "mapped_records": 295,
       "counts": {
         "fields": 20,
+        "gas_field_polygons": 22,
         "gas_pipelines": 9,
         "oil_pipelines": 3,
         "lng_terminals": 15,
         "power_plants": 15,
         "refineries": 1,
+        "gas_infrastructure": 18,
         "protected_areas": 11,
         "demand_centers": 4,
         "roads": 80,
@@ -531,8 +557,8 @@
         "minigrids": 4
       },
       "category_counts": {
-        "resource": 20,
-        "infrastructure": 43,
+        "resource": 42,
+        "infrastructure": 61,
         "environmental": 11,
         "demand": 4,
         "connectivity": 173,
@@ -544,12 +570,12 @@
         "minigrid_kw": 81.0
       },
       "status": {
-        "operating": 59,
+        "operating": 67,
         "development": 3,
         "proposed": 9,
-        "inactive": 1,
-        "other": 10,
-        "unknown": 173
+        "inactive": 2,
+        "other": 14,
+        "unknown": 200
       }
     },
     "Kwara": {
@@ -557,11 +583,13 @@
       "mapped_records": 307,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 1,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 33,
         "demand_centers": 0,
         "roads": 237,
@@ -599,11 +627,13 @@
       "mapped_records": 419,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 5,
         "oil_pipelines": 1,
         "lng_terminals": 0,
         "power_plants": 23,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 37,
         "demand_centers": 4,
         "roads": 160,
@@ -641,11 +671,13 @@
       "mapped_records": 229,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 1,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 35,
         "demand_centers": 1,
         "roads": 137,
@@ -683,11 +715,13 @@
       "mapped_records": 247,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 1,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 78,
         "demand_centers": 0,
         "roads": 113,
@@ -725,11 +759,13 @@
       "mapped_records": 245,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 71,
         "demand_centers": 0,
         "roads": 137,
@@ -767,11 +803,13 @@
       "mapped_records": 240,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 37,
         "demand_centers": 0,
         "roads": 130,
@@ -806,14 +844,16 @@
     },
     "Edo": {
       "name": "Edo",
-      "mapped_records": 357,
+      "mapped_records": 365,
       "counts": {
         "fields": 5,
+        "gas_field_polygons": 4,
         "gas_pipelines": 6,
         "oil_pipelines": 1,
         "lng_terminals": 0,
         "power_plants": 11,
         "refineries": 0,
+        "gas_infrastructure": 4,
         "protected_areas": 48,
         "demand_centers": 2,
         "roads": 152,
@@ -825,8 +865,8 @@
         "minigrids": 4
       },
       "category_counts": {
-        "resource": 5,
-        "infrastructure": 18,
+        "resource": 9,
+        "infrastructure": 22,
         "environmental": 48,
         "demand": 2,
         "connectivity": 280,
@@ -838,12 +878,12 @@
         "minigrid_kw": 150.0
       },
       "status": {
-        "operating": 21,
+        "operating": 23,
         "development": 3,
         "proposed": 8,
         "inactive": 0,
-        "other": 45,
-        "unknown": 280
+        "other": 46,
+        "unknown": 285
       }
     },
     "Jigawa": {
@@ -851,11 +891,13 @@
       "mapped_records": 116,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 71,
         "demand_centers": 0,
         "roads": 18,
@@ -893,11 +935,13 @@
       "mapped_records": 139,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 4,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 12,
         "demand_centers": 0,
         "roads": 92,
@@ -935,11 +979,13 @@
       "mapped_records": 308,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 1,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 4,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 16,
         "demand_centers": 0,
         "roads": 133,
@@ -977,11 +1023,13 @@
       "mapped_records": 204,
       "counts": {
         "fields": 35,
+        "gas_field_polygons": 0,
         "gas_pipelines": 2,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 34,
         "demand_centers": 0,
         "roads": 107,
@@ -1019,11 +1067,13 @@
       "mapped_records": 225,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 17,
         "demand_centers": 0,
         "roads": 67,
@@ -1058,14 +1108,16 @@
     },
     "Imo": {
       "name": "Imo",
-      "mapped_records": 84,
+      "mapped_records": 86,
       "counts": {
         "fields": 3,
+        "gas_field_polygons": 0,
         "gas_pipelines": 1,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 4,
         "refineries": 0,
+        "gas_infrastructure": 2,
         "protected_areas": 5,
         "demand_centers": 0,
         "roads": 55,
@@ -1078,7 +1130,7 @@
       },
       "category_counts": {
         "resource": 3,
-        "infrastructure": 5,
+        "infrastructure": 7,
         "environmental": 5,
         "demand": 0,
         "connectivity": 71,
@@ -1090,7 +1142,7 @@
         "minigrid_kw": 0.0
       },
       "status": {
-        "operating": 3,
+        "operating": 5,
         "development": 3,
         "proposed": 1,
         "inactive": 1,
@@ -1103,11 +1155,13 @@
       "mapped_records": 185,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 34,
         "demand_centers": 1,
         "roads": 67,
@@ -1145,11 +1199,13 @@
       "mapped_records": 201,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 21,
         "demand_centers": 0,
         "roads": 163,
@@ -1187,11 +1243,13 @@
       "mapped_records": 136,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 40,
         "demand_centers": 0,
         "roads": 68,
@@ -1226,14 +1284,16 @@
     },
     "Abia": {
       "name": "Abia",
-      "mapped_records": 127,
+      "mapped_records": 132,
       "counts": {
         "fields": 1,
+        "gas_field_polygons": 2,
         "gas_pipelines": 2,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 6,
         "refineries": 0,
+        "gas_infrastructure": 3,
         "protected_areas": 7,
         "demand_centers": 1,
         "roads": 65,
@@ -1245,8 +1305,8 @@
         "minigrids": 0
       },
       "category_counts": {
-        "resource": 1,
-        "infrastructure": 8,
+        "resource": 3,
+        "infrastructure": 11,
         "environmental": 7,
         "demand": 1,
         "connectivity": 110,
@@ -1258,12 +1318,12 @@
         "minigrid_kw": 0.0
       },
       "status": {
-        "operating": 6,
+        "operating": 8,
         "development": 2,
         "proposed": 1,
         "inactive": 1,
         "other": 7,
-        "unknown": 110
+        "unknown": 113
       }
     },
     "Ekiti": {
@@ -1271,11 +1331,13 @@
       "mapped_records": 20,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 14,
         "demand_centers": 0,
         "roads": 0,
@@ -1313,11 +1375,13 @@
       "mapped_records": 129,
       "counts": {
         "fields": 1,
+        "gas_field_polygons": 0,
         "gas_pipelines": 2,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 11,
         "demand_centers": 0,
         "roads": 59,
@@ -1355,11 +1419,13 @@
       "mapped_records": 255,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 71,
         "demand_centers": 0,
         "roads": 105,
@@ -1397,11 +1463,13 @@
       "mapped_records": 463,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 2,
         "oil_pipelines": 1,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 88,
         "demand_centers": 1,
         "roads": 175,
@@ -1439,11 +1507,13 @@
       "mapped_records": 782,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 2,
         "oil_pipelines": 1,
         "lng_terminals": 0,
         "power_plants": 1,
         "refineries": 1,
+        "gas_infrastructure": 0,
         "protected_areas": 85,
         "demand_centers": 1,
         "roads": 313,
@@ -1481,11 +1551,13 @@
       "mapped_records": 182,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 1,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 14,
         "demand_centers": 0,
         "roads": 112,
@@ -1523,11 +1595,13 @@
       "mapped_records": 259,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 0,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 42,
         "demand_centers": 0,
         "roads": 202,
@@ -1565,11 +1639,13 @@
       "mapped_records": 85,
       "counts": {
         "fields": 0,
+        "gas_field_polygons": 0,
         "gas_pipelines": 1,
         "oil_pipelines": 0,
         "lng_terminals": 0,
         "power_plants": 0,
         "refineries": 0,
+        "gas_infrastructure": 0,
         "protected_areas": 10,
         "demand_centers": 0,
         "roads": 57,
