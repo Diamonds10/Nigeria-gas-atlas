@@ -1,18 +1,11 @@
 # Renewable asset intake workflow
 
-**Status: superseded (2026-07-23).** This manual page-by-page intake path was the
-right plan when written, on the assumption that no clean geocoded source existed.
-That assumption turned out to be wrong: the Nigeria SE4ALL Open Data Portal's
-GeoServer backend has a real 66-site geocoded mini-grid inventory, now the primary
-Layer 7 dataset at `data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv`
-(built by `scripts/07_renewables/01_download_minigrids.py` /
-`02_process_minigrids.py` — see `docs/data_sources.md`, Layer 7). The `first_pass`
-and template files this workflow originally produced have been removed as
-superseded. What remains from this workflow is `01_download_rea_public_offgrid.py`
-and `02_process_rea_public_offgrid.py`, kept only to produce
-`rea_public_offgrid_sources_manifest.csv` — a provenance record of the programme
-pages (REA, NEP, DARES, Solar Power Naija, World Bank) consulted, since those pages
-still carry useful programme-level context even though they aren't a site inventory.
+**Status: implemented as a hybrid intake (updated 2026-07-24).** The Nigeria
+SE4ALL WFS supplies 66 structured source records. A state-by-state audit showed
+that this omits documented assets, including Bayero University Kano. The current
+processor therefore merges that source with
+`data/curated/07_renewables/verified_public_offgrid_supplement.csv` and writes
+both the 80-record canonical registry and a 37-state/FCT coverage audit.
 
 ## Objective
 
@@ -42,10 +35,11 @@ This workflow provides a first practical intake path for adding renewable off-gr
 4. Flag every record with notes so users know what is confirmed versus inferred.
 5. Promote higher-confidence rows into a future cleaned and geocoded layer.
 
-## Current first-pass output
+## Current outputs
 
-The repository now includes a starter intake file:
+- `data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv`
+- `data/processed/07_renewables/minigrid_state_coverage_audit.csv`
 
-- `data/processed/07_renewables/rea_public_offgrid_first_pass.csv`
-
-That file is intentionally conservative and public-facing. It should be treated as a screening intake rather than a definitive asset registry.
+Only named records with defensible public evidence and usable location
+precision enter the map. Programme agreements, tenders, and announced targets
+remain coverage-audit evidence until commissioning and location can be verified.

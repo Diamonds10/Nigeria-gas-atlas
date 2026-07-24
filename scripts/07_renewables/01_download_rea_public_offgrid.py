@@ -1,6 +1,6 @@
 """
 Downloads public REA / NEP / DARES / Solar Power Naija pages that are useful for
-building a future Nigeria renewable off-grid and mini-grid asset layer.
+auditing and extending Nigeria's renewable off-grid and mini-grid asset layer.
 
 This is intentionally conservative: it gathers public-source pages, preserves the
 original URLs, and provides a reproducible intake step for later asset curation.

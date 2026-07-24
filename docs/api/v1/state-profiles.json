@@ -1,14 +1,14 @@
 {
   "atlas_release": {
-    "version": "0.4.0",
+    "version": "0.4.1",
     "date": "2026-07-24",
-    "title": "Population, Settlements, and Electricity-access Context"
+    "title": "National Mini-grid Coverage Correction"
   },
   "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
   "profiles": {
     "Nigeria": {
       "name": "Nigeria",
-      "mapped_records": 12511,
+      "mapped_records": 12525,
       "counts": {
         "fields_oil": 33,
         "fields_gas": 2,
@@ -29,7 +29,7 @@
         "power_grid": 931,
         "substations": 390,
         "ports": 25,
-        "minigrids": 66,
+        "minigrids": 80,
         "population_access": 1278,
         "settlements": 1480
       },
@@ -39,17 +39,17 @@
         "environmental": 1005,
         "demand": 28,
         "connectivity": 7992,
-        "renewables": 66,
+        "renewables": 80,
         "context": 2758
       },
       "capacity": {
         "power_mw": 36108.0,
         "refinery_bpd": 1095000.0,
-        "minigrid_kw": 3016.0
+        "minigrid_kw": 33680.4
       },
       "status": {
-        "operating": 386,
-        "development": 40,
+        "operating": 399,
+        "development": 41,
         "proposed": 120,
         "inactive": 43,
         "other": 1011,
@@ -64,6 +64,14 @@
         "nightlight_population_share_pct": 65.92162459376803,
         "population_weighted_distance_transmission_km": 2.132134247688104,
         "population_weighted_distance_gridlight_km": 2.6762157846070176
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 80,
+        "states_or_territories_with_records": 31,
+        "states_or_territories_audited": 37,
+        "coverage_status": "national_public_source_screening_inventory",
+        "coverage_interpretation": "Named public records from implemented sources; not a complete national operating registry.",
+        "audit_date": "2026-07-24"
       }
     },
     "Cross River": {
@@ -124,6 +132,18 @@
         "nightlight_population_share_pct": 54.53994861449437,
         "population_weighted_distance_transmission_km": 0.7479232506281775,
         "population_weighted_distance_gridlight_km": 3.1349610144091944
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 2,
+        "se4all_record_count": 2,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 2,
+        "operational_or_commissioned_count": 2,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Abuja Federal Capital Territory": {
@@ -184,11 +204,23 @@
         "nightlight_population_share_pct": 90.9812056566058,
         "population_weighted_distance_transmission_km": 0.4175101564103536,
         "population_weighted_distance_gridlight_km": 0.4391098843525586
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 4,
+        "se4all_record_count": 4,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 4,
+        "operational_or_commissioned_count": 3,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Ogun": {
       "name": "Ogun",
-      "mapped_records": 568,
+      "mapped_records": 569,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -209,7 +241,7 @@
         "power_grid": 52,
         "substations": 32,
         "ports": 0,
-        "minigrids": 3,
+        "minigrids": 4,
         "population_access": 23,
         "settlements": 39
       },
@@ -219,16 +251,16 @@
         "environmental": 21,
         "demand": 6,
         "connectivity": 467,
-        "renewables": 3,
+        "renewables": 4,
         "context": 62
       },
       "capacity": {
         "power_mw": 1154.0,
         "refinery_bpd": 0.0,
-        "minigrid_kw": 200.0
+        "minigrid_kw": 1276.4
       },
       "status": {
-        "operating": 12,
+        "operating": 13,
         "development": 2,
         "proposed": 1,
         "inactive": 2,
@@ -244,6 +276,18 @@
         "nightlight_population_share_pct": 84.18545381766458,
         "population_weighted_distance_transmission_km": 0.7999215976836588,
         "population_weighted_distance_gridlight_km": 0.8470012461553136
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 4,
+        "se4all_record_count": 3,
+        "official_supplement_count": 1,
+        "exact_site_record_count": 4,
+        "operational_or_commissioned_count": 3,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Oyo": {
@@ -304,11 +348,23 @@
         "nightlight_population_share_pct": 89.63163064776596,
         "population_weighted_distance_transmission_km": 0.5266648390286996,
         "population_weighted_distance_gridlight_km": 0.8061105131026597
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 1,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 1,
+        "operational_or_commissioned_count": 0,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Sokoto": {
       "name": "Sokoto",
-      "mapped_records": 281,
+      "mapped_records": 282,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -329,7 +385,7 @@
         "power_grid": 48,
         "substations": 3,
         "ports": 0,
-        "minigrids": 3,
+        "minigrids": 4,
         "population_access": 44,
         "settlements": 39
       },
@@ -339,16 +395,16 @@
         "environmental": 36,
         "demand": 1,
         "connectivity": 158,
-        "renewables": 3,
+        "renewables": 4,
         "context": 83
       },
       "capacity": {
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
-        "minigrid_kw": 150.0
+        "minigrid_kw": 4550.0
       },
       "status": {
-        "operating": 4,
+        "operating": 5,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
@@ -364,6 +420,18 @@
         "nightlight_population_share_pct": 29.76756181245676,
         "population_weighted_distance_transmission_km": 1.8426029946230849,
         "population_weighted_distance_gridlight_km": 9.21403231420541
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 4,
+        "se4all_record_count": 3,
+        "official_supplement_count": 1,
+        "exact_site_record_count": 3,
+        "operational_or_commissioned_count": 4,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Zamfara": {
@@ -424,11 +492,23 @@
         "nightlight_population_share_pct": 34.66612649154946,
         "population_weighted_distance_transmission_km": 4.437714418485263,
         "population_weighted_distance_gridlight_km": 9.45553527301549
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 0,
+        "se4all_record_count": 0,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 0,
+        "coverage_status": "official_pipeline_only",
+        "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
+        "programme_evidence": "REA procurement records include proposed solar mini-grid work in Zamfara; a named commissioned record was not verified.",
+        "programme_source_url": "https://rea.gov.ng/wp-content/uploads/2021/07/Y2021-Capital-Project-Advert-v11.pdf",
+        "audit_date": "2026-07-24"
       }
     },
     "Lagos": {
       "name": "Lagos",
-      "mapped_records": 836,
+      "mapped_records": 837,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -449,7 +529,7 @@
         "power_grid": 109,
         "substations": 42,
         "ports": 0,
-        "minigrids": 0,
+        "minigrids": 1,
         "population_access": 3,
         "settlements": 40
       },
@@ -459,16 +539,16 @@
         "environmental": 2,
         "demand": 2,
         "connectivity": 753,
-        "renewables": 0,
+        "renewables": 1,
         "context": 43
       },
       "capacity": {
         "power_mw": 7410.0,
         "refinery_bpd": 650000.0,
-        "minigrid_kw": 0.0
+        "minigrid_kw": 505.0
       },
       "status": {
-        "operating": 13,
+        "operating": 14,
         "development": 1,
         "proposed": 21,
         "inactive": 2,
@@ -484,6 +564,18 @@
         "nightlight_population_share_pct": 99.1996383761686,
         "population_weighted_distance_transmission_km": 0.0285784622665515,
         "population_weighted_distance_gridlight_km": 0.0139327371748223
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 0,
+        "official_supplement_count": 1,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Akwa Ibom": {
@@ -544,6 +636,18 @@
         "nightlight_population_share_pct": 58.94350611908582,
         "population_weighted_distance_transmission_km": 0.8995542550149578,
         "population_weighted_distance_gridlight_km": 1.8933145802645823
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 1,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 1,
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Bayelsa": {
@@ -604,6 +708,18 @@
         "nightlight_population_share_pct": 71.66281346376402,
         "population_weighted_distance_transmission_km": 6.025413970981335,
         "population_weighted_distance_gridlight_km": 1.5828719316332984
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 2,
+        "se4all_record_count": 2,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 2,
+        "operational_or_commissioned_count": 2,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Ondo": {
@@ -664,11 +780,23 @@
         "nightlight_population_share_pct": 77.14393161533988,
         "population_weighted_distance_transmission_km": 1.0886079433263205,
         "population_weighted_distance_gridlight_km": 1.6975832513588611
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 5,
+        "se4all_record_count": 5,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 5,
+        "operational_or_commissioned_count": 3,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "5 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Delta": {
       "name": "Delta",
-      "mapped_records": 439,
+      "mapped_records": 440,
       "counts": {
         "fields_oil": 11,
         "fields_gas": 0,
@@ -689,7 +817,7 @@
         "power_grid": 34,
         "substations": 11,
         "ports": 5,
-        "minigrids": 0,
+        "minigrids": 1,
         "population_access": 22,
         "settlements": 41
       },
@@ -699,16 +827,16 @@
         "environmental": 21,
         "demand": 2,
         "connectivity": 209,
-        "renewables": 0,
+        "renewables": 1,
         "context": 63
       },
       "capacity": {
         "power_mw": 6312.0,
         "refinery_bpd": 125000.0,
-        "minigrid_kw": 0.0
+        "minigrid_kw": 1100.0
       },
       "status": {
-        "operating": 66,
+        "operating": 67,
         "development": 3,
         "proposed": 20,
         "inactive": 24,
@@ -724,6 +852,18 @@
         "nightlight_population_share_pct": 79.40966573473953,
         "population_weighted_distance_transmission_km": 0.6887058212561286,
         "population_weighted_distance_gridlight_km": 0.9427257606498424
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 0,
+        "official_supplement_count": 1,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Rivers": {
@@ -784,11 +924,23 @@
         "nightlight_population_share_pct": 77.55866684063203,
         "population_weighted_distance_transmission_km": 0.565668217376577,
         "population_weighted_distance_gridlight_km": 0.9922652390679284
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 4,
+        "se4all_record_count": 4,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 4,
+        "operational_or_commissioned_count": 4,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Kwara": {
       "name": "Kwara",
-      "mapped_records": 388,
+      "mapped_records": 389,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -809,7 +961,7 @@
         "power_grid": 6,
         "substations": 5,
         "ports": 0,
-        "minigrids": 0,
+        "minigrids": 1,
         "population_access": 44,
         "settlements": 37
       },
@@ -819,16 +971,16 @@
         "environmental": 33,
         "demand": 0,
         "connectivity": 273,
-        "renewables": 0,
+        "renewables": 1,
         "context": 81
       },
       "capacity": {
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
-        "minigrid_kw": 0.0
+        "minigrid_kw": 704.0
       },
       "status": {
-        "operating": 0,
+        "operating": 1,
         "development": 0,
         "proposed": 2,
         "inactive": 0,
@@ -844,6 +996,18 @@
         "nightlight_population_share_pct": 73.53852118851123,
         "population_weighted_distance_transmission_km": 2.6748925078737043,
         "population_weighted_distance_gridlight_km": 2.4429096021555785
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 0,
+        "official_supplement_count": 1,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Kogi": {
@@ -904,11 +1068,23 @@
         "nightlight_population_share_pct": 60.298115883472214,
         "population_weighted_distance_transmission_km": 1.787603737772006,
         "population_weighted_distance_gridlight_km": 2.50341566020816
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 2,
+        "se4all_record_count": 2,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 2,
+        "operational_or_commissioned_count": 2,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Benue": {
       "name": "Benue",
-      "mapped_records": 305,
+      "mapped_records": 306,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -929,7 +1105,7 @@
         "power_grid": 17,
         "substations": 2,
         "ports": 0,
-        "minigrids": 1,
+        "minigrids": 2,
         "population_access": 39,
         "settlements": 37
       },
@@ -939,16 +1115,16 @@
         "environmental": 35,
         "demand": 1,
         "connectivity": 191,
-        "renewables": 1,
+        "renewables": 2,
         "context": 76
       },
       "capacity": {
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
-        "minigrid_kw": 24.0
+        "minigrid_kw": 8324.0
       },
       "status": {
-        "operating": 3,
+        "operating": 4,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
@@ -964,6 +1140,18 @@
         "nightlight_population_share_pct": 43.987548785081664,
         "population_weighted_distance_transmission_km": 2.27837895171338,
         "population_weighted_distance_gridlight_km": 3.7651969926584337
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 2,
+        "se4all_record_count": 1,
+        "official_supplement_count": 1,
+        "exact_site_record_count": 1,
+        "operational_or_commissioned_count": 2,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Borno": {
@@ -1024,6 +1212,18 @@
         "nightlight_population_share_pct": 69.5395915597966,
         "population_weighted_distance_transmission_km": 9.104419501303742,
         "population_weighted_distance_gridlight_km": 3.9515943724087874
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 0,
+        "se4all_record_count": 0,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 0,
+        "coverage_status": "official_pipeline_only",
+        "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
+        "programme_evidence": "EEP Phase II includes a 12 MW solar-hybrid project for the University of Maiduguri and Teaching Hospital; commissioning was not confirmed by the audited source.",
+        "programme_source_url": "https://www.dares.rea.gov.ng/energizing-education-rea-secures-universitys-commitment-to-eep-sustainability.html",
+        "audit_date": "2026-07-24"
       }
     },
     "Katsina": {
@@ -1084,6 +1284,18 @@
         "nightlight_population_share_pct": 50.00280024371847,
         "population_weighted_distance_transmission_km": 1.7085539019271718,
         "population_weighted_distance_gridlight_km": 2.3443056501341712
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 2,
+        "se4all_record_count": 2,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 2,
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Plateau": {
@@ -1144,6 +1356,18 @@
         "nightlight_population_share_pct": 54.26355094456657,
         "population_weighted_distance_transmission_km": 1.759322958911286,
         "population_weighted_distance_gridlight_km": 4.2330127001479765
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 5,
+        "se4all_record_count": 5,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 5,
+        "operational_or_commissioned_count": 3,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "5 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Edo": {
@@ -1204,6 +1428,18 @@
         "nightlight_population_share_pct": 84.99805675728442,
         "population_weighted_distance_transmission_km": 0.3659465471405138,
         "population_weighted_distance_gridlight_km": 0.7046511899396591
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 4,
+        "se4all_record_count": 4,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 4,
+        "operational_or_commissioned_count": 3,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Jigawa": {
@@ -1264,11 +1500,23 @@
         "nightlight_population_share_pct": 40.54462354275041,
         "population_weighted_distance_transmission_km": 1.496860631134333,
         "population_weighted_distance_gridlight_km": 3.546981822121363
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 1,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 1,
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Anambra": {
       "name": "Anambra",
-      "mapped_records": 187,
+      "mapped_records": 188,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1289,7 +1537,7 @@
         "power_grid": 19,
         "substations": 9,
         "ports": 0,
-        "minigrids": 3,
+        "minigrids": 4,
         "population_access": 6,
         "settlements": 42
       },
@@ -1299,16 +1547,16 @@
         "environmental": 12,
         "demand": 0,
         "connectivity": 120,
-        "renewables": 3,
+        "renewables": 4,
         "context": 48
       },
       "capacity": {
         "power_mw": 1624.0,
         "refinery_bpd": 0.0,
-        "minigrid_kw": 147.0
+        "minigrid_kw": 4547.0
       },
       "status": {
-        "operating": 3,
+        "operating": 4,
         "development": 0,
         "proposed": 2,
         "inactive": 3,
@@ -1324,11 +1572,23 @@
         "nightlight_population_share_pct": 93.969717896846,
         "population_weighted_distance_transmission_km": 0.0135963610655345,
         "population_weighted_distance_gridlight_km": 0.1365600507189369
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 4,
+        "se4all_record_count": 3,
+        "official_supplement_count": 1,
+        "exact_site_record_count": 3,
+        "operational_or_commissioned_count": 4,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Kano": {
       "name": "Kano",
-      "mapped_records": 376,
+      "mapped_records": 378,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1349,7 +1609,7 @@
         "power_grid": 71,
         "substations": 15,
         "ports": 0,
-        "minigrids": 0,
+        "minigrids": 2,
         "population_access": 27,
         "settlements": 41
       },
@@ -1359,17 +1619,17 @@
         "environmental": 16,
         "demand": 0,
         "connectivity": 287,
-        "renewables": 0,
+        "renewables": 2,
         "context": 68
       },
       "capacity": {
         "power_mw": 1500.0,
         "refinery_bpd": 0.0,
-        "minigrid_kw": 0.0
+        "minigrid_kw": 6079.0
       },
       "status": {
-        "operating": 0,
-        "development": 1,
+        "operating": 1,
+        "development": 2,
         "proposed": 4,
         "inactive": 0,
         "other": 16,
@@ -1384,6 +1644,18 @@
         "nightlight_population_share_pct": 64.15776169358125,
         "population_weighted_distance_transmission_km": 0.8520082986385951,
         "population_weighted_distance_gridlight_km": 1.160617633146705
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 2,
+        "se4all_record_count": 0,
+        "official_supplement_count": 2,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Nasarawa": {
@@ -1444,6 +1716,18 @@
         "nightlight_population_share_pct": 56.567046733971544,
         "population_weighted_distance_transmission_km": 3.4450614395489785,
         "population_weighted_distance_gridlight_km": 3.0203921457940672
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 1,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 1,
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Kebbi": {
@@ -1504,6 +1788,18 @@
         "nightlight_population_share_pct": 40.91315156650939,
         "population_weighted_distance_transmission_km": 2.055783588502261,
         "population_weighted_distance_gridlight_km": 5.442908546859115
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 1,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 1,
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Imo": {
@@ -1564,6 +1860,18 @@
         "nightlight_population_share_pct": 83.48732465484926,
         "population_weighted_distance_transmission_km": 0.286511963003629,
         "population_weighted_distance_gridlight_km": 0.4737108197585257
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 0,
+        "se4all_record_count": 0,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 0,
+        "coverage_status": "official_pipeline_only",
+        "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
+        "programme_evidence": "EEP Phase III includes an 8.2 MW solar-hybrid project for FUTO and DARES agreements include future Imo deployments; commissioning was not confirmed.",
+        "programme_source_url": "https://www.dares.rea.gov.ng/energizing-education-rea-secures-universitys-commitment-to-eep-sustainability.html",
+        "audit_date": "2026-07-24"
       }
     },
     "Gombe": {
@@ -1624,6 +1932,18 @@
         "nightlight_population_share_pct": 54.32862910262824,
         "population_weighted_distance_transmission_km": 2.4513107561284917,
         "population_weighted_distance_gridlight_km": 3.282878877499971
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 3,
+        "se4all_record_count": 3,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 3,
+        "operational_or_commissioned_count": 3,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "3 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Adamawa": {
@@ -1684,11 +2004,23 @@
         "nightlight_population_share_pct": 54.16153775138096,
         "population_weighted_distance_transmission_km": 6.268381617262391,
         "population_weighted_distance_gridlight_km": 4.172991890704097
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 1,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 1,
+        "operational_or_commissioned_count": 0,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Yobe": {
       "name": "Yobe",
-      "mapped_records": 238,
+      "mapped_records": 240,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1709,7 +2041,7 @@
         "power_grid": 4,
         "substations": 3,
         "ports": 0,
-        "minigrids": 0,
+        "minigrids": 2,
         "population_access": 61,
         "settlements": 41
       },
@@ -1719,16 +2051,16 @@
         "environmental": 40,
         "demand": 0,
         "connectivity": 96,
-        "renewables": 0,
+        "renewables": 2,
         "context": 102
       },
       "capacity": {
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
-        "minigrid_kw": 0.0
+        "minigrid_kw": 100.0
       },
       "status": {
-        "operating": 0,
+        "operating": 2,
         "development": 0,
         "proposed": 1,
         "inactive": 0,
@@ -1744,6 +2076,18 @@
         "nightlight_population_share_pct": 58.51458283675935,
         "population_weighted_distance_transmission_km": 7.433372630314711,
         "population_weighted_distance_gridlight_km": 4.748041402968759
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 2,
+        "se4all_record_count": 0,
+        "official_supplement_count": 2,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 2,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "2 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Abia": {
@@ -1804,6 +2148,18 @@
         "nightlight_population_share_pct": 77.51144676306835,
         "population_weighted_distance_transmission_km": 0.2847519043929095,
         "population_weighted_distance_gridlight_km": 0.4930716713085072
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 0,
+        "se4all_record_count": 0,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 0,
+        "coverage_status": "official_pipeline_only",
+        "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
+        "programme_evidence": "DARES grant agreement includes future Darway Coast mini-grids across Abia and five other states; named commissioned Abia sites were not published.",
+        "programme_source_url": "https://nep.rea.gov.ng/posts/news_2ND_PBG_GRANT_SIGNING_FOR_NIGERIA_DARES.html",
+        "audit_date": "2026-07-24"
       }
     },
     "Ekiti": {
@@ -1864,6 +2220,18 @@
         "nightlight_population_share_pct": 88.9808527954806,
         "population_weighted_distance_transmission_km": 0.080923453424615,
         "population_weighted_distance_gridlight_km": 0.4317416934438402
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 0,
+        "se4all_record_count": 0,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 0,
+        "coverage_status": "official_pipeline_only",
+        "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
+        "programme_evidence": "REA/NEP lists Ekiti in a later AfDB mini-grid tender and Federal University Oye-Ekiti in the public-institution pipeline; no named commissioned record was verified.",
+        "programme_source_url": "https://nep.rea.gov.ng/solar-hybrid-mini-grid-for-economic-development-afdb.html",
+        "audit_date": "2026-07-24"
       }
     },
     "Osun": {
@@ -1924,11 +2292,23 @@
         "nightlight_population_share_pct": 90.69770746524148,
         "population_weighted_distance_transmission_km": 0.1182126326554863,
         "population_weighted_distance_gridlight_km": 0.4976624121628175
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 1,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 1,
+        "operational_or_commissioned_count": 1,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Bauchi": {
       "name": "Bauchi",
-      "mapped_records": 363,
+      "mapped_records": 364,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1949,7 +2329,7 @@
         "power_grid": 4,
         "substations": 3,
         "ports": 0,
-        "minigrids": 4,
+        "minigrids": 5,
         "population_access": 66,
         "settlements": 42
       },
@@ -1959,16 +2339,16 @@
         "environmental": 71,
         "demand": 0,
         "connectivity": 180,
-        "renewables": 4,
+        "renewables": 5,
         "context": 108
       },
       "capacity": {
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
-        "minigrid_kw": 46.0
+        "minigrid_kw": 1146.0
       },
       "status": {
-        "operating": 4,
+        "operating": 5,
         "development": 0,
         "proposed": 0,
         "inactive": 0,
@@ -1984,6 +2364,18 @@
         "nightlight_population_share_pct": 45.68432356624312,
         "population_weighted_distance_transmission_km": 3.0803471529808433,
         "population_weighted_distance_gridlight_km": 4.322429364575317
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 5,
+        "se4all_record_count": 4,
+        "official_supplement_count": 1,
+        "exact_site_record_count": 4,
+        "operational_or_commissioned_count": 5,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "5 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Niger": {
@@ -2044,11 +2436,23 @@
         "nightlight_population_share_pct": 55.65728314757939,
         "population_weighted_distance_transmission_km": 2.832011372634022,
         "population_weighted_distance_gridlight_km": 4.263901866073497
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 5,
+        "se4all_record_count": 5,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 5,
+        "operational_or_commissioned_count": 5,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "5 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Kaduna": {
       "name": "Kaduna",
-      "mapped_records": 880,
+      "mapped_records": 881,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2069,7 +2473,7 @@
         "power_grid": 41,
         "substations": 14,
         "ports": 0,
-        "minigrids": 3,
+        "minigrids": 4,
         "population_access": 59,
         "settlements": 39
       },
@@ -2079,16 +2483,16 @@
         "environmental": 85,
         "demand": 1,
         "connectivity": 688,
-        "renewables": 3,
+        "renewables": 4,
         "context": 98
       },
       "capacity": {
         "power_mw": 900.0,
         "refinery_bpd": 110000.0,
-        "minigrid_kw": 114.0
+        "minigrid_kw": 214.0
       },
       "status": {
-        "operating": 5,
+        "operating": 6,
         "development": 2,
         "proposed": 2,
         "inactive": 0,
@@ -2104,6 +2508,18 @@
         "nightlight_population_share_pct": 57.493573611109014,
         "population_weighted_distance_transmission_km": 1.409347916384515,
         "population_weighted_distance_gridlight_km": 3.126959533246797
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 4,
+        "se4all_record_count": 3,
+        "official_supplement_count": 1,
+        "exact_site_record_count": 3,
+        "operational_or_commissioned_count": 3,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Enugu": {
@@ -2164,6 +2580,18 @@
         "nightlight_population_share_pct": 77.52806831293984,
         "population_weighted_distance_transmission_km": 0.1256928617792094,
         "population_weighted_distance_gridlight_km": 0.5876055785654433
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 0,
+        "se4all_record_count": 0,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 0,
+        "operational_or_commissioned_count": 0,
+        "coverage_status": "official_pipeline_only",
+        "coverage_interpretation": "No named, geocoded commissioned record was verified in this audit; official programme or procurement evidence exists. This must not be interpreted as zero assets.",
+        "programme_evidence": "REA/NEP lists Enugu in a later AfDB mini-grid tender; no named commissioned record was verified.",
+        "programme_source_url": "https://nep.rea.gov.ng/solar-hybrid-mini-grid-for-economic-development-afdb.html",
+        "audit_date": "2026-07-24"
       }
     },
     "Taraba": {
@@ -2224,11 +2652,23 @@
         "nightlight_population_share_pct": 39.2161037273656,
         "population_weighted_distance_transmission_km": 18.90772613363448,
         "population_weighted_distance_gridlight_km": 9.964992621887902
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 1,
+        "se4all_record_count": 1,
+        "official_supplement_count": 0,
+        "exact_site_record_count": 1,
+        "operational_or_commissioned_count": 0,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "1 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     },
     "Ebonyi": {
       "name": "Ebonyi",
-      "mapped_records": 133,
+      "mapped_records": 134,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -2249,7 +2689,7 @@
         "power_grid": 9,
         "substations": 3,
         "ports": 0,
-        "minigrids": 3,
+        "minigrids": 4,
         "population_access": 8,
         "settlements": 40
       },
@@ -2259,16 +2699,16 @@
         "environmental": 10,
         "demand": 0,
         "connectivity": 71,
-        "renewables": 3,
+        "renewables": 4,
         "context": 48
       },
       "capacity": {
         "power_mw": 0.0,
         "refinery_bpd": 0.0,
-        "minigrid_kw": 199.0
+        "minigrid_kw": 2999.0
       },
       "status": {
-        "operating": 1,
+        "operating": 2,
         "development": 2,
         "proposed": 1,
         "inactive": 0,
@@ -2284,6 +2724,18 @@
         "nightlight_population_share_pct": 46.58930578610742,
         "population_weighted_distance_transmission_km": 0.390140145297257,
         "population_weighted_distance_gridlight_km": 2.646549487640601
+      },
+      "minigrid_coverage": {
+        "catalogued_record_count": 4,
+        "se4all_record_count": 3,
+        "official_supplement_count": 1,
+        "exact_site_record_count": 3,
+        "operational_or_commissioned_count": 2,
+        "coverage_status": "catalogued_public_records",
+        "coverage_interpretation": "4 named public record(s) are catalogued; this is not evidence that the state has only this many assets.",
+        "programme_evidence": null,
+        "programme_source_url": null,
+        "audit_date": "2026-07-24"
       }
     }
   }

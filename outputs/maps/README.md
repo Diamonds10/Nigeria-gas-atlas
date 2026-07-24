@@ -31,7 +31,7 @@ python scripts/build_output_gallery.py
 | Environmental | [gallery/environmental.png](gallery/environmental.png) | 1,005 |
 | Demand | [gallery/demand.png](gallery/demand.png) | 28 |
 | Connectivity | [gallery/connectivity.png](gallery/connectivity.png) | 7,992 |
-| Renewables | [gallery/renewables.png](gallery/renewables.png) | 66 |
+| Renewables | [gallery/renewables.png](gallery/renewables.png) | 80 |
 | People & Access | [gallery/context.png](gallery/context.png) | 2,758 |
 
 ![Resource layer thumbnail](gallery/resource.png)
@@ -59,7 +59,7 @@ The snapshot is best understood as a public screening view rather than a complet
 - 193 power-producing plant records are shown
 - 390 substation records are shown
 - 28 demand-centre records are shown
-- 66 mini-grid records are shown
+- 80 catalogued off-grid records are shown
 
 The mini-grid layer is especially useful because it provides a public, site-level, geocoded distributed-energy view with evidence on status and technology mix.
 
@@ -67,10 +67,11 @@ The mini-grid layer is especially useful because it provides a public, site-leve
 
 The companion benchmark file shows that the current mini-grid evidence is materially stronger than a generic programme page:
 
-- 66 sites across 26 states and the FCT
-- 50 operational, 13 under construction, 2 commissioned, 1 unknown
-- 43 solar and 22 hybrid mini-grid sites
-- exact-site geocoding for all 66 records in the current processed layer
+- 80 records across 30 states and the FCT
+- 52 operational, 13 under construction, 13 commissioned, 1 under
+  rehabilitation, and 1 unknown
+- 66 Nigeria SE4ALL records plus 14 official-source additions
+- 67 exact-site coordinates and 13 campus/community/facility coordinates
 
 This means the public layer is strongest for:
 
@@ -86,6 +87,7 @@ The public layer should not be interpreted as:
 - a complete registry of all off-grid household solar systems
 - a live commercial operating database
 - a substitute for field verification or commercial diligence
+- evidence that a state with zero catalogued records has no off-grid assets
 
 ## Intended usage
 

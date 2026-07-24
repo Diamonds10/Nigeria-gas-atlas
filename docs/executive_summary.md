@@ -11,7 +11,11 @@ dataset.
 
 The atlas is designed to answer a practical question: where do Nigeria's gas assets, industrial demand centers, logistics routes, and risk factors sit relative to one another?
 
-A concrete recent addition is a public-source mini-grid inventory with 66 site-level records across 26 states and the FCT. That layer provides a useful starting point for understanding distributed renewable access geography, even though it is still narrower than a full solar-home-system database and should be interpreted as a public screening layer rather than a complete operating registry.
+A concrete recent addition is a public-source off-grid inventory with 80 named
+records across 30 states and the FCT. It combines 66 Nigeria SE4ALL records with
+14 official-source additions, including Bayero University Kano, and retains
+coordinate precision and evidence level. It remains a public screening layer,
+not a complete operating registry.
 
 The atlas also integrates 2025 state population estimates and 154,319 World
 Bank DRE Atlas settlement clusters. A compact grid and major-settlement subset

@@ -6,13 +6,14 @@ The mini-grid layer in this repository is now strong enough to support public sc
 
 ### Current evidence quality
 
-- 66 site-level mini-grid records
-- 26 states and the FCT covered
-- 50 operational sites
+- 80 catalogued off-grid records
+- 30 states and the FCT covered
+- 52 operational sites
 - 13 under construction
-- 2 commissioned
-- 43 solar and 22 hybrid mini-grid records
-- 66 records are exact-site geocoded in the current processed layer
+- 13 commissioned, 1 under rehabilitation, and 1 unknown
+- 66 Nigeria SE4ALL records plus 14 official-source additions
+- 67 exact-site coordinates and 13 campus/community/facility coordinates
+- a state-by-state audit for all 36 states and the FCT
 
 ## What this means in practice
 
@@ -26,6 +27,12 @@ This layer is most useful for:
 ## What it should not be used for
 
 This layer should not be treated as a complete live operating registry for all off-grid solar deployment, nor as a substitute for field verification or commercial diligence.
+
+In particular, a state count of zero means **no named, geocoded record was
+verified in the implemented public sources**. It does not mean the state has no
+mini-grid or off-grid installation. The coverage audit records official
+programme or procurement evidence separately where commissioning could not be
+verified.
 
 ## Public framing
 

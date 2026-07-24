@@ -53,6 +53,27 @@ and mini-grid totals sum records with published capacity. These summaries are
 appropriate for screening and comparison but require source-level review before
 operational or investment use.
 
+## Off-grid registry and state coverage audit
+
+The renewable layer merges 66 structured Nigeria SE4ALL records with a
+conservative 14-record supplement drawn from named official REA/NEP/DARES,
+ECREEE, NEMSA, and institutional evidence. Stable asset IDs prevent duplicate
+append operations. Each supplementary record preserves evidence level,
+coordinate source, and whether its point is exact-site, facility, campus, or
+community precision.
+
+The accompanying audit covers all 36 states and the FCT. It distinguishes:
+
+- states with one or more named catalogued public records;
+- states with official programme or procurement evidence but no verified,
+  geocoded commissioned record;
+- public-evidence gaps.
+
+Counts are therefore labelled **catalogued off-grid sites**. Zero means the
+implemented sources did not yield a verified map record; it never establishes
+that a state has no off-grid assets. Programme announcements and tenders are
+not promoted to asset records until location and delivery status are supported.
+
 ## Population, settlement, and access context
 
 WorldPop v3.0 supplies 2025 state population estimates. The World Bank Nigeria

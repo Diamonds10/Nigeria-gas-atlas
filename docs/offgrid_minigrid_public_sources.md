@@ -1,12 +1,11 @@
 # Public sources for renewable off-grid and mini-grid assets in Nigeria
 
-**Status: superseded (2026-07-23).** The sources below are programme/policy pages
-without clean geocoded asset lists, as noted throughout this doc. A structured,
-geocoded mini-grid inventory was found instead on the Nigeria SE4ALL Open Data
-Portal (a GeoServer instance, not listed below) and implemented at
-`data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv` — see
-`docs/data_sources.md` (Layer 7). This note is kept for the programme-level
-context it still provides (targets, financing posture, market narrative).
+**Status: active source audit (updated 2026-07-24).** The Nigeria SE4ALL portal
+provided the initial 66 geocoded records, but a national state review confirmed
+that it is not complete. Official REA/NEP/DARES, ECREEE, NEMSA, and beneficiary
+institution records now provide a conservative 14-record supplement. The
+combined registry and 37-state/FCT audit are documented in
+`docs/data_sources.md` (Layer 7).
 
 This note captures the most relevant public-facing sources that can support a future renewable distributed-energy asset layer.
 
@@ -25,6 +24,11 @@ What it offers:
 What it does not yet offer cleanly:
 
 - a single, consistent, geocoded, national asset registry with full coordinates and commissioning status
+
+The lack of a complete public export is material: REA reported more than 200
+mini-grids deployed during 2025, while the implemented SE4ALL source exposed
+only 66 records. The atlas therefore publishes “catalogued public records,”
+never an asserted total asset count.
 
 ### 2. REA – DARES
 

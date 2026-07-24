@@ -99,7 +99,7 @@
 
   var STATUS_MAP = {
     operating: "good", active: "good", "in use": "good",
-    construction: "warning", "in development": "warning", "pre-construction": "warning",
+    construction: "warning", "in development": "warning", "pre-construction": "warning", rehabilitation: "warning",
     proposed: "serious", planned: "serious", announced: "serious", discovered: "serious",
     mothballed: "critical", cancelled: "critical", shelved: "critical", "shut in": "critical", retired: "critical"
   };
@@ -192,6 +192,12 @@
     field_type: "Field type", in_goget_fields: "Also in GOGET inventory",
     type: "Asset type", company: "Operator", location: "Location",
     design_cap: "Design capacity", date_of_co: "Commissioned",
+    asset_type: "Asset type", program_name: "Programme",
+    community: "Community / site", owner_operator: "Owner / operator",
+    geocode_precision: "Coordinate precision",
+    coordinate_source: "Coordinate source", source_name: "Evidence source",
+    source_date_accessed: "Source checked", evidence_level: "Evidence level",
+    record_origin: "Registry origin",
     population_estimate: "Modelled population", settlement_count: "Settlement clusters",
     population_with_nightlight_signal: "Population with night-light signal",
     population_without_nightlight_signal: "Population without night-light signal",
@@ -556,6 +562,7 @@
     var counts = profile.counts;
     var capacity = profile.capacity;
     var peopleAccess = profile.people_access || {};
+    var minigridCoverage = profile.minigrid_coverage || {};
     var scopeLabel = selectedState ? "records intersecting state" : "national public-map records";
     var capacityBits = [];
     if (capacity.power_mw) capacityBits.push("<strong>" + formatNumber(capacity.power_mw, 1) + " MW</strong> reported power");
@@ -571,11 +578,19 @@
         profileMetric(counts.power_plants, "Power-plant units") +
         profileMetric(counts.substations, "Substations") +
         profileMetric(counts.demand_centers, "Demand centres") +
-        profileMetric(counts.minigrids, "Mini-grids") +
+        profileMetric(counts.minigrids, "Catalogued off-grid sites") +
         profileMetric(counts.fields_oil + counts.fields_gas + counts.fields_mixed, "Oil & gas fields") +
         profileMetric(counts.ports, "Ports & terminals") +
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +
+      (minigridCoverage.coverage_interpretation
+        ? '<div class="coverage-strip"><strong>Off-grid coverage note:</strong> ' +
+          escapeHtml(minigridCoverage.coverage_interpretation) +
+          (minigridCoverage.programme_evidence
+            ? ' ' + escapeHtml(minigridCoverage.programme_evidence)
+            : '') +
+          '</div>'
+        : '') +
       '<p class="profile-note">Population totals are WorldPop 2025 estimates. Settlement and night-light measures come from the World Bank DRE Atlas; night-light is a screening signal, not a measured household electricity-access rate. Lines and protected areas are counted where display geometry intersects the state.</p>';
     updateDownloadLabel();
   }
@@ -783,6 +798,8 @@
         '</dl>' +
         '<p class="quality-note"><strong>Quality ' + escapeHtml(item.quality) + ':</strong> ' + escapeHtml(item.quality_note) + '</p>' +
         '<a class="download-link" href="' + escapeAttr(item.download_url) + '" target="_blank" rel="noopener">Download processed CSV ↗</a>' +
+        (item.coverage_audit_url ? '<a class="download-link" href="' + escapeAttr(item.coverage_audit_url) + '" target="_blank" rel="noopener">Download state coverage audit ↗</a>' : '') +
+        (item.supplement_url ? '<a class="download-link" href="' + escapeAttr(item.supplement_url) + '" target="_blank" rel="noopener">Download verified supplement ↗</a>' : '') +
       '</article>'
     );
   }

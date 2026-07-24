@@ -3,12 +3,10 @@ Process the downloaded public-source HTML pages into a minimal manifest document
 which REA/NEP/DARES/SPN/World Bank programme pages were consulted while building
 the Nigeria renewable off-grid and mini-grid asset layer.
 
-Note: the actual site-level asset data for this layer comes from a different,
-better source -- see scripts/07_renewables/01_download_minigrids.py and
-02_process_minigrids.py, which pull a real geocoded inventory (66 sites) from the
-Nigeria SE4ALL Open Data Portal's GeoServer backend. These programme pages don't
-carry clean geocoded site lists (see docs/offgrid_minigrid_public_sources.md), so
-this script only produces a source manifest for provenance, not an asset table.
+The canonical asset table is built by `02_process_minigrids.py`, which merges
+66 Nigeria SE4ALL source records with a conservative official-source supplement
+and produces a state coverage audit. This script remains a broad programme-page
+manifest for provenance; it does not promote programme targets into asset rows.
 """
 
 import argparse

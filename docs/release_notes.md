@@ -1,5 +1,21 @@
 # Release notes
 
+## v0.4.1 — National Mini-grid Coverage Correction
+
+Released 2026-07-24.
+
+### Included
+
+- 14 named official-source off-grid additions, including two Bayero University
+  Kano systems
+- 80 combined records across 30 states and the FCT
+- current rehabilitation status and capacity caveat for the original BUK EEP plant
+- exact-site, facility, campus, and community coordinate-precision fields
+- a reproducible 37-state/FCT coverage audit
+- programme-only evidence for Abia, Borno, Ekiti, Enugu, Imo, and Zamfara
+- interface wording changed from implied asset totals to “catalogued off-grid sites”
+- explicit warning that zero catalogued records does not mean zero assets
+
 ## v0.4.0 — Population, Settlements, and Electricity-access Context
 
 Released 2026-07-24.

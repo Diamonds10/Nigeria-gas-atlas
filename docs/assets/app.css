@@ -337,6 +337,17 @@
     font-size: 10.5px;
     line-height: 1.5;
   }
+  .coverage-strip {
+    margin-top: 8px;
+    padding: 8px 9px;
+    border-left: 3px solid var(--cat-renewables);
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--cat-renewables) 9%, transparent);
+    color: var(--text-muted);
+    font-size: 10px;
+    line-height: 1.45;
+  }
+  .coverage-strip strong { color: var(--text); }
   .capacity-strip strong { color: var(--text-primary); font-family: ui-monospace, monospace; }
   .profile-note {
     margin: 7px 0 0;
@@ -693,6 +704,7 @@
     text-decoration: none;
     border-bottom: 1px solid currentColor;
   }
+  .download-link + .download-link { margin-top: 7px; }
   .catalogue-footer {
     padding: 10px 26px 13px;
     border-top: 1px solid var(--line);

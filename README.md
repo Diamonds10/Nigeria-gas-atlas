@@ -68,10 +68,13 @@ The snapshot image itself is explicitly framed as a public screening snapshot, n
 
 Public evidence-quality signal from the current benchmark:
 
-- 66 mini-grid sites across 26 states and the FCT
-- 50 operational, 13 under construction, 2 commissioned, 1 unknown
-- 43 solar, 22 hybrid mini-grid, 1 other technology
-- 66 records are exact-site geocoded, which is strong for a public screening layer
+- 80 catalogued off-grid sites across 30 states and the FCT
+- 52 operational, 13 under construction, 13 commissioned, 1 under
+  rehabilitation, and 1 unknown
+- 66 Nigeria SE4ALL records plus 14 named official-source additions
+- 67 exact-site coordinates; 13 campus, community, or facility-level coordinates
+- a 37-state/FCT coverage audit that distinguishes catalogued records from
+  official programme-only evidence
 
 For a concise repo-level interpretation of that benchmark, see [docs/public_evidence_quality.md](docs/public_evidence_quality.md).
 
@@ -130,7 +133,9 @@ The repository already contains a meaningful evidence base for screening and res
 - power-producing plant and substation context
 - demand-centre reference points
 - environmental overlays, with security documented as a planned future layer
-- a verified site-level mini-grid inventory covering 66 sites across 26 states and the FCT, with public-source status, capacity, and operator context
+- a public-source off-grid inventory covering 80 named records across 30 states
+  and the FCT, with source-specific status, capacity, coordinate precision, and
+  operator context
 - a first conservative intake framework for renewable off-grid and mini-grid assets beyond the currently structured mini-grid layer
 - 154,319 processed settlement clusters, a compact 1,278-cell population/access
   web layer, and 2025 population estimates for every state and the FCT
@@ -140,7 +145,7 @@ Current verified public-facing asset snapshot:
 - 193 oil/gas power-producing plant records
 - 390 substation records
 - 28 demand-centre records
-- 66 mini-grid records
+- 80 catalogued off-grid records
 
 The interactive map now surfaces state-level screening summaries, direct
 processed-data downloads, quality grades, source dates, licensing caveats, and
@@ -208,7 +213,7 @@ To strengthen the repo for investors, academics, students, and practitioners, th
 
 - clearer state labels and state-boundary context on the main map
 - visible counts for power-producing plants and substations in the map legend or caption
-- a fuller, geocoded public-source renewable off-grid / mini-grid asset layer
+- continued verified expansion of the audited public-source off-grid registry
 - a consistent gallery of output maps and thumbnails for public browsing
 - a concise release note describing what is verified versus provisional
 

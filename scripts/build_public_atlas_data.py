@@ -201,13 +201,15 @@ CATALOGUE = {
         "path": "data/processed/05_connectivity/world_port_index_nigeria.csv",
     },
     "minigrids": {
-        "description": "Site-level off-grid and mini-grid inventory with technology, status, and reported capacity.",
-        "source": "Nigeria SE4ALL Open Data Portal",
-        "source_date": "2026-07-23",
-        "license": "Public portal; explicit redistribution terms not stated",
-        "quality": "A",
-        "quality_note": "All current records are exact-site geocoded; not a complete solar-home-system registry.",
+        "description": "Named public-source mini-grid, captive off-grid, and public-institution solar facilities with technology, status, capacity, and coordinate precision.",
+        "source": "Nigeria SE4ALL Open Data Portal; REA/NEP/DARES; ECREEE; NEMSA; institutional sources",
+        "source_date": "2026-07-24",
+        "license": "Mixed public-source terms; review each record and source",
+        "quality": "B",
+        "quality_note": "80 catalogued records: 66 SE4ALL source sites plus 14 official-source additions. Coordinates range from exact site to campus/community centroids. This is not a complete operating registry; zero catalogued records never means zero assets.",
         "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
+        "coverage_audit_path": "data/processed/07_renewables/minigrid_state_coverage_audit.csv",
+        "supplement_path": "data/curated/07_renewables/verified_public_offgrid_supplement.csv",
     },
     "population_access": {
         "description": "Quarter-degree settlement-population grid with night-light and grid-distance screening signals.",
@@ -366,7 +368,7 @@ def status_bucket(props: dict[str, Any]) -> str:
         return "unknown"
     if any(value in raw for value in ("operat", "active", "in use", "commissioned")):
         return "operating"
-    if any(value in raw for value in ("construction", "development", "pre-production")):
+    if any(value in raw for value in ("construction", "development", "pre-production", "rehabilitation")):
         return "development"
     if any(value in raw for value in ("proposed", "planned", "announced", "discovered")):
         return "proposed"
@@ -494,6 +496,14 @@ def add_catalogue_and_state_profiles(
                     "download_url": f"{REPOSITORY_RAW}/{metadata['path']}",
                 }
             )
+            if metadata.get("coverage_audit_path"):
+                metadata["coverage_audit_url"] = (
+                    f"{REPOSITORY_RAW}/{metadata['coverage_audit_path']}"
+                )
+            if metadata.get("supplement_path"):
+                metadata["supplement_url"] = (
+                    f"{REPOSITORY_RAW}/{metadata['supplement_path']}"
+                )
             definition["metadata"] = metadata
             catalogue.append(metadata)
 
@@ -596,10 +606,40 @@ def add_catalogue_and_state_profiles(
         key: clean_value(value) for key, value in national_context.items()
     }
 
+    minigrid_audit = pd.read_csv(
+        PROCESSED / "07_renewables/minigrid_state_coverage_audit.csv"
+    )
+    for _, row in minigrid_audit.iterrows():
+        state_name = str(row["state"])
+        if state_name in profiles:
+            profiles[state_name]["minigrid_coverage"] = {
+                column: clean_value(row.get(column))
+                for column in minigrid_audit.columns
+                if column != "state"
+            }
+    profiles["Nigeria"]["minigrid_coverage"] = {
+        "catalogued_record_count": int(len(
+            pd.read_csv(
+                PROCESSED
+                / "07_renewables/renewable_offgrid_minigrid_nigeria.csv"
+            )
+        )),
+        "states_or_territories_with_records": int(
+            minigrid_audit["catalogued_record_count"].gt(0).sum()
+        ),
+        "states_or_territories_audited": int(len(minigrid_audit)),
+        "coverage_status": "national_public_source_screening_inventory",
+        "coverage_interpretation": (
+            "Named public records from implemented sources; not a complete "
+            "national operating registry."
+        ),
+        "audit_date": "2026-07-24",
+    }
+
     bundle["release"] = {
-        "version": "0.4.0",
+        "version": "0.4.1",
         "date": "2026-07-24",
-        "title": "Population, Settlements, and Electricity-access Context",
+        "title": "National Mini-grid Coverage Correction",
     }
     bundle["catalogue"] = catalogue
     bundle["state_profiles"] = profiles
@@ -887,8 +927,12 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         PROCESSED / "07_renewables/renewable_offgrid_minigrid_nigeria.csv",
         "longitude", "latitude",
         [
-            "asset_name", "state", "lga", "technology", "status", "capacity_kw",
-            "customers_served", "developer", "financing_source", "source_url",
+            "asset_name", "asset_type", "program_name", "state", "lga",
+            "community", "technology", "status", "capacity_kw",
+            "customers_served", "developer", "owner_operator",
+            "financing_source", "geocode_precision", "coordinate_source",
+            "source_name", "source_url", "source_date_accessed",
+            "evidence_level", "record_origin", "notes",
         ],
         "asset_name",
     )
@@ -986,7 +1030,9 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
             "renewables": {
                 "label": "Renewables",
                 "sublayers": {
-                    "minigrids": sublayer("Off-grid & Mini-grids", "point", minigrids)
+                    "minigrids": sublayer(
+                        "Catalogued Off-grid Sites", "point", minigrids
+                    )
                 },
             },
             "context": {

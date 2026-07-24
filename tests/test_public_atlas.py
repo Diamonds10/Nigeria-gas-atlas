@@ -66,7 +66,7 @@ class PublicAtlasTests(unittest.TestCase):
                 "power_grid": 931,
                 "substations": 390,
                 "ports": 25,
-                "minigrids": 66,
+                "minigrids": 80,
                 "population_access": 1278,
                 "settlements": 1480,
             },
@@ -101,6 +101,31 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertTrue(minigrids["longitude"].between(2.5, 14.8).all())
         self.assertTrue(minigrids["latitude"].between(3.9, 14.0).all())
         self.assertTrue(minigrids["asset_id"].is_unique)
+        self.assertEqual(len(minigrids), 80)
+        self.assertEqual(
+            minigrids["record_origin"].value_counts().to_dict(),
+            {"nigeria_se4all": 66, "official_supplement": 14},
+        )
+        kano = minigrids[minigrids["state"] == "Kano"]
+        self.assertEqual(len(kano), 2)
+        self.assertTrue(
+            kano["asset_name"].str.contains("Bayero University").all()
+        )
+
+        audit = pd.read_csv(
+            ROOT / "data/processed/07_renewables/minigrid_state_coverage_audit.csv"
+        )
+        self.assertEqual(len(audit), 37)
+        self.assertTrue(audit["state"].is_unique)
+        self.assertEqual(
+            set(audit.loc[audit["catalogued_record_count"].eq(0), "state"]),
+            {"Abia", "Borno", "Ekiti", "Enugu", "Imo", "Zamfara"},
+        )
+        self.assertTrue(
+            audit.loc[
+                audit["catalogued_record_count"].eq(0), "coverage_interpretation"
+            ].str.contains("must not be interpreted as zero assets").all()
+        )
 
         context = pd.read_csv(
             ROOT / "data/processed/08_context/state_population_access_summary_nigeria.csv"
@@ -119,7 +144,7 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(counts["power_plants"], 193)
         self.assertEqual(counts["substations"], 390)
         self.assertEqual(counts["demand_centres"], 28)
-        self.assertEqual(counts["mini_grids"], 66)
+        self.assertEqual(counts["mini_grids"], 80)
 
     def test_state_profiles_are_complete_and_consistent(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
@@ -132,11 +157,11 @@ class PublicAtlasTests(unittest.TestCase):
         self.assertEqual(len(profiles), 38)
 
         national = profiles["Nigeria"]
-        self.assertEqual(national["mapped_records"], 12511)
+        self.assertEqual(national["mapped_records"], 12525)
         self.assertEqual(national["counts"]["power_plants"], 193)
         self.assertEqual(national["counts"]["substations"], 390)
-        self.assertEqual(national["counts"]["minigrids"], 66)
-        self.assertAlmostEqual(national["capacity"]["minigrid_kw"], 3016.0)
+        self.assertEqual(national["counts"]["minigrids"], 80)
+        self.assertAlmostEqual(national["capacity"]["minigrid_kw"], 33680.4)
         self.assertEqual(national["people_access"]["settlement_count"], 154319)
         self.assertAlmostEqual(
             national["people_access"]["worldpop_population_2025"],
@@ -144,6 +169,7 @@ class PublicAtlasTests(unittest.TestCase):
         )
         for profile in profiles.values():
             self.assertIn("people_access", profile)
+            self.assertIn("minigrid_coverage", profile)
 
         for layer in bundle["layers"].values():
             for definition in layer["sublayers"].values():
@@ -174,11 +200,11 @@ class PublicAtlasTests(unittest.TestCase):
     def test_status_and_temporal_filter_metadata(self):
         bundle = json.loads(BUNDLE_PATH.read_text(encoding="utf-8"))
         filters = bundle["filters"]
-        self.assertEqual(sum(filters["status_groups"].values()), 12511)
+        self.assertEqual(sum(filters["status_groups"].values()), 12525)
         self.assertEqual(
             filters["temporal"]["dated_records"]
             + filters["temporal"]["undated_records"],
-            12511,
+            12525,
         )
         self.assertEqual(filters["temporal"]["minimum_year"], 1912)
         self.assertEqual(filters["temporal"]["maximum_year"], 2026)
@@ -220,7 +246,7 @@ class PublicAtlasTests(unittest.TestCase):
 
         manifest = json.loads((API_DIR / "manifest.json").read_text())
         self.assertEqual(manifest["api_version"], "v1")
-        self.assertEqual(manifest["atlas_release"]["version"], "0.4.0")
+        self.assertEqual(manifest["atlas_release"]["version"], "0.4.1")
         self.assertEqual(len(manifest["layers"]), 22)
         for layer in manifest["layers"]:
             endpoint = API_DIR / layer["endpoint"]

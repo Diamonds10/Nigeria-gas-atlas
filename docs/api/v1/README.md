@@ -38,3 +38,7 @@ source dates when reproducibility matters.
 The `population_access` and `settlements` endpoints contain modelled screening
 context. Their night-light fields are not measured household
 electricity-access rates.
+
+The `minigrids` endpoint contains catalogued public records from multiple
+sources. State counts are not exhaustive, and a zero count does not establish
+that no off-grid asset exists in that state.

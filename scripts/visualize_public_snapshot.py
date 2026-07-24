@@ -116,6 +116,7 @@ def build_benchmark_summary(
                 "not a complete solar home system registry",
                 "not a full live operating asset database",
                 "public metadata is thinner than a commercial operating platform",
+                "zero catalogued records in a state does not mean zero assets",
             ],
         },
     }

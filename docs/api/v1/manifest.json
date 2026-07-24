@@ -1,9 +1,9 @@
 {
   "api_version": "v1",
   "atlas_release": {
-    "version": "0.4.0",
+    "version": "0.4.1",
     "date": "2026-07-24",
-    "title": "Population, Settlements, and Electricity-access Context"
+    "title": "National Mini-grid Coverage Correction"
   },
   "base_url": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/",
   "formats": [
@@ -158,9 +158,9 @@
     },
     {
       "key": "minigrids",
-      "label": "Off-grid & Mini-grids",
+      "label": "Catalogued Off-grid Sites",
       "category": "renewables",
-      "record_count": 66,
+      "record_count": 80,
       "endpoint": "layers/minigrids.geojson"
     },
     {

@@ -1,12 +1,11 @@
 # Renewable off-grid and mini-grid asset layer specification
 
-**Status: implemented (2026-07-23).** A 66-site mini-grid inventory was built at
+**Status: implemented and nationally audited (updated 2026-07-24).** An
+80-record public off-grid inventory is built at
 `data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv` via
-`scripts/07_renewables/`, sourced from the Nigeria SE4ALL Open Data Portal's
-GeoServer backend rather than compiled by hand from programme pages — see
-`docs/data_sources.md` (Layer 7) for details and known gaps (no standalone SHS
-layer yet; the portal's settlement-cluster electrification-planning datasets
-are a candidate for a future extension, not yet built).
+`scripts/07_renewables/`. It combines 66 Nigeria SE4ALL records with 14
+official-source additions and a 37-state/FCT audit. See `docs/data_sources.md`
+(Layer 7) for source-level caveats.
 
 ## Purpose
 
@@ -139,7 +138,7 @@ The most useful framing for the repository is:
 
 ## Next extension
 
-The next step is to extend the implemented 66-site layer only where additional
+The next step is to extend the implemented 80-record layer only where additional
 public records have defensible site identity, provenance, and coordinate
 precision.
 

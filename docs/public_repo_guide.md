@@ -104,7 +104,11 @@ The current processed data already contains a meaningful asset base for power-sy
 - substations
 - demand centres
 
-The repo also now includes a site-level renewable distributed-access layer for mini-grids. Verified public-source evidence currently comprises 66 mini-grid sites across 26 states and the FCT, with operational, under-construction, and commissioned status context where publicly reported.
+The repo also includes a renewable distributed-access layer with 80 named
+public records across 30 states and the FCT. A separate 37-state/FCT audit
+records remaining source gaps and official programme-only evidence. Counts are
+explicitly labelled “catalogued” because no implemented public source is a
+complete national operating registry.
 
 A concise evidence-quality interpretation is provided in
 [public_evidence_quality.md](public_evidence_quality.md). That note explains the

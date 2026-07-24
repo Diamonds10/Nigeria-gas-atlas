@@ -3,27 +3,33 @@
     "power_plants": 193,
     "substations": 390,
     "demand_centres": 28,
-    "mini_grids": 66
+    "mini_grids": 80
   },
   "mini_grid_benchmark": {
-    "states_covered": 26,
-    "capacity_coverage": 65,
-    "customers_coverage": 35,
-    "technology_coverage": 66,
-    "developer_coverage": 49,
+    "states_covered": 31,
+    "capacity_coverage": 79,
+    "customers_coverage": 38,
+    "technology_coverage": 80,
+    "developer_coverage": 63,
     "status_distribution": {
-      "operational": 50,
+      "operational": 52,
       "under_construction": 13,
-      "commissioned": 2,
-      "unknown": 1
+      "commissioned": 13,
+      "unknown": 1,
+      "under_rehabilitation": 1
     },
     "technology_distribution": {
-      "solar": 43,
+      "solar": 44,
       "hybrid_mini_grid": 22,
+      "solar_hybrid": 10,
+      "solar_battery": 3,
       "other": 1
     },
     "geocode_precision_distribution": {
-      "exact_site": 66
+      "exact_site": 67,
+      "campus": 8,
+      "community": 3,
+      "facility": 2
     }
   },
   "public_dashboard_signal": {
@@ -36,7 +42,8 @@
     "limitations": [
       "not a complete solar home system registry",
       "not a full live operating asset database",
-      "public metadata is thinner than a commercial operating platform"
+      "public metadata is thinner than a commercial operating platform",
+      "zero catalogued records in a state does not mean zero assets"
     ]
   }
 }
