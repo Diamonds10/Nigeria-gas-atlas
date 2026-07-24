@@ -29,22 +29,49 @@ PUBLIC_COORDINATE_PRECISION = 5
 REPOSITORY_RAW = "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main"
 
 CATALOGUE = {
-    "fields": {
-        "description": "Site-level Nigerian oil and gas fields with status, fuel, operator, and ownership context.",
+    "fields_oil": {
+        "description": "Site-level Nigerian oil fields (fuel_type = oil only) with status, operator, and ownership context.",
         "source": "Global Energy Monitor / GreenInfo Network GOGET mirror",
         "source_date": "2026-07-21",
         "license": "CC BY 4.0 inferred; verify before redistribution",
         "quality": "B",
-        "quality_note": "Verified source points; field snapshot dates from August 2023.",
+        "quality_note": "Verified source points; field snapshot dates from August 2023. 33 of 180 GOGET fields are classified oil-only.",
         "path": "data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
     },
-    "gas_field_polygons": {
-        "description": "Oil and gas field boundary polygons, including field names not present in the GOGET point inventory above.",
+    "fields_gas": {
+        "description": "Site-level Nigerian gas fields (fuel_type = gas only) with status, operator, and ownership context.",
+        "source": "Global Energy Monitor / GreenInfo Network GOGET mirror",
+        "source_date": "2026-07-21",
+        "license": "CC BY 4.0 inferred; verify before redistribution",
+        "quality": "B",
+        "quality_note": "Verified source points; field snapshot dates from August 2023. Only 2 of 180 GOGET fields are classified gas-only -- most Nigerian gas production is associated gas from mixed fields (see Oil & Gas Fields).",
+        "path": "data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
+    },
+    "fields_mixed": {
+        "description": "Site-level Nigerian fields producing both oil and gas (fuel_type = oil and gas) with status, operator, and ownership context.",
+        "source": "Global Energy Monitor / GreenInfo Network GOGET mirror",
+        "source_date": "2026-07-21",
+        "license": "CC BY 4.0 inferred; verify before redistribution",
+        "quality": "B",
+        "quality_note": "Verified source points; field snapshot dates from August 2023. 145 of 180 GOGET fields (81%) are classified oil and gas -- the majority case for Nigerian fields.",
+        "path": "data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
+    },
+    "field_polygons_gas": {
+        "description": "Gas-only field boundary polygons, including field names not present in the GOGET point inventory above.",
         "source": "Nigeria SE4ALL Open Data Portal",
         "source_date": "2026-07-24",
         "license": "Public portal; explicit redistribution terms not stated",
         "quality": "B",
-        "quality_note": "Adds real field footprints plus 33 field names not covered by GOGET; 8 of 124 polygons carry no field name in the source.",
+        "quality_note": "62 of 124 SE4ALL polygons are classified Gas_Field. Adds real field footprints and field names not covered by GOGET.",
+        "path": "data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv",
+    },
+    "field_polygons_mixed": {
+        "description": "Oil-and-gas field boundary polygons, including field names not present in the GOGET point inventory above.",
+        "source": "Nigeria SE4ALL Open Data Portal",
+        "source_date": "2026-07-24",
+        "license": "Public portal; explicit redistribution terms not stated",
+        "quality": "B",
+        "quality_note": "60 of 124 SE4ALL polygons are classified Crude Oil and Gas Field; 2 more have no field_type recorded and are folded in here rather than treated as pure gas or oil. 8 of 124 total polygons carry no field name in the source.",
         "path": "data/processed/01_resource/se4all_gas_fields_nigeria_2026-07.csv",
     },
     "gas_pipelines": {
@@ -234,8 +261,13 @@ def point_features(
     latitude: str,
     columns: list[str],
     label_column: str,
+    *,
+    where: tuple[str, set[str]] | None = None,
 ) -> list[dict[str, Any]]:
     frame = pd.read_csv(path)
+    if where:
+        column, allowed = where
+        frame = frame[frame[column].isin(allowed)]
     frame = frame.dropna(subset=[longitude, latitude])
     return [
         feature(
@@ -327,7 +359,9 @@ def status_bucket(props: dict[str, Any]) -> str:
 
 def feature_year(sublayer_key: str, props: dict[str, Any]) -> tuple[int | None, str | None]:
     candidates = {
-        "fields": ("discovery_year", "Discovery year"),
+        "fields_oil": ("discovery_year", "Discovery year"),
+        "fields_gas": ("discovery_year", "Discovery year"),
+        "fields_mixed": ("discovery_year", "Discovery year"),
         "gas_pipelines": ("start_year", "Start year"),
         "oil_pipelines": ("start_year", "Start year"),
         "lng_terminals": ("start_year", "Start year"),
@@ -640,24 +674,43 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
 def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
     states = json.loads(states_path.read_text(encoding="utf-8"))
 
-    fields = point_features(
+    GOGET_FIELDS_COLUMNS = [
+        "project", "status", "operator", "owner", "fuel_type",
+        "discovery_year", "start_year", "url",
+    ]
+    fields_oil = point_features(
         PROCESSED / "01_resource/goget_fields_nigeria_2023-08.csv",
-        "lng", "lat",
-        [
-            "project", "status", "operator", "owner", "fuel_type",
-            "discovery_year", "start_year", "url",
-        ],
-        "project",
+        "lng", "lat", GOGET_FIELDS_COLUMNS, "project",
+        where=("fuel_type", {"oil"}),
     )
-    gas_field_polygons = wkt_features(
-        PROCESSED / "01_resource/se4all_gas_fields_nigeria_2026-07.csv",
-        "geometry",
-        ["name", "field_type", "in_goget_fields"],
-        "name",
+    fields_gas = point_features(
+        PROCESSED / "01_resource/goget_fields_nigeria_2023-08.csv",
+        "lng", "lat", GOGET_FIELDS_COLUMNS, "project",
+        where=("fuel_type", {"gas"}),
     )
-    for item in gas_field_polygons:
-        if "in_goget_fields" in item["properties"]:
-            item["properties"]["in_goget_fields"] = "Yes" if item["properties"]["in_goget_fields"] else "No"
+    fields_mixed = point_features(
+        PROCESSED / "01_resource/goget_fields_nigeria_2023-08.csv",
+        "lng", "lat", GOGET_FIELDS_COLUMNS, "project",
+        where=("fuel_type", {"oil and gas"}),
+    )
+
+    SE4ALL_FIELD_POLYGON_COLUMNS = ["name", "field_type", "in_goget_fields"]
+
+    def load_field_polygons(allowed_types: set[str]) -> list[dict[str, Any]]:
+        items = wkt_features(
+            PROCESSED / "01_resource/se4all_gas_fields_nigeria_2026-07.csv",
+            "geometry",
+            SE4ALL_FIELD_POLYGON_COLUMNS,
+            "name",
+            where=("field_type", allowed_types),
+        )
+        for item in items:
+            if "in_goget_fields" in item["properties"]:
+                item["properties"]["in_goget_fields"] = "Yes" if item["properties"]["in_goget_fields"] else "No"
+        return items
+
+    field_polygons_gas = load_field_polygons({"Gas_Field"})
+    field_polygons_mixed = load_field_polygons({"Crude Oil and Gas Field", "Unspecified"})
     gas_pipelines = route_features(
         PROCESSED / "02_infrastructure/ggit_gas_pipelines_nigeria.csv",
         [
@@ -766,8 +819,11 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
             "resource": {
                 "label": "Resource",
                 "sublayers": {
-                    "fields": sublayer("Oil & Gas Fields", "point", fields),
-                    "gas_field_polygons": sublayer("Field Boundaries", "polygon", gas_field_polygons),
+                    "fields_oil": sublayer("Oil Fields", "point", fields_oil),
+                    "fields_gas": sublayer("Gas Fields", "point", fields_gas),
+                    "fields_mixed": sublayer("Oil & Gas Fields (mixed)", "point", fields_mixed),
+                    "field_polygons_gas": sublayer("Gas Field Boundaries", "polygon", field_polygons_gas),
+                    "field_polygons_mixed": sublayer("Oil & Gas Field Boundaries (mixed)", "polygon", field_polygons_mixed),
                 },
             },
             "infrastructure": {

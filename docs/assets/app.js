@@ -50,7 +50,9 @@
   var CAT_ORDER = ["resource", "infrastructure", "environmental", "demand", "connectivity", "renewables"];
 
   var SHAPE_BY_SUB = {
-    fields: "circle",
+    fields_oil: "circle",
+    fields_gas: "diamond",
+    fields_mixed: "hex",
     lng_terminals: "hex",
     power_plants: "square",
     refineries: "triangle",
@@ -69,8 +71,11 @@
     power_grid: "2,4"
   };
   var DEFAULT_ON = {
-    fields: true,
-    gas_field_polygons: false,
+    fields_oil: true,
+    fields_gas: true,
+    fields_mixed: true,
+    field_polygons_gas: false,
+    field_polygons_mixed: false,
     gas_pipelines: true,
     oil_pipelines: true,
     lng_terminals: true,
@@ -525,7 +530,7 @@
         profileMetric(counts.substations, "Substations") +
         profileMetric(counts.demand_centers, "Demand centres") +
         profileMetric(counts.minigrids, "Mini-grids") +
-        profileMetric(counts.fields, "Oil & gas fields") +
+        profileMetric(counts.fields_oil + counts.fields_gas + counts.fields_mixed, "Oil & gas fields") +
         profileMetric(counts.ports, "Ports & terminals") +
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +

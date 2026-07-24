@@ -24,18 +24,39 @@
   },
   "layers": [
     {
-      "key": "fields",
-      "label": "Oil & Gas Fields",
+      "key": "fields_oil",
+      "label": "Oil Fields",
       "category": "resource",
-      "record_count": 180,
-      "endpoint": "layers/fields.geojson"
+      "record_count": 33,
+      "endpoint": "layers/fields_oil.geojson"
     },
     {
-      "key": "gas_field_polygons",
-      "label": "Field Boundaries",
+      "key": "fields_gas",
+      "label": "Gas Fields",
       "category": "resource",
-      "record_count": 124,
-      "endpoint": "layers/gas_field_polygons.geojson"
+      "record_count": 2,
+      "endpoint": "layers/fields_gas.geojson"
+    },
+    {
+      "key": "fields_mixed",
+      "label": "Oil & Gas Fields (mixed)",
+      "category": "resource",
+      "record_count": 145,
+      "endpoint": "layers/fields_mixed.geojson"
+    },
+    {
+      "key": "field_polygons_gas",
+      "label": "Gas Field Boundaries",
+      "category": "resource",
+      "record_count": 62,
+      "endpoint": "layers/field_polygons_gas.geojson"
+    },
+    {
+      "key": "field_polygons_mixed",
+      "label": "Oil & Gas Field Boundaries (mixed)",
+      "category": "resource",
+      "record_count": 62,
+      "endpoint": "layers/field_polygons_mixed.geojson"
     },
     {
       "key": "gas_pipelines",
