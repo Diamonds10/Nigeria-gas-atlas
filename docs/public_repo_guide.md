@@ -10,7 +10,7 @@ This repository is designed to help four audiences use the same evidence base in
 
 ## What the atlas contains
 
-The `v0.3` public atlas organizes Nigeria's infrastructure system into six
+The `v0.4` public atlas organizes Nigeria's infrastructure system into seven
 implemented layers:
 
 1. Resource
@@ -19,6 +19,7 @@ implemented layers:
 4. Demand
 5. Connectivity
 6. Renewables
+7. People & Access
 
 Those layers can be used separately or combined into a national systems view.
 Security is a planned extension and is not yet represented by a processed
@@ -76,10 +77,11 @@ This repository already has the data and processing structure to support that. T
 
 A state selector on the live site generates screening profiles for all 36
 states and the FCT. Profiles summarize public-map record counts and reported
-power, refinery, and mini-grid capacities. Clicking a state creates a shareable
+power, refinery, and mini-grid capacities, plus WorldPop 2025 population and
+World Bank settlement/night-light context. Clicking a state creates a shareable
 URL, zooms to its boundary, and enables a state-specific GeoJSON download.
 
-The website's data catalogue documents all 15 public sublayers with their
+The website's data catalogue documents all 22 public sublayers with their
 sources, access dates, reuse terms, quality grades, limitations, record counts,
 and direct processed-CSV links.
 
@@ -119,6 +121,8 @@ To reproduce or refresh data from public source, use the repo’s downloader and
 - `scripts/02_infrastructure/02_process_gas_infrastructure.py`
 - `scripts/07_renewables/01_download_minigrids.py`
 - `scripts/07_renewables/02_process_minigrids.py`
+- `scripts/08_context/01_download_population_settlements_access.py`
+- `scripts/08_context/02_process_population_settlements_access.py`
 
 This is the reproducible workflow:
 

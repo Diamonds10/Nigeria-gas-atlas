@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Nigeria Infrastructure Atlas</title>
-<meta name="description" content="Interactive map of Nigeria's gas resources, infrastructure, environmental, demand, connectivity, and renewable energy assets." />
+<meta name="description" content="Interactive map of Nigeria's infrastructure, population, settlements, and electricity-access context." />
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +21,8 @@
       <span class="sub">State intelligence</span>
     </div>
     <div class="spacer"></div>
-    <div class="stat"><span class="n" id="stat-visible">—</span><span class="l">assets shown</span></div>
-    <div class="stat"><span class="n" id="stat-total">—</span><span class="l">assets mapped</span></div>
+    <div class="stat"><span class="n" id="stat-visible">—</span><span class="l">records shown</span></div>
+    <div class="stat"><span class="n" id="stat-total">—</span><span class="l">map records</span></div>
     <button class="top-action" id="catalogue-button" type="button">Data catalogue</button>
     <button class="theme-toggle" id="theme-toggle" title="Toggle theme" aria-label="Toggle light/dark theme">◐</button>
   </header>
@@ -85,7 +85,7 @@
       </div>
       <div id="category-list"></div>
       <div class="panel-footer">
-        v0.3 · State profiles count public-map records intersecting each state; they are screening summaries, not official administrative statistics. See <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">sources and limitations</a> and <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/THIRD_PARTY_DATA.md" target="_blank" rel="noopener">third-party data rights</a>.
+        v0.4 · Population and settlement estimates are screening context; night-light detection is not a measured household electricity-access rate. See <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/docs/data_sources.md" target="_blank" rel="noopener">sources and limitations</a> and <a href="https://github.com/Diamonds10/Nigeria-gas-atlas/blob/main/THIRD_PARTY_DATA.md" target="_blank" rel="noopener">third-party data rights</a>.
       </div>
     </aside>
     <main class="mapwrap">

@@ -46,7 +46,7 @@
 Overpass queries were run against Nigeria's OSM boundary (relation 192787 / area 3600192787) rather than a bounding box, to avoid picking up slivers of neighboring countries. Public Overpass instances are shared, rate-limited infrastructure — the download script retries across three mirrors (overpass-api.de, overpass.kumi.systems, overpass.openstreetmap.fr) with backoff, since single-mirror 406/429/504 errors were common during collection.
 
 ## Layer 6 — Security
-**Implementation status: planned, not published in `v0.3`.** The entries below
+**Implementation status: planned, not published in `v0.4`.** The entries below
 are candidate sources only. No tracked download/processing script, processed
 dataset, or public-map security layer currently exists.
 
@@ -61,3 +61,14 @@ dataset, or public-map security layer currently exists.
 | Mini-grid asset inventory | Nigeria SE4ALL Open Data Portal (GeoNode/GeoServer instance) | https://data.nigeriase4all.gov.ng/catalogue/#/dataset/1 | 2026-07-23 | Not explicitly stated on the dataset page — public government/SE4ALL open data portal; confirm terms before redistributing | 66 mini-grid sites nationally, across 26 states/FCT; site name, LGA, capacity (kW), status, connections served, funder, developer/owner | This is a genuine site-level asset inventory (not a policy page) — found via the portal's GeoServer WFS backend, not the map UI. `state` is not in the source data; it's derived here via point-in-polygon spatial join against geoBoundaries' Nigeria ADM1 boundaries (fetched at script run time, not stored separately). Covers installed/under-construction mini-grids only — does not include standalone solar home systems (SHS), which this portal does not appear to track as a discrete geocoded layer. The same portal also hosts `cluster_offgrid`/`cluster_offgrid_survey` datasets (17,532 unserved-settlement clusters and 709 field-surveyed communities) — demand-side electrification-planning data, not asset data, and a candidate for a future addition to this layer rather than this one |
 
 This layer was added in response to `docs/renewable_offgrid_minigrid_asset_layer_spec.md`'s proposal. That spec anticipated needing to compile scattered REA/NEP/DARES/Solar Power Naija programme pages into a asset list by hand; the SE4ALL portal turned out to already have this as a structured, geocoded dataset, so no manual compilation was needed.
+
+## Layer 8 — Population, settlements & electricity-access context
+
+| Dataset | Source | URL | Date accessed | License | Coverage | Known limitations |
+|---|---|---|---|---|---|---|
+| Nigeria population v3.0 administrative totals | WorldPop / GRID3 | https://data.worldpop.org/repo/wopr/NGA/population/v3.0/ | 2026-07-24 | CC BY 4.0 | 2025 modelled population totals for 36 states and the FCT | Modelled estimates, not census counts. Used for state-profile population context; do not interpret differences from other population products as observed change. |
+| Nigeria Distributed Renewable Energy Atlas settlement clusters | World Bank EnergyData.info | https://energydata.info/en/dataset/nigeria-distributed-renewable-energy-dre | 2026-07-24 | CC BY 4.0 | 154,319 settlement clusters nationally; modelled population, buildings, demand, night-light signal, road/grid distance, and facility indicators | Planning model rather than an official settlement register. Night-light detection is an electricity-access screening proxy, not a measured household electrification rate. The web map publishes a 1,278-cell aggregate plus the 40 highest-population records per state; the processed full selected-column table remains available. |
+
+Reproduce these outputs with
+`scripts/08_context/01_download_population_settlements_access.py` and
+`scripts/08_context/02_process_population_settlements_access.py`.

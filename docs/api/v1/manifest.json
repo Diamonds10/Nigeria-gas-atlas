@@ -1,9 +1,9 @@
 {
   "api_version": "v1",
   "atlas_release": {
-    "version": "0.3.0",
+    "version": "0.4.0",
     "date": "2026-07-24",
-    "title": "Status, Time Filters, Downloads, and Static API"
+    "title": "Population, Settlements, and Electricity-access Context"
   },
   "base_url": "https://diamonds10.github.io/Nigeria-gas-atlas/api/v1/",
   "formats": [
@@ -13,7 +13,7 @@
   "filter_fields": {
     "_states": "ADM1 names intersected by the public display geometry",
     "_status_group": "Normalized status group",
-    "_year": "Relevant discovery, start, commissioning, or designation year",
+    "_year": "Relevant discovery, start, commissioning, designation, or source release year",
     "_year_label": "Meaning of _year for the record"
   },
   "endpoints": {
@@ -162,6 +162,20 @@
       "category": "renewables",
       "record_count": 66,
       "endpoint": "layers/minigrids.geojson"
+    },
+    {
+      "key": "population_access",
+      "label": "Population & Access Grid",
+      "category": "context",
+      "record_count": 1278,
+      "endpoint": "layers/population_access.geojson"
+    },
+    {
+      "key": "settlements",
+      "label": "Major Settlements",
+      "category": "context",
+      "record_count": 1480,
+      "endpoint": "layers/settlements.geojson"
     }
   ]
 }

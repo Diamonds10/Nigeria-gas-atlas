@@ -1,14 +1,14 @@
 {
   "atlas_release": {
-    "version": "0.3.0",
+    "version": "0.4.0",
     "date": "2026-07-24",
-    "title": "Status, Time Filters, Downloads, and Static API"
+    "title": "Population, Settlements, and Electricity-access Context"
   },
   "method": "Public-map records whose display geometry intersects each ADM1 boundary.",
   "profiles": {
     "Nigeria": {
       "name": "Nigeria",
-      "mapped_records": 9753,
+      "mapped_records": 12511,
       "counts": {
         "fields_oil": 33,
         "fields_gas": 2,
@@ -29,7 +29,9 @@
         "power_grid": 931,
         "substations": 390,
         "ports": 25,
-        "minigrids": 66
+        "minigrids": 66,
+        "population_access": 1278,
+        "settlements": 1480
       },
       "category_counts": {
         "resource": 304,
@@ -37,7 +39,8 @@
         "environmental": 1005,
         "demand": 28,
         "connectivity": 7992,
-        "renewables": 66
+        "renewables": 66,
+        "context": 2758
       },
       "capacity": {
         "power_mw": 36108.0,
@@ -50,12 +53,22 @@
         "proposed": 120,
         "inactive": 43,
         "other": 1011,
-        "unknown": 8153
+        "unknown": 10911
+      },
+      "people_access": {
+        "worldpop_population_2025": 237527782.00200003,
+        "dre_cluster_population": 227884267.0,
+        "settlement_count": 154319.0,
+        "population_with_nightlight_signal": 150225011.0,
+        "population_without_nightlight_signal": 77659256.0,
+        "nightlight_population_share_pct": 65.92162459376803,
+        "population_weighted_distance_transmission_km": 2.132134247688104,
+        "population_weighted_distance_gridlight_km": 2.6762157846070176
       }
     },
     "Cross River": {
       "name": "Cross River",
-      "mapped_records": 218,
+      "mapped_records": 286,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -76,7 +89,9 @@
         "power_grid": 11,
         "substations": 8,
         "ports": 1,
-        "minigrids": 2
+        "minigrids": 2,
+        "population_access": 28,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -84,7 +99,8 @@
         "environmental": 22,
         "demand": 1,
         "connectivity": 176,
-        "renewables": 2
+        "renewables": 2,
+        "context": 68
       },
       "capacity": {
         "power_mw": 1383.0,
@@ -97,12 +113,22 @@
         "proposed": 6,
         "inactive": 4,
         "other": 22,
-        "unknown": 177
+        "unknown": 245
+      },
+      "people_access": {
+        "worldpop_population_2025": 2566393.397,
+        "dre_cluster_population": 2475017.0,
+        "settlement_count": 1629.0,
+        "population_with_nightlight_signal": 1349873.0,
+        "population_without_nightlight_signal": 1125144.0,
+        "nightlight_population_share_pct": 54.53994861449437,
+        "population_weighted_distance_transmission_km": 0.7479232506281775,
+        "population_weighted_distance_gridlight_km": 3.1349610144091944
       }
     },
     "Abuja Federal Capital Territory": {
       "name": "Abuja Federal Capital Territory",
-      "mapped_records": 600,
+      "mapped_records": 650,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -123,7 +149,9 @@
         "power_grid": 51,
         "substations": 17,
         "ports": 0,
-        "minigrids": 4
+        "minigrids": 4,
+        "population_access": 10,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -131,7 +159,8 @@
         "environmental": 21,
         "demand": 0,
         "connectivity": 569,
-        "renewables": 4
+        "renewables": 4,
+        "context": 50
       },
       "capacity": {
         "power_mw": 1350.0,
@@ -144,12 +173,22 @@
         "proposed": 1,
         "inactive": 0,
         "other": 22,
-        "unknown": 569
+        "unknown": 619
+      },
+      "people_access": {
+        "worldpop_population_2025": 3735905.649,
+        "dre_cluster_population": 6119288.0,
+        "settlement_count": 1294.0,
+        "population_with_nightlight_signal": 5567402.0,
+        "population_without_nightlight_signal": 551886.0,
+        "nightlight_population_share_pct": 90.9812056566058,
+        "population_weighted_distance_transmission_km": 0.4175101564103536,
+        "population_weighted_distance_gridlight_km": 0.4391098843525586
       }
     },
     "Ogun": {
       "name": "Ogun",
-      "mapped_records": 506,
+      "mapped_records": 568,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -170,7 +209,9 @@
         "power_grid": 52,
         "substations": 32,
         "ports": 0,
-        "minigrids": 3
+        "minigrids": 3,
+        "population_access": 23,
+        "settlements": 39
       },
       "category_counts": {
         "resource": 0,
@@ -178,7 +219,8 @@
         "environmental": 21,
         "demand": 6,
         "connectivity": 467,
-        "renewables": 3
+        "renewables": 3,
+        "context": 62
       },
       "capacity": {
         "power_mw": 1154.0,
@@ -191,12 +233,22 @@
         "proposed": 1,
         "inactive": 2,
         "other": 22,
-        "unknown": 467
+        "unknown": 529
+      },
+      "people_access": {
+        "worldpop_population_2025": 12934343.05,
+        "dre_cluster_population": 5650981.0,
+        "settlement_count": 2684.0,
+        "population_with_nightlight_signal": 4757304.0,
+        "population_without_nightlight_signal": 893677.0,
+        "nightlight_population_share_pct": 84.18545381766458,
+        "population_weighted_distance_transmission_km": 0.7999215976836588,
+        "population_weighted_distance_gridlight_km": 0.8470012461553136
       }
     },
     "Oyo": {
       "name": "Oyo",
-      "mapped_records": 466,
+      "mapped_records": 540,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -217,7 +269,9 @@
         "power_grid": 12,
         "substations": 16,
         "ports": 0,
-        "minigrids": 1
+        "minigrids": 1,
+        "population_access": 33,
+        "settlements": 41
       },
       "category_counts": {
         "resource": 1,
@@ -225,7 +279,8 @@
         "environmental": 26,
         "demand": 0,
         "connectivity": 436,
-        "renewables": 1
+        "renewables": 1,
+        "context": 74
       },
       "capacity": {
         "power_mw": 0.0,
@@ -238,12 +293,22 @@
         "proposed": 2,
         "inactive": 0,
         "other": 25,
-        "unknown": 436
+        "unknown": 510
+      },
+      "people_access": {
+        "worldpop_population_2025": 8988216.774,
+        "dre_cluster_population": 8707049.0,
+        "settlement_count": 3331.0,
+        "population_with_nightlight_signal": 7804270.0,
+        "population_without_nightlight_signal": 902779.0,
+        "nightlight_population_share_pct": 89.63163064776596,
+        "population_weighted_distance_transmission_km": 0.5266648390286996,
+        "population_weighted_distance_gridlight_km": 0.8061105131026597
       }
     },
     "Sokoto": {
       "name": "Sokoto",
-      "mapped_records": 198,
+      "mapped_records": 281,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -264,7 +329,9 @@
         "power_grid": 48,
         "substations": 3,
         "ports": 0,
-        "minigrids": 3
+        "minigrids": 3,
+        "population_access": 44,
+        "settlements": 39
       },
       "category_counts": {
         "resource": 0,
@@ -272,7 +339,8 @@
         "environmental": 36,
         "demand": 1,
         "connectivity": 158,
-        "renewables": 3
+        "renewables": 3,
+        "context": 83
       },
       "capacity": {
         "power_mw": 0.0,
@@ -285,12 +353,22 @@
         "proposed": 0,
         "inactive": 0,
         "other": 36,
-        "unknown": 158
+        "unknown": 241
+      },
+      "people_access": {
+        "worldpop_population_2025": 4373777.932,
+        "dre_cluster_population": 6886476.0,
+        "settlement_count": 4660.0,
+        "population_with_nightlight_signal": 2049936.0,
+        "population_without_nightlight_signal": 4836540.0,
+        "nightlight_population_share_pct": 29.76756181245676,
+        "population_weighted_distance_transmission_km": 1.8426029946230849,
+        "population_weighted_distance_gridlight_km": 9.21403231420541
       }
     },
     "Zamfara": {
       "name": "Zamfara",
-      "mapped_records": 195,
+      "mapped_records": 278,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -311,7 +389,9 @@
         "power_grid": 3,
         "substations": 2,
         "ports": 0,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 42,
+        "settlements": 41
       },
       "category_counts": {
         "resource": 0,
@@ -319,7 +399,8 @@
         "environmental": 23,
         "demand": 0,
         "connectivity": 171,
-        "renewables": 0
+        "renewables": 0,
+        "context": 83
       },
       "capacity": {
         "power_mw": 0.0,
@@ -332,12 +413,22 @@
         "proposed": 1,
         "inactive": 0,
         "other": 23,
-        "unknown": 171
+        "unknown": 254
+      },
+      "people_access": {
+        "worldpop_population_2025": 3564209.261,
+        "dre_cluster_population": 5321731.0,
+        "settlement_count": 4779.0,
+        "population_with_nightlight_signal": 1844838.0,
+        "population_without_nightlight_signal": 3476893.0,
+        "nightlight_population_share_pct": 34.66612649154946,
+        "population_weighted_distance_transmission_km": 4.437714418485263,
+        "population_weighted_distance_gridlight_km": 9.45553527301549
       }
     },
     "Lagos": {
       "name": "Lagos",
-      "mapped_records": 793,
+      "mapped_records": 836,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -358,7 +449,9 @@
         "power_grid": 109,
         "substations": 42,
         "ports": 0,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 3,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -366,7 +459,8 @@
         "environmental": 2,
         "demand": 2,
         "connectivity": 753,
-        "renewables": 0
+        "renewables": 0,
+        "context": 43
       },
       "capacity": {
         "power_mw": 7410.0,
@@ -379,12 +473,22 @@
         "proposed": 21,
         "inactive": 2,
         "other": 2,
-        "unknown": 754
+        "unknown": 797
+      },
+      "people_access": {
+        "worldpop_population_2025": 12582855.93,
+        "dre_cluster_population": 17664765.0,
+        "settlement_count": 413.0,
+        "population_with_nightlight_signal": 17523383.0,
+        "population_without_nightlight_signal": 141382.0,
+        "nightlight_population_share_pct": 99.1996383761686,
+        "population_weighted_distance_transmission_km": 0.0285784622665515,
+        "population_weighted_distance_gridlight_km": 0.0139327371748223
       }
     },
     "Akwa Ibom": {
       "name": "Akwa Ibom",
-      "mapped_records": 213,
+      "mapped_records": 262,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -405,7 +509,9 @@
         "power_grid": 24,
         "substations": 12,
         "ports": 0,
-        "minigrids": 1
+        "minigrids": 1,
+        "population_access": 9,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -413,7 +519,8 @@
         "environmental": 5,
         "demand": 0,
         "connectivity": 182,
-        "renewables": 1
+        "renewables": 1,
+        "context": 49
       },
       "capacity": {
         "power_mw": 2379.0,
@@ -426,12 +533,22 @@
         "proposed": 10,
         "inactive": 5,
         "other": 4,
-        "unknown": 183
+        "unknown": 232
+      },
+      "people_access": {
+        "worldpop_population_2025": 4281013.948,
+        "dre_cluster_population": 4018329.0,
+        "settlement_count": 1926.0,
+        "population_with_nightlight_signal": 2368544.0,
+        "population_without_nightlight_signal": 1649785.0,
+        "nightlight_population_share_pct": 58.94350611908582,
+        "population_weighted_distance_transmission_km": 0.8995542550149578,
+        "population_weighted_distance_gridlight_km": 1.8933145802645823
       }
     },
     "Bayelsa": {
       "name": "Bayelsa",
-      "mapped_records": 82,
+      "mapped_records": 131,
       "counts": {
         "fields_oil": 1,
         "fields_gas": 1,
@@ -452,7 +569,9 @@
         "power_grid": 5,
         "substations": 2,
         "ports": 0,
-        "minigrids": 2
+        "minigrids": 2,
+        "population_access": 12,
+        "settlements": 37
       },
       "category_counts": {
         "resource": 35,
@@ -460,7 +579,8 @@
         "environmental": 14,
         "demand": 0,
         "connectivity": 7,
-        "renewables": 2
+        "renewables": 2,
+        "context": 49
       },
       "capacity": {
         "power_mw": 780.0,
@@ -473,12 +593,22 @@
         "proposed": 7,
         "inactive": 0,
         "other": 19,
-        "unknown": 29
+        "unknown": 78
+      },
+      "people_access": {
+        "worldpop_population_2025": 2523453.676,
+        "dre_cluster_population": 1124173.0,
+        "settlement_count": 550.0,
+        "population_with_nightlight_signal": 805614.0,
+        "population_without_nightlight_signal": 318559.0,
+        "nightlight_population_share_pct": 71.66281346376402,
+        "population_weighted_distance_transmission_km": 6.025413970981335,
+        "population_weighted_distance_gridlight_km": 1.5828719316332984
       }
     },
     "Ondo": {
       "name": "Ondo",
-      "mapped_records": 140,
+      "mapped_records": 196,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -499,7 +629,9 @@
         "power_grid": 31,
         "substations": 7,
         "ports": 0,
-        "minigrids": 5
+        "minigrids": 5,
+        "population_access": 17,
+        "settlements": 39
       },
       "category_counts": {
         "resource": 2,
@@ -507,7 +639,8 @@
         "environmental": 27,
         "demand": 0,
         "connectivity": 95,
-        "renewables": 5
+        "renewables": 5,
+        "context": 56
       },
       "capacity": {
         "power_mw": 1866.0,
@@ -520,12 +653,22 @@
         "proposed": 5,
         "inactive": 2,
         "other": 25,
-        "unknown": 95
+        "unknown": 151
+      },
+      "people_access": {
+        "worldpop_population_2025": 5658396.028,
+        "dre_cluster_population": 4456672.0,
+        "settlement_count": 2077.0,
+        "population_with_nightlight_signal": 3438052.0,
+        "population_without_nightlight_signal": 1018620.0,
+        "nightlight_population_share_pct": 77.14393161533988,
+        "population_weighted_distance_transmission_km": 1.0886079433263205,
+        "population_weighted_distance_gridlight_km": 1.6975832513588611
       }
     },
     "Delta": {
       "name": "Delta",
-      "mapped_records": 376,
+      "mapped_records": 439,
       "counts": {
         "fields_oil": 11,
         "fields_gas": 0,
@@ -546,7 +689,9 @@
         "power_grid": 34,
         "substations": 11,
         "ports": 5,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 22,
+        "settlements": 41
       },
       "category_counts": {
         "resource": 58,
@@ -554,7 +699,8 @@
         "environmental": 21,
         "demand": 2,
         "connectivity": 209,
-        "renewables": 0
+        "renewables": 0,
+        "context": 63
       },
       "capacity": {
         "power_mw": 6312.0,
@@ -567,12 +713,22 @@
         "proposed": 20,
         "inactive": 24,
         "other": 24,
-        "unknown": 239
+        "unknown": 302
+      },
+      "people_access": {
+        "worldpop_population_2025": 7712872.39,
+        "dre_cluster_population": 5372380.0,
+        "settlement_count": 1453.0,
+        "population_with_nightlight_signal": 4266189.0,
+        "population_without_nightlight_signal": 1106191.0,
+        "nightlight_population_share_pct": 79.40966573473953,
+        "population_weighted_distance_transmission_km": 0.6887058212561286,
+        "population_weighted_distance_gridlight_km": 0.9427257606498424
       }
     },
     "Rivers": {
       "name": "Rivers",
-      "mapped_records": 295,
+      "mapped_records": 349,
       "counts": {
         "fields_oil": 3,
         "fields_gas": 0,
@@ -593,7 +749,9 @@
         "power_grid": 31,
         "substations": 18,
         "ports": 4,
-        "minigrids": 4
+        "minigrids": 4,
+        "population_access": 13,
+        "settlements": 41
       },
       "category_counts": {
         "resource": 42,
@@ -601,7 +759,8 @@
         "environmental": 11,
         "demand": 4,
         "connectivity": 173,
-        "renewables": 4
+        "renewables": 4,
+        "context": 54
       },
       "capacity": {
         "power_mw": 2142.0,
@@ -614,12 +773,22 @@
         "proposed": 9,
         "inactive": 2,
         "other": 14,
-        "unknown": 200
+        "unknown": 254
+      },
+      "people_access": {
+        "worldpop_population_2025": 6863907.13,
+        "dre_cluster_population": 5541333.0,
+        "settlement_count": 1051.0,
+        "population_with_nightlight_signal": 4297784.0,
+        "population_without_nightlight_signal": 1243549.0,
+        "nightlight_population_share_pct": 77.55866684063203,
+        "population_weighted_distance_transmission_km": 0.565668217376577,
+        "population_weighted_distance_gridlight_km": 0.9922652390679284
       }
     },
     "Kwara": {
       "name": "Kwara",
-      "mapped_records": 307,
+      "mapped_records": 388,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -640,7 +809,9 @@
         "power_grid": 6,
         "substations": 5,
         "ports": 0,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 44,
+        "settlements": 37
       },
       "category_counts": {
         "resource": 0,
@@ -648,7 +819,8 @@
         "environmental": 33,
         "demand": 0,
         "connectivity": 273,
-        "renewables": 0
+        "renewables": 0,
+        "context": 81
       },
       "capacity": {
         "power_mw": 0.0,
@@ -661,12 +833,22 @@
         "proposed": 2,
         "inactive": 0,
         "other": 32,
-        "unknown": 273
+        "unknown": 354
+      },
+      "people_access": {
+        "worldpop_population_2025": 4687187.345,
+        "dre_cluster_population": 4131791.0,
+        "settlement_count": 3372.0,
+        "population_with_nightlight_signal": 3038458.0,
+        "population_without_nightlight_signal": 1093333.0,
+        "nightlight_population_share_pct": 73.53852118851123,
+        "population_weighted_distance_transmission_km": 2.6748925078737043,
+        "population_weighted_distance_gridlight_km": 2.4429096021555785
       }
     },
     "Kogi": {
       "name": "Kogi",
-      "mapped_records": 419,
+      "mapped_records": 498,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -687,7 +869,9 @@
         "power_grid": 34,
         "substations": 9,
         "ports": 0,
-        "minigrids": 2
+        "minigrids": 2,
+        "population_access": 39,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -695,7 +879,8 @@
         "environmental": 37,
         "demand": 4,
         "connectivity": 347,
-        "renewables": 2
+        "renewables": 2,
+        "context": 79
       },
       "capacity": {
         "power_mw": 3556.0,
@@ -708,12 +893,22 @@
         "proposed": 19,
         "inactive": 0,
         "other": 36,
-        "unknown": 347
+        "unknown": 426
+      },
+      "people_access": {
+        "worldpop_population_2025": 4479439.153,
+        "dre_cluster_population": 4274311.0,
+        "settlement_count": 2977.0,
+        "population_with_nightlight_signal": 2577329.0,
+        "population_without_nightlight_signal": 1696982.0,
+        "nightlight_population_share_pct": 60.298115883472214,
+        "population_weighted_distance_transmission_km": 1.787603737772006,
+        "population_weighted_distance_gridlight_km": 2.50341566020816
       }
     },
     "Benue": {
       "name": "Benue",
-      "mapped_records": 229,
+      "mapped_records": 305,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -734,7 +929,9 @@
         "power_grid": 17,
         "substations": 2,
         "ports": 0,
-        "minigrids": 1
+        "minigrids": 1,
+        "population_access": 39,
+        "settlements": 37
       },
       "category_counts": {
         "resource": 0,
@@ -742,7 +939,8 @@
         "environmental": 35,
         "demand": 1,
         "connectivity": 191,
-        "renewables": 1
+        "renewables": 1,
+        "context": 76
       },
       "capacity": {
         "power_mw": 0.0,
@@ -755,12 +953,22 @@
         "proposed": 0,
         "inactive": 0,
         "other": 35,
-        "unknown": 191
+        "unknown": 267
+      },
+      "people_access": {
+        "worldpop_population_2025": 9067209.083,
+        "dre_cluster_population": 9341739.0,
+        "settlement_count": 15165.0,
+        "population_with_nightlight_signal": 4109202.0,
+        "population_without_nightlight_signal": 5232537.0,
+        "nightlight_population_share_pct": 43.987548785081664,
+        "population_weighted_distance_transmission_km": 2.27837895171338,
+        "population_weighted_distance_gridlight_km": 3.7651969926584337
       }
     },
     "Borno": {
       "name": "Borno",
-      "mapped_records": 247,
+      "mapped_records": 382,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -781,7 +989,9 @@
         "power_grid": 10,
         "substations": 13,
         "ports": 0,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 94,
+        "settlements": 41
       },
       "category_counts": {
         "resource": 0,
@@ -789,7 +999,8 @@
         "environmental": 78,
         "demand": 0,
         "connectivity": 168,
-        "renewables": 0
+        "renewables": 0,
+        "context": 135
       },
       "capacity": {
         "power_mw": 50.0,
@@ -802,12 +1013,22 @@
         "proposed": 1,
         "inactive": 0,
         "other": 77,
-        "unknown": 168
+        "unknown": 303
+      },
+      "people_access": {
+        "worldpop_population_2025": 6269578.236,
+        "dre_cluster_population": 6337525.0,
+        "settlement_count": 4746.0,
+        "population_with_nightlight_signal": 4407089.0,
+        "population_without_nightlight_signal": 1930436.0,
+        "nightlight_population_share_pct": 69.5395915597966,
+        "population_weighted_distance_transmission_km": 9.104419501303742,
+        "population_weighted_distance_gridlight_km": 3.9515943724087874
       }
     },
     "Katsina": {
       "name": "Katsina",
-      "mapped_records": 245,
+      "mapped_records": 316,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -828,7 +1049,9 @@
         "power_grid": 19,
         "substations": 6,
         "ports": 0,
-        "minigrids": 2
+        "minigrids": 2,
+        "population_access": 31,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -836,7 +1059,8 @@
         "environmental": 71,
         "demand": 0,
         "connectivity": 172,
-        "renewables": 2
+        "renewables": 2,
+        "context": 71
       },
       "capacity": {
         "power_mw": 0.0,
@@ -849,12 +1073,22 @@
         "proposed": 0,
         "inactive": 0,
         "other": 71,
-        "unknown": 172
+        "unknown": 243
+      },
+      "people_access": {
+        "worldpop_population_2025": 10522942.91,
+        "dre_cluster_population": 9767007.0,
+        "settlement_count": 9668.0,
+        "population_with_nightlight_signal": 4883777.0,
+        "population_without_nightlight_signal": 4883230.0,
+        "nightlight_population_share_pct": 50.00280024371847,
+        "population_weighted_distance_transmission_km": 1.7085539019271718,
+        "population_weighted_distance_gridlight_km": 2.3443056501341712
       }
     },
     "Plateau": {
       "name": "Plateau",
-      "mapped_records": 240,
+      "mapped_records": 311,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -875,7 +1109,9 @@
         "power_grid": 22,
         "substations": 18,
         "ports": 0,
-        "minigrids": 5
+        "minigrids": 5,
+        "population_access": 32,
+        "settlements": 39
       },
       "category_counts": {
         "resource": 0,
@@ -883,7 +1119,8 @@
         "environmental": 37,
         "demand": 0,
         "connectivity": 198,
-        "renewables": 5
+        "renewables": 5,
+        "context": 71
       },
       "capacity": {
         "power_mw": 0.0,
@@ -896,12 +1133,22 @@
         "proposed": 0,
         "inactive": 0,
         "other": 37,
-        "unknown": 198
+        "unknown": 269
+      },
+      "people_access": {
+        "worldpop_population_2025": 5771080.854,
+        "dre_cluster_population": 5497495.0,
+        "settlement_count": 5626.0,
+        "population_with_nightlight_signal": 2983136.0,
+        "population_without_nightlight_signal": 2514359.0,
+        "nightlight_population_share_pct": 54.26355094456657,
+        "population_weighted_distance_transmission_km": 1.759322958911286,
+        "population_weighted_distance_gridlight_km": 4.2330127001479765
       }
     },
     "Edo": {
       "name": "Edo",
-      "mapped_records": 365,
+      "mapped_records": 433,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -922,7 +1169,9 @@
         "power_grid": 42,
         "substations": 27,
         "ports": 0,
-        "minigrids": 4
+        "minigrids": 4,
+        "population_access": 28,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 9,
@@ -930,7 +1179,8 @@
         "environmental": 48,
         "demand": 2,
         "connectivity": 280,
-        "renewables": 4
+        "renewables": 4,
+        "context": 68
       },
       "capacity": {
         "power_mw": 2168.0,
@@ -943,12 +1193,22 @@
         "proposed": 8,
         "inactive": 0,
         "other": 46,
-        "unknown": 285
+        "unknown": 353
+      },
+      "people_access": {
+        "worldpop_population_2025": 6633884.179,
+        "dre_cluster_population": 5480530.0,
+        "settlement_count": 1541.0,
+        "population_with_nightlight_signal": 4658344.0,
+        "population_without_nightlight_signal": 822186.0,
+        "nightlight_population_share_pct": 84.99805675728442,
+        "population_weighted_distance_transmission_km": 0.3659465471405138,
+        "population_weighted_distance_gridlight_km": 0.7046511899396591
       }
     },
     "Jigawa": {
       "name": "Jigawa",
-      "mapped_records": 116,
+      "mapped_records": 185,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -969,7 +1229,9 @@
         "power_grid": 4,
         "substations": 9,
         "ports": 0,
-        "minigrids": 1
+        "minigrids": 1,
+        "population_access": 29,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -977,7 +1239,8 @@
         "environmental": 71,
         "demand": 0,
         "connectivity": 44,
-        "renewables": 1
+        "renewables": 1,
+        "context": 69
       },
       "capacity": {
         "power_mw": 0.0,
@@ -990,12 +1253,22 @@
         "proposed": 1,
         "inactive": 0,
         "other": 70,
-        "unknown": 44
+        "unknown": 113
+      },
+      "people_access": {
+        "worldpop_population_2025": 7645450.17,
+        "dre_cluster_population": 5653630.0,
+        "settlement_count": 5557.0,
+        "population_with_nightlight_signal": 2292243.0,
+        "population_without_nightlight_signal": 3361387.0,
+        "nightlight_population_share_pct": 40.54462354275041,
+        "population_weighted_distance_transmission_km": 1.496860631134333,
+        "population_weighted_distance_gridlight_km": 3.546981822121363
       }
     },
     "Anambra": {
       "name": "Anambra",
-      "mapped_records": 139,
+      "mapped_records": 187,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1016,7 +1289,9 @@
         "power_grid": 19,
         "substations": 9,
         "ports": 0,
-        "minigrids": 3
+        "minigrids": 3,
+        "population_access": 6,
+        "settlements": 42
       },
       "category_counts": {
         "resource": 0,
@@ -1024,7 +1299,8 @@
         "environmental": 12,
         "demand": 0,
         "connectivity": 120,
-        "renewables": 3
+        "renewables": 3,
+        "context": 48
       },
       "capacity": {
         "power_mw": 1624.0,
@@ -1037,12 +1313,22 @@
         "proposed": 2,
         "inactive": 3,
         "other": 11,
-        "unknown": 120
+        "unknown": 168
+      },
+      "people_access": {
+        "worldpop_population_2025": 5788664.686,
+        "dre_cluster_population": 5493806.0,
+        "settlement_count": 433.0,
+        "population_with_nightlight_signal": 5162514.0,
+        "population_without_nightlight_signal": 331292.0,
+        "nightlight_population_share_pct": 93.969717896846,
+        "population_weighted_distance_transmission_km": 0.0135963610655345,
+        "population_weighted_distance_gridlight_km": 0.1365600507189369
       }
     },
     "Kano": {
       "name": "Kano",
-      "mapped_records": 308,
+      "mapped_records": 376,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1063,7 +1349,9 @@
         "power_grid": 71,
         "substations": 15,
         "ports": 0,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 27,
+        "settlements": 41
       },
       "category_counts": {
         "resource": 0,
@@ -1071,7 +1359,8 @@
         "environmental": 16,
         "demand": 0,
         "connectivity": 287,
-        "renewables": 0
+        "renewables": 0,
+        "context": 68
       },
       "capacity": {
         "power_mw": 1500.0,
@@ -1084,12 +1373,22 @@
         "proposed": 4,
         "inactive": 0,
         "other": 16,
-        "unknown": 287
+        "unknown": 355
+      },
+      "people_access": {
+        "worldpop_population_2025": 18771133.63,
+        "dre_cluster_population": 17153898.0,
+        "settlement_count": 11612.0,
+        "population_with_nightlight_signal": 11005557.0,
+        "population_without_nightlight_signal": 6148341.0,
+        "nightlight_population_share_pct": 64.15776169358125,
+        "population_weighted_distance_transmission_km": 0.8520082986385951,
+        "population_weighted_distance_gridlight_km": 1.160617633146705
       }
     },
     "Nasarawa": {
       "name": "Nasarawa",
-      "mapped_records": 204,
+      "mapped_records": 282,
       "counts": {
         "fields_oil": 4,
         "fields_gas": 0,
@@ -1110,7 +1409,9 @@
         "power_grid": 5,
         "substations": 5,
         "ports": 0,
-        "minigrids": 1
+        "minigrids": 1,
+        "population_access": 38,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 35,
@@ -1118,7 +1419,8 @@
         "environmental": 34,
         "demand": 0,
         "connectivity": 132,
-        "renewables": 1
+        "renewables": 1,
+        "context": 78
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1131,12 +1433,22 @@
         "proposed": 1,
         "inactive": 0,
         "other": 34,
-        "unknown": 132
+        "unknown": 210
+      },
+      "people_access": {
+        "worldpop_population_2025": 3598556.717,
+        "dre_cluster_population": 3858264.0,
+        "settlement_count": 3791.0,
+        "population_with_nightlight_signal": 2182506.0,
+        "population_without_nightlight_signal": 1675758.0,
+        "nightlight_population_share_pct": 56.567046733971544,
+        "population_weighted_distance_transmission_km": 3.4450614395489785,
+        "population_weighted_distance_gridlight_km": 3.0203921457940672
       }
     },
     "Kebbi": {
       "name": "Kebbi",
-      "mapped_records": 225,
+      "mapped_records": 312,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1157,7 +1469,9 @@
         "power_grid": 135,
         "substations": 5,
         "ports": 0,
-        "minigrids": 1
+        "minigrids": 1,
+        "population_access": 47,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -1165,7 +1479,8 @@
         "environmental": 17,
         "demand": 0,
         "connectivity": 207,
-        "renewables": 1
+        "renewables": 1,
+        "context": 87
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1178,12 +1493,22 @@
         "proposed": 0,
         "inactive": 0,
         "other": 17,
-        "unknown": 207
+        "unknown": 294
+      },
+      "people_access": {
+        "worldpop_population_2025": 4015574.776,
+        "dre_cluster_population": 6051416.0,
+        "settlement_count": 5362.0,
+        "population_with_nightlight_signal": 2475825.0,
+        "population_without_nightlight_signal": 3575591.0,
+        "nightlight_population_share_pct": 40.91315156650939,
+        "population_weighted_distance_transmission_km": 2.055783588502261,
+        "population_weighted_distance_gridlight_km": 5.442908546859115
       }
     },
     "Imo": {
       "name": "Imo",
-      "mapped_records": 86,
+      "mapped_records": 131,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1204,7 +1529,9 @@
         "power_grid": 10,
         "substations": 6,
         "ports": 0,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 7,
+        "settlements": 38
       },
       "category_counts": {
         "resource": 3,
@@ -1212,7 +1539,8 @@
         "environmental": 5,
         "demand": 0,
         "connectivity": 71,
-        "renewables": 0
+        "renewables": 0,
+        "context": 45
       },
       "capacity": {
         "power_mw": 466.0,
@@ -1225,12 +1553,22 @@
         "proposed": 1,
         "inactive": 1,
         "other": 5,
-        "unknown": 71
+        "unknown": 116
+      },
+      "people_access": {
+        "worldpop_population_2025": 6592131.419,
+        "dre_cluster_population": 6345271.0,
+        "settlement_count": 950.0,
+        "population_with_nightlight_signal": 5297497.0,
+        "population_without_nightlight_signal": 1047774.0,
+        "nightlight_population_share_pct": 83.48732465484926,
+        "population_weighted_distance_transmission_km": 0.286511963003629,
+        "population_weighted_distance_gridlight_km": 0.4737108197585257
       }
     },
     "Gombe": {
       "name": "Gombe",
-      "mapped_records": 185,
+      "mapped_records": 243,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1251,7 +1589,9 @@
         "power_grid": 16,
         "substations": 5,
         "ports": 0,
-        "minigrids": 3
+        "minigrids": 3,
+        "population_access": 20,
+        "settlements": 38
       },
       "category_counts": {
         "resource": 0,
@@ -1259,7 +1599,8 @@
         "environmental": 34,
         "demand": 1,
         "connectivity": 147,
-        "renewables": 3
+        "renewables": 3,
+        "context": 58
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1272,12 +1613,22 @@
         "proposed": 0,
         "inactive": 0,
         "other": 34,
-        "unknown": 147
+        "unknown": 205
+      },
+      "people_access": {
+        "worldpop_population_2025": 4477433.215,
+        "dre_cluster_population": 4297550.0,
+        "settlement_count": 3732.0,
+        "population_with_nightlight_signal": 2334800.0,
+        "population_without_nightlight_signal": 1962750.0,
+        "nightlight_population_share_pct": 54.32862910262824,
+        "population_weighted_distance_transmission_km": 2.4513107561284917,
+        "population_weighted_distance_gridlight_km": 3.282878877499971
       }
     },
     "Adamawa": {
       "name": "Adamawa",
-      "mapped_records": 201,
+      "mapped_records": 296,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1298,7 +1649,9 @@
         "power_grid": 11,
         "substations": 5,
         "ports": 0,
-        "minigrids": 1
+        "minigrids": 1,
+        "population_access": 55,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -1306,7 +1659,8 @@
         "environmental": 21,
         "demand": 0,
         "connectivity": 179,
-        "renewables": 1
+        "renewables": 1,
+        "context": 95
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1319,12 +1673,22 @@
         "proposed": 0,
         "inactive": 0,
         "other": 21,
-        "unknown": 179
+        "unknown": 274
+      },
+      "people_access": {
+        "worldpop_population_2025": 6006481.456,
+        "dre_cluster_population": 6239136.0,
+        "settlement_count": 5919.0,
+        "population_with_nightlight_signal": 3379212.0,
+        "population_without_nightlight_signal": 2859924.0,
+        "nightlight_population_share_pct": 54.16153775138096,
+        "population_weighted_distance_transmission_km": 6.268381617262391,
+        "population_weighted_distance_gridlight_km": 4.172991890704097
       }
     },
     "Yobe": {
       "name": "Yobe",
-      "mapped_records": 136,
+      "mapped_records": 238,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1345,7 +1709,9 @@
         "power_grid": 4,
         "substations": 3,
         "ports": 0,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 61,
+        "settlements": 41
       },
       "category_counts": {
         "resource": 0,
@@ -1353,7 +1719,8 @@
         "environmental": 40,
         "demand": 0,
         "connectivity": 96,
-        "renewables": 0
+        "renewables": 0,
+        "context": 102
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1366,12 +1733,22 @@
         "proposed": 1,
         "inactive": 0,
         "other": 39,
-        "unknown": 96
+        "unknown": 198
+      },
+      "people_access": {
+        "worldpop_population_2025": 5370897.311,
+        "dre_cluster_population": 3893344.0,
+        "settlement_count": 3963.0,
+        "population_with_nightlight_signal": 2278174.0,
+        "population_without_nightlight_signal": 1615170.0,
+        "nightlight_population_share_pct": 58.51458283675935,
+        "population_weighted_distance_transmission_km": 7.433372630314711,
+        "population_weighted_distance_gridlight_km": 4.748041402968759
       }
     },
     "Abia": {
       "name": "Abia",
-      "mapped_records": 132,
+      "mapped_records": 177,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1392,7 +1769,9 @@
         "power_grid": 27,
         "substations": 11,
         "ports": 0,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 7,
+        "settlements": 38
       },
       "category_counts": {
         "resource": 3,
@@ -1400,7 +1779,8 @@
         "environmental": 7,
         "demand": 1,
         "connectivity": 110,
-        "renewables": 0
+        "renewables": 0,
+        "context": 45
       },
       "capacity": {
         "power_mw": 1068.0,
@@ -1413,12 +1793,22 @@
         "proposed": 1,
         "inactive": 1,
         "other": 7,
-        "unknown": 113
+        "unknown": 158
+      },
+      "people_access": {
+        "worldpop_population_2025": 3924169.25,
+        "dre_cluster_population": 3822478.0,
+        "settlement_count": 926.0,
+        "population_with_nightlight_signal": 2962858.0,
+        "population_without_nightlight_signal": 859620.0,
+        "nightlight_population_share_pct": 77.51144676306835,
+        "population_weighted_distance_transmission_km": 0.2847519043929095,
+        "population_weighted_distance_gridlight_km": 0.4930716713085072
       }
     },
     "Ekiti": {
       "name": "Ekiti",
-      "mapped_records": 20,
+      "mapped_records": 67,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1439,7 +1829,9 @@
         "power_grid": 1,
         "substations": 5,
         "ports": 0,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 7,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -1447,7 +1839,8 @@
         "environmental": 14,
         "demand": 0,
         "connectivity": 6,
-        "renewables": 0
+        "renewables": 0,
+        "context": 47
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1460,12 +1853,22 @@
         "proposed": 0,
         "inactive": 0,
         "other": 14,
-        "unknown": 6
+        "unknown": 53
+      },
+      "people_access": {
+        "worldpop_population_2025": 3060453.429,
+        "dre_cluster_population": 2130546.0,
+        "settlement_count": 542.0,
+        "population_with_nightlight_signal": 1895778.0,
+        "population_without_nightlight_signal": 234768.0,
+        "nightlight_population_share_pct": 88.9808527954806,
+        "population_weighted_distance_transmission_km": 0.080923453424615,
+        "population_weighted_distance_gridlight_km": 0.4317416934438402
       }
     },
     "Osun": {
       "name": "Osun",
-      "mapped_records": 129,
+      "mapped_records": 179,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1486,7 +1889,9 @@
         "power_grid": 24,
         "substations": 11,
         "ports": 0,
-        "minigrids": 1
+        "minigrids": 1,
+        "population_access": 10,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 1,
@@ -1494,7 +1899,8 @@
         "environmental": 11,
         "demand": 0,
         "connectivity": 114,
-        "renewables": 1
+        "renewables": 1,
+        "context": 50
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1507,12 +1913,22 @@
         "proposed": 1,
         "inactive": 0,
         "other": 11,
-        "unknown": 114
+        "unknown": 164
+      },
+      "people_access": {
+        "worldpop_population_2025": 5595659.114,
+        "dre_cluster_population": 4855717.0,
+        "settlement_count": 1538.0,
+        "population_with_nightlight_signal": 4404024.0,
+        "population_without_nightlight_signal": 451693.0,
+        "nightlight_population_share_pct": 90.69770746524148,
+        "population_weighted_distance_transmission_km": 0.1182126326554863,
+        "population_weighted_distance_gridlight_km": 0.4976624121628175
       }
     },
     "Bauchi": {
       "name": "Bauchi",
-      "mapped_records": 255,
+      "mapped_records": 363,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1533,7 +1949,9 @@
         "power_grid": 4,
         "substations": 3,
         "ports": 0,
-        "minigrids": 4
+        "minigrids": 4,
+        "population_access": 66,
+        "settlements": 42
       },
       "category_counts": {
         "resource": 0,
@@ -1541,7 +1959,8 @@
         "environmental": 71,
         "demand": 0,
         "connectivity": 180,
-        "renewables": 4
+        "renewables": 4,
+        "context": 108
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1554,12 +1973,22 @@
         "proposed": 0,
         "inactive": 0,
         "other": 71,
-        "unknown": 180
+        "unknown": 288
+      },
+      "people_access": {
+        "worldpop_population_2025": 8781376.998,
+        "dre_cluster_population": 7304359.0,
+        "settlement_count": 9797.0,
+        "population_with_nightlight_signal": 3336947.0,
+        "population_without_nightlight_signal": 3967412.0,
+        "nightlight_population_share_pct": 45.68432356624312,
+        "population_weighted_distance_transmission_km": 3.0803471529808433,
+        "population_weighted_distance_gridlight_km": 4.322429364575317
       }
     },
     "Niger": {
       "name": "Niger",
-      "mapped_records": 463,
+      "mapped_records": 596,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1580,7 +2009,9 @@
         "power_grid": 73,
         "substations": 15,
         "ports": 0,
-        "minigrids": 5
+        "minigrids": 5,
+        "population_access": 93,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -1588,7 +2019,8 @@
         "environmental": 88,
         "demand": 1,
         "connectivity": 366,
-        "renewables": 5
+        "renewables": 5,
+        "context": 133
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1601,12 +2033,22 @@
         "proposed": 4,
         "inactive": 0,
         "other": 87,
-        "unknown": 366
+        "unknown": 499
+      },
+      "people_access": {
+        "worldpop_population_2025": 7303220.252,
+        "dre_cluster_population": 9397647.0,
+        "settlement_count": 10477.0,
+        "population_with_nightlight_signal": 5230475.0,
+        "population_without_nightlight_signal": 4167172.0,
+        "nightlight_population_share_pct": 55.65728314757939,
+        "population_weighted_distance_transmission_km": 2.832011372634022,
+        "population_weighted_distance_gridlight_km": 4.263901866073497
       }
     },
     "Kaduna": {
       "name": "Kaduna",
-      "mapped_records": 782,
+      "mapped_records": 880,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1627,7 +2069,9 @@
         "power_grid": 41,
         "substations": 14,
         "ports": 0,
-        "minigrids": 3
+        "minigrids": 3,
+        "population_access": 59,
+        "settlements": 39
       },
       "category_counts": {
         "resource": 0,
@@ -1635,7 +2079,8 @@
         "environmental": 85,
         "demand": 1,
         "connectivity": 688,
-        "renewables": 3
+        "renewables": 3,
+        "context": 98
       },
       "capacity": {
         "power_mw": 900.0,
@@ -1648,12 +2093,22 @@
         "proposed": 2,
         "inactive": 0,
         "other": 85,
-        "unknown": 688
+        "unknown": 786
+      },
+      "people_access": {
+        "worldpop_population_2025": 11233188.31,
+        "dre_cluster_population": 11245429.0,
+        "settlement_count": 9984.0,
+        "population_with_nightlight_signal": 6465399.0,
+        "population_without_nightlight_signal": 4780030.0,
+        "nightlight_population_share_pct": 57.493573611109014,
+        "population_weighted_distance_transmission_km": 1.409347916384515,
+        "population_weighted_distance_gridlight_km": 3.126959533246797
       }
     },
     "Enugu": {
       "name": "Enugu",
-      "mapped_records": 182,
+      "mapped_records": 232,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1674,7 +2129,9 @@
         "power_grid": 25,
         "substations": 8,
         "ports": 0,
-        "minigrids": 0
+        "minigrids": 0,
+        "population_access": 9,
+        "settlements": 41
       },
       "category_counts": {
         "resource": 0,
@@ -1682,7 +2139,8 @@
         "environmental": 14,
         "demand": 0,
         "connectivity": 167,
-        "renewables": 0
+        "renewables": 0,
+        "context": 50
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1695,12 +2153,22 @@
         "proposed": 2,
         "inactive": 0,
         "other": 13,
-        "unknown": 167
+        "unknown": 217
+      },
+      "people_access": {
+        "worldpop_population_2025": 5104971.815,
+        "dre_cluster_population": 5051693.0,
+        "settlement_count": 1674.0,
+        "population_with_nightlight_signal": 3916480.0,
+        "population_without_nightlight_signal": 1135213.0,
+        "nightlight_population_share_pct": 77.52806831293984,
+        "population_weighted_distance_transmission_km": 0.1256928617792094,
+        "population_weighted_distance_gridlight_km": 0.5876055785654433
       }
     },
     "Taraba": {
       "name": "Taraba",
-      "mapped_records": 259,
+      "mapped_records": 380,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1721,7 +2189,9 @@
         "power_grid": 7,
         "substations": 7,
         "ports": 0,
-        "minigrids": 1
+        "minigrids": 1,
+        "population_access": 79,
+        "settlements": 42
       },
       "category_counts": {
         "resource": 0,
@@ -1729,7 +2199,8 @@
         "environmental": 42,
         "demand": 0,
         "connectivity": 216,
-        "renewables": 1
+        "renewables": 1,
+        "context": 121
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1742,12 +2213,22 @@
         "proposed": 0,
         "inactive": 0,
         "other": 42,
-        "unknown": 216
+        "unknown": 337
+      },
+      "people_access": {
+        "worldpop_population_2025": 4473844.385,
+        "dre_cluster_population": 4753384.0,
+        "settlement_count": 5880.0,
+        "population_with_nightlight_signal": 1864092.0,
+        "population_without_nightlight_signal": 2889292.0,
+        "nightlight_population_share_pct": 39.2161037273656,
+        "population_weighted_distance_transmission_km": 18.90772613363448,
+        "population_weighted_distance_gridlight_km": 9.964992621887902
       }
     },
     "Ebonyi": {
       "name": "Ebonyi",
-      "mapped_records": 85,
+      "mapped_records": 133,
       "counts": {
         "fields_oil": 0,
         "fields_gas": 0,
@@ -1768,7 +2249,9 @@
         "power_grid": 9,
         "substations": 3,
         "ports": 0,
-        "minigrids": 3
+        "minigrids": 3,
+        "population_access": 8,
+        "settlements": 40
       },
       "category_counts": {
         "resource": 0,
@@ -1776,7 +2259,8 @@
         "environmental": 10,
         "demand": 0,
         "connectivity": 71,
-        "renewables": 3
+        "renewables": 3,
+        "context": 48
       },
       "capacity": {
         "power_mw": 0.0,
@@ -1789,7 +2273,17 @@
         "proposed": 1,
         "inactive": 0,
         "other": 10,
-        "unknown": 71
+        "unknown": 119
+      },
+      "people_access": {
+        "worldpop_population_2025": 2567908.144,
+        "dre_cluster_population": 2168107.0,
+        "settlement_count": 3240.0,
+        "population_with_nightlight_signal": 1010106.0,
+        "population_without_nightlight_signal": 1158001.0,
+        "nightlight_population_share_pct": 46.58930578610742,
+        "population_weighted_distance_transmission_km": 0.390140145297257,
+        "population_weighted_distance_gridlight_km": 2.646549487640601
       }
     }
   }

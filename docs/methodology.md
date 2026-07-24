@@ -4,7 +4,7 @@ The atlas is built as a reproducible geospatial evidence pipeline that converts 
 
 ## Core design
 
-The `v0.3` public atlas is organized around six implemented analytical layers:
+The `v0.4` public atlas is organized around seven implemented analytical layers:
 
 - Resource: reserves, production, discoveries, and field-level site information.
 - Infrastructure: pipelines, LNG terminals, refineries, and power assets.
@@ -12,8 +12,10 @@ The `v0.3` public atlas is organized around six implemented analytical layers:
 - Demand: industrial and demand-center locations relevant to gas consumption.
 - Connectivity: roads, rail, ports, and grid infrastructure.
 - Renewables: site-level off-grid and mini-grid assets.
+- People & Access: population, settlement, night-light, and grid-distance
+  screening context.
 
-Security is a planned seventh layer. Candidate sources are documented, but no
+Security is a planned layer. Candidate sources are documented, but no
 security dataset is currently processed, validated, or published in the map.
 
 Each layer is stored and documented separately so users can combine them for different analytical questions.
@@ -50,6 +52,29 @@ unit-level reported capacity, refinery totals sum reported nameplate capacity,
 and mini-grid totals sum records with published capacity. These summaries are
 appropriate for screening and comparison but require source-level review before
 operational or investment use.
+
+## Population, settlement, and access context
+
+WorldPop v3.0 supplies 2025 state population estimates. The World Bank Nigeria
+Distributed Renewable Energy Atlas supplies settlement clusters, modelled
+population, mapped-building counts, night-light detection, and distances to
+transmission and grid-light targets.
+
+The processing pipeline drops the source's large polygon geometry for the
+analysis-ready settlement table and retains centroid coordinates and selected
+planning attributes. It then creates:
+
+- a complete 154,319-row settlement-cluster table;
+- a 0.25-degree, population-weighted grid for responsive national mapping;
+- the 40 highest-population settlement records per state for place-level display;
+- a 37-row state summary joined to WorldPop totals.
+
+The night-light population share is the share of modelled settlement
+population located in clusters where the source reports a night-light signal.
+It is useful for comparative screening, but it is **not** a household survey,
+an official electrification rate, or proof that every person in a lit cluster
+has electricity access. Conversely, no detected night light does not prove
+that a settlement is wholly unelectrified.
 
 ## Catalogue quality grades
 

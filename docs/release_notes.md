@@ -1,5 +1,21 @@
 # Release notes
 
+## v0.4.0 — Population, Settlements, and Electricity-access Context
+
+Released 2026-07-24.
+
+### Included
+
+- WorldPop v3.0 2025 population estimates for all 36 states and the FCT
+- 154,319 World Bank DRE Atlas settlement clusters in an analysis-ready table
+- 1,278 quarter-degree population/access cells for responsive national mapping
+- 1,480 major-settlement display records, retaining 40 per state
+- state-profile settlement, population, night-light, and grid-distance indicators
+- People & Access map controls, catalogue entries, filtered downloads, and API endpoints
+- explicit UI and documentation warnings that night-light is not a measured
+  household electricity-access rate
+- 12,511 public-map features across 22 datasets
+
 ## v0.3.0 — Status, Time Filters, Downloads, and Static API
 
 Released 2026-07-24.

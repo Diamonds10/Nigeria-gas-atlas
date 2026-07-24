@@ -45,9 +45,10 @@
     environmental: { colorVar: "--cat-environmental" },
     demand: { colorVar: "--cat-demand" },
     connectivity: { colorVar: "--cat-connectivity" },
-    renewables: { colorVar: "--cat-renewables" }
+    renewables: { colorVar: "--cat-renewables" },
+    context: { colorVar: "--cat-context" }
   };
-  var CAT_ORDER = ["resource", "infrastructure", "environmental", "demand", "connectivity", "renewables"];
+  var CAT_ORDER = ["resource", "infrastructure", "environmental", "demand", "connectivity", "renewables", "context"];
 
   var SHAPE_BY_SUB = {
     fields_oil: "circle",
@@ -61,7 +62,8 @@
     rail_stations: "square",
     substations: "triangle",
     ports: "star",
-    minigrids: "plus"
+    minigrids: "plus",
+    settlements: "circle"
   };
   var LINEDASH_BY_SUB = {
     gas_pipelines: null,
@@ -90,7 +92,9 @@
     power_grid: false,
     substations: true,
     ports: true,
-    minigrids: true
+    minigrids: true,
+    population_access: false,
+    settlements: false
   };
 
   var STATUS_MAP = {
@@ -187,7 +191,22 @@
     financing_source: "Financing", source_url: "Source",
     field_type: "Field type", in_goget_fields: "Also in GOGET inventory",
     type: "Asset type", company: "Operator", location: "Location",
-    design_cap: "Design capacity", date_of_co: "Commissioned"
+    design_cap: "Design capacity", date_of_co: "Commissioned",
+    population_estimate: "Modelled population", settlement_count: "Settlement clusters",
+    population_with_nightlight_signal: "Population with night-light signal",
+    population_without_nightlight_signal: "Population without night-light signal",
+    nightlight_population_share_pct: "Night-light population share (%)",
+    total_buildings: "Mapped buildings", modeled_demand: "Modelled demand",
+    population_weighted_distance_transmission_km: "Population-weighted transmission distance (km)",
+    population_weighted_distance_gridlight_km: "Population-weighted grid-light distance (km)",
+    settlement_name: "Settlement", population: "Modelled population",
+    state_population_rank: "Population rank in state", num_buildings: "Mapped buildings",
+    nightlight_signal: "Night-light signal",
+    distance_to_existing_transmission_lines: "Distance to transmission (km)",
+    distance_to_existing_hv_transmission_lines: "Distance to HV transmission (km)",
+    distance_to_gridlight_targets: "Distance to grid-light target (km)",
+    main_road_access: "Main-road access", dist_main_road_km: "Distance to main road (km)",
+    has_education_facility: "Education facility signal", has_health_facility: "Health facility signal"
   };
   var SKIP_IN_ROWS = { project: 1, url: 1, NAME: 1, demand_center: 1, name: 1, PORT_NAME: 1, status: 1, STATUS: 1, asset_name: 1, source_url: 1 };
 
@@ -324,6 +343,19 @@
       var shape = SHAPE_BY_SUB[subKey] || "circle";
       layer = L.geoJSON(sub.data, {
         pointToLayer: function (feature, latlng) {
+          if (subKey === "population_access") {
+            var population = Number(feature.properties.population_estimate || 0);
+            var radius = Math.max(3, Math.min(12, 2 + Math.log10(Math.max(population, 1))));
+            var contextMarker = L.circleMarker(latlng, {
+              radius: radius,
+              color: cssVar(catColorVar),
+              weight: 0.8,
+              fillColor: cssVar(catColorVar),
+              fillOpacity: 0.48
+            });
+            contextMarker._ngraContextGrid = true;
+            return contextMarker;
+          }
           var filled = isOperating(feature.properties);
           var marker = L.marker(latlng, { icon: divIcon(shape, cssVar(catColorVar), filled) });
           marker._ngraFilled = filled;
@@ -332,7 +364,9 @@
         onEachFeature: function (feature, lyr) {
           lyr.bindPopup(popupHtml(sub.label, catColorVar, feature.properties), { maxWidth: 300 });
           var lbl = titleOf(feature.properties);
-          if (lbl) allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr, feature: feature });
+          if (lbl && subKey !== "population_access") {
+            allFeaturesIndex.push({ label: lbl, subKey: subKey, catKey: catKey, subLabel: sub.label, layer: lyr, feature: feature });
+          }
         }
       });
     } else if (geomType === "line") {
@@ -403,7 +437,11 @@
         if (entry.geomType === "point") {
           var shape = SHAPE_BY_SUB[subKey] || "circle";
           entry.leafletLayer.eachLayer(function (lyr) {
-            if (lyr.setIcon) lyr.setIcon(divIcon(shape, catColor, lyr._ngraFilled));
+            if (lyr._ngraContextGrid && lyr.setStyle) {
+              lyr.setStyle({ color: catColor, fillColor: catColor });
+            } else if (lyr.setIcon) {
+              lyr.setIcon(divIcon(shape, catColor, lyr._ngraFilled));
+            }
           });
         } else if (entry.geomType === "line") {
           entry.leafletLayer.setStyle(lineStyle(catColor, subKey));
@@ -423,7 +461,7 @@
 
   // ---------------- Panel UI ----------------
   var listEl = document.getElementById("category-list");
-  var CAT_LABELS = { resource: "Resource", infrastructure: "Infrastructure", environmental: "Environmental", demand: "Demand", connectivity: "Connectivity", renewables: "Renewables" };
+  var CAT_LABELS = { resource: "Resource", infrastructure: "Infrastructure", environmental: "Environmental", demand: "Demand", connectivity: "Connectivity", renewables: "Renewables", context: "People & Access" };
 
   CAT_ORDER.forEach(function (catKey) {
     var cat = ATLAS.layers[catKey];
@@ -517,6 +555,7 @@
     if (!profile) return;
     var counts = profile.counts;
     var capacity = profile.capacity;
+    var peopleAccess = profile.people_access || {};
     var scopeLabel = selectedState ? "records intersecting state" : "national public-map records";
     var capacityBits = [];
     if (capacity.power_mw) capacityBits.push("<strong>" + formatNumber(capacity.power_mw, 1) + " MW</strong> reported power");
@@ -526,6 +565,9 @@
     stateProfileEl.innerHTML =
       '<div class="profile-title-row"><h3>' + escapeHtml(profileName) + '</h3><span>' + formatNumber(profile.mapped_records) + " " + escapeHtml(scopeLabel) + '</span></div>' +
       '<div class="profile-metrics">' +
+        profileMetric(peopleAccess.worldpop_population_2025, "Population (WorldPop 2025)") +
+        profileMetric(peopleAccess.settlement_count, "Settlement clusters") +
+        profileMetric(peopleAccess.nightlight_population_share_pct, "Population with night-light signal (%)") +
         profileMetric(counts.power_plants, "Power-plant units") +
         profileMetric(counts.substations, "Substations") +
         profileMetric(counts.demand_centers, "Demand centres") +
@@ -534,7 +576,7 @@
         profileMetric(counts.ports, "Ports & terminals") +
       '</div>' +
       (capacityBits.length ? '<div class="capacity-strip">' + capacityBits.join(" · ") + '</div>' : "") +
-      '<p class="profile-note">Lines and protected areas are counted when their display geometry intersects the state. Unit-level datasets can contain several records at one facility. Offshore or unassigned records remain national.</p>';
+      '<p class="profile-note">Population totals are WorldPop 2025 estimates. Settlement and night-light measures come from the World Bank DRE Atlas; night-light is a screening signal, not a measured household electricity-access rate. Lines and protected areas are counted where display geometry intersects the state.</p>';
     updateDownloadLabel();
   }
 

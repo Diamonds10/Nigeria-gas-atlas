@@ -209,6 +209,24 @@ CATALOGUE = {
         "quality_note": "All current records are exact-site geocoded; not a complete solar-home-system registry.",
         "path": "data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv",
     },
+    "population_access": {
+        "description": "Quarter-degree settlement-population grid with night-light and grid-distance screening signals.",
+        "source": "World Bank Nigeria Distributed Renewable Energy Atlas",
+        "source_date": "2025-06-12",
+        "license": "CC BY 4.0",
+        "quality": "B",
+        "quality_note": "Aggregated from 154,319 settlement clusters. Night-light detection is a screening proxy, not a measured household electricity-access rate.",
+        "path": "data/processed/08_context/population_access_grid_nigeria.csv",
+    },
+    "settlements": {
+        "description": "Major settlement clusters, retaining the 40 highest-population source records per state for a responsive web map.",
+        "source": "World Bank Nigeria Distributed Renewable Energy Atlas",
+        "source_date": "2025-06-12",
+        "license": "CC BY 4.0",
+        "quality": "B",
+        "quality_note": "Web subset of a 154,319-cluster processed inventory. Population and access fields are modelled screening estimates.",
+        "path": "data/processed/08_context/major_settlements_nigeria.csv",
+    },
 }
 
 
@@ -358,6 +376,8 @@ def status_bucket(props: dict[str, Any]) -> str:
 
 
 def feature_year(sublayer_key: str, props: dict[str, Any]) -> tuple[int | None, str | None]:
+    if sublayer_key in {"population_access", "settlements"}:
+        return 2025, "Source release year"
     candidates = {
         "fields_oil": ("discovery_year", "Discovery year"),
         "fields_gas": ("discovery_year", "Discovery year"),
@@ -395,6 +415,7 @@ def empty_profile(name: str, sublayer_keys: list[str]) -> dict[str, Any]:
             "demand": 0,
             "connectivity": 0,
             "renewables": 0,
+            "context": 0,
         },
         "capacity": {
             "power_mw": 0.0,
@@ -516,10 +537,69 @@ def add_catalogue_and_state_profiles(
         for capacity_key, value in profile["capacity"].items():
             profile["capacity"][capacity_key] = round(value, 2)
 
+    context_summary = pd.read_csv(
+        PROCESSED / "08_context/state_population_access_summary_nigeria.csv"
+    )
+    context_columns = [
+        "worldpop_population_2025",
+        "dre_cluster_population",
+        "settlement_count",
+        "population_with_nightlight_signal",
+        "population_without_nightlight_signal",
+        "nightlight_population_share_pct",
+        "population_weighted_distance_transmission_km",
+        "population_weighted_distance_gridlight_km",
+    ]
+    for _, row in context_summary.iterrows():
+        state_name = str(row["state"])
+        if state_name in profiles:
+            profiles[state_name]["people_access"] = {
+                column: clean_value(row.get(column)) for column in context_columns
+            }
+
+    population_weights = context_summary["dre_cluster_population"].fillna(0)
+    national_context = {
+        "worldpop_population_2025": context_summary[
+            "worldpop_population_2025"
+        ].sum(min_count=1),
+        "dre_cluster_population": context_summary[
+            "dre_cluster_population"
+        ].sum(min_count=1),
+        "settlement_count": context_summary["settlement_count"].sum(min_count=1),
+        "population_with_nightlight_signal": context_summary[
+            "population_with_nightlight_signal"
+        ].sum(min_count=1),
+        "population_without_nightlight_signal": context_summary[
+            "population_without_nightlight_signal"
+        ].sum(min_count=1),
+    }
+    national_population = national_context["dre_cluster_population"]
+    national_context["nightlight_population_share_pct"] = (
+        100
+        * national_context["population_with_nightlight_signal"]
+        / national_population
+    )
+    for column in [
+        "population_weighted_distance_transmission_km",
+        "population_weighted_distance_gridlight_km",
+    ]:
+        valid = context_summary[column].notna() & population_weights.gt(0)
+        national_context[column] = (
+            float(
+                (context_summary.loc[valid, column] * population_weights[valid]).sum()
+                / population_weights[valid].sum()
+            )
+            if valid.any()
+            else None
+        )
+    profiles["Nigeria"]["people_access"] = {
+        key: clean_value(value) for key, value in national_context.items()
+    }
+
     bundle["release"] = {
-        "version": "0.3.0",
+        "version": "0.4.0",
         "date": "2026-07-24",
-        "title": "Status, Time Filters, Downloads, and Static API",
+        "title": "Population, Settlements, and Electricity-access Context",
     }
     bundle["catalogue"] = catalogue
     bundle["state_profiles"] = profiles
@@ -654,7 +734,7 @@ def write_api_outputs(bundle: dict[str, Any], api_dir: Path = DEFAULT_API_DIR) -
         "filter_fields": {
             "_states": "ADM1 names intersected by the public display geometry",
             "_status_group": "Normalized status group",
-            "_year": "Relevant discovery, start, commissioning, or designation year",
+            "_year": "Relevant discovery, start, commissioning, designation, or source release year",
             "_year_label": "Meaning of _year for the record",
         },
         "endpoints": {
@@ -812,6 +892,47 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
         ],
         "asset_name",
     )
+    population_access = point_features(
+        PROCESSED / "08_context/population_access_grid_nigeria.csv",
+        "grid_lon",
+        "grid_lat",
+        [
+            "cell_id",
+            "population_estimate",
+            "settlement_count",
+            "population_with_nightlight_signal",
+            "population_without_nightlight_signal",
+            "nightlight_population_share_pct",
+            "total_buildings",
+            "modeled_demand",
+            "population_weighted_distance_transmission_km",
+            "population_weighted_distance_gridlight_km",
+        ],
+        "cell_id",
+    )
+    settlements = point_features(
+        PROCESSED / "08_context/major_settlements_nigeria.csv",
+        "lon",
+        "lat",
+        [
+            "geohash",
+            "settlement_name",
+            "state",
+            "lga",
+            "population",
+            "state_population_rank",
+            "num_buildings",
+            "nightlight_signal",
+            "distance_to_existing_transmission_lines",
+            "distance_to_existing_hv_transmission_lines",
+            "distance_to_gridlight_targets",
+            "main_road_access",
+            "dist_main_road_km",
+            "has_education_facility",
+            "has_health_facility",
+        ],
+        "settlement_name",
+    )
 
     bundle = {
         "states": states,
@@ -866,6 +987,17 @@ def build_bundle(states_path: Path = DEFAULT_STATES) -> dict[str, Any]:
                 "label": "Renewables",
                 "sublayers": {
                     "minigrids": sublayer("Off-grid & Mini-grids", "point", minigrids)
+                },
+            },
+            "context": {
+                "label": "People & Access",
+                "sublayers": {
+                    "population_access": sublayer(
+                        "Population & Access Grid", "point", population_access
+                    ),
+                    "settlements": sublayer(
+                        "Major Settlements", "point", settlements
+                    ),
                 },
             },
         },

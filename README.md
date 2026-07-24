@@ -2,7 +2,7 @@
 
 A national-scale, geospatial evidence atlas for Nigeria's infrastructure
 system, including energy, transport, demand centres, connectivity, renewables,
-and environmental exposure.
+population, settlements, electricity-access context, and environmental exposure.
 
 ## Quick start
 
@@ -26,7 +26,7 @@ It is designed to support:
 
 ## What the atlas contains
 
-The current public atlas is organized into six published analytical layers:
+The current public atlas is organized into seven published analytical layers:
 
 1. Resource
 2. Infrastructure
@@ -34,8 +34,9 @@ The current public atlas is organized into six published analytical layers:
 4. Demand
 5. Connectivity
 6. Renewables
+7. People & Access
 
-A seventh security layer is planned, but it is not part of the `v0.3` processed
+A security layer is planned, but it is not part of the `v0.4` processed
 dataset or public map. This boundary is intentional: the source register records
 candidate security sources without presenting them as implemented evidence.
 
@@ -43,13 +44,18 @@ The public value of the atlas is not any single output file. It is the combinati
 
 ## Current public-facing value
 
-A live `v0.3` state-intelligence experience is available at
+A live `v0.4` state-intelligence experience is available at
 [diamonds10.github.io/Nigeria-gas-atlas](https://diamonds10.github.io/Nigeria-gas-atlas/).
 It provides profiles for all 36 states and the FCT, state-specific shareable
-links and GeoJSON downloads, and a searchable catalogue covering all 15
+links and GeoJSON downloads, and a searchable catalogue covering all 22
 published map datasets. Normalized status and evidence-year filters apply
 consistently to the map, search results, visible counts, shared URLs, and
 downloads.
+
+State profiles now include WorldPop 2025 population estimates and World Bank
+DRE Atlas settlement-cluster, night-light, and grid-distance indicators.
+Night-light detection is published only as an electricity-access screening
+signal, not as a measured household electrification rate.
 
 Developers can use the versioned, read-only static API at
 [diamonds10.github.io/Nigeria-gas-atlas/api/](https://diamonds10.github.io/Nigeria-gas-atlas/api/).
@@ -83,6 +89,7 @@ If users want to reproduce the data ingestion from public source, they can run t
 - `scripts/04_demand/` for demand centres and industrial nodes
 - `scripts/05_connectivity/` for power-grid and OSM-based connectivity data
 - `scripts/07_renewables/` for mini-grid downloads and renewable asset intake
+- `scripts/08_context/` for population, settlements, and electricity-access context
 
 The general pattern is:
 
@@ -103,7 +110,9 @@ This atlas is best used as a public screening and planning foundation rather tha
 Recommended usage patterns:
 
 - infrastructure screening: combine `data/processed/02_infrastructure/` and `data/processed/05_connectivity/` to map corridors, stations, and grid assets
-- energy access planning: use `data/processed/07_renewables/` alongside demand centres and state boundaries to assess mini-grid coverage and site-level access gaps
+- energy access planning: combine `data/processed/07_renewables/` with
+  `data/processed/08_context/` to screen mini-grid coverage against settlement
+  population, night-light signals, and grid distance
 - investment benchmarking: compare asset clusters, status distributions, and technology mixes across states using `outputs/maps/public_asset_benchmark_summary.json`
 - environmental risk: overlay protected-area context with infrastructure to identify risk-sensitive zones
 - multidisciplinary systems planning: use the repo’s structured layers together to align gas, power, demand, transport, and future telecom/data-centre expansions
@@ -123,6 +132,8 @@ The repository already contains a meaningful evidence base for screening and res
 - environmental overlays, with security documented as a planned future layer
 - a verified site-level mini-grid inventory covering 66 sites across 26 states and the FCT, with public-source status, capacity, and operator context
 - a first conservative intake framework for renewable off-grid and mini-grid assets beyond the currently structured mini-grid layer
+- 154,319 processed settlement clusters, a compact 1,278-cell population/access
+  web layer, and 2025 population estimates for every state and the FCT
 
 Current verified public-facing asset snapshot:
 

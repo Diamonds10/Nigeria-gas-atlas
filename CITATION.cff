@@ -7,7 +7,7 @@ authors:
 repository-code: "https://github.com/Diamonds10/Nigeria-gas-atlas"
 url: "https://diamonds10.github.io/Nigeria-gas-atlas/"
 license: CC0-1.0
-version: 0.3.0
+version: 0.4.0
 date-released: 2026-07-24
 keywords:
   - Nigeria
@@ -16,3 +16,5 @@ keywords:
   - energy
   - transport
   - mini-grid
+  - population
+  - electricity access

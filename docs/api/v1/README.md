@@ -22,7 +22,8 @@ Layer features include:
 
 - `_states`: state boundaries intersected by the public display geometry
 - `_status_group`: `operating`, `development`, `proposed`, `inactive`, `other`, or `unknown`
-- `_year`: relevant discovery, start, commissioning, or designation year when supported
+- `_year`: relevant discovery, start, commissioning, designation, or source
+  release year when supported
 - `_year_label`: the meaning of `_year` for that record
 
 When applying a year cutoff, exclude records without `_year`. Do not assume an
@@ -33,3 +34,7 @@ undated record existed before the selected year.
 The `/api/v1/` contract will remain backward compatible within API version 1.
 Dataset contents can change with atlas releases; inspect `atlas_release` and
 source dates when reproducibility matters.
+
+The `population_access` and `settlements` endpoints contain modelled screening
+context. Their night-light fields are not measured household
+electricity-access rates.

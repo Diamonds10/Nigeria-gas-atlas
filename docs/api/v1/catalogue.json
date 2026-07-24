@@ -1,8 +1,8 @@
 {
   "atlas_release": {
-    "version": "0.3.0",
+    "version": "0.4.0",
     "date": "2026-07-24",
-    "title": "Status, Time Filters, Downloads, and Static API"
+    "title": "Population, Settlements, and Electricity-access Context"
   },
   "datasets": [
     {
@@ -304,6 +304,36 @@
       "category_label": "Renewables",
       "record_count": 66,
       "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/07_renewables/renewable_offgrid_minigrid_nigeria.csv"
+    },
+    {
+      "description": "Quarter-degree settlement-population grid with night-light and grid-distance screening signals.",
+      "source": "World Bank Nigeria Distributed Renewable Energy Atlas",
+      "source_date": "2025-06-12",
+      "license": "CC BY 4.0",
+      "quality": "B",
+      "quality_note": "Aggregated from 154,319 settlement clusters. Night-light detection is a screening proxy, not a measured household electricity-access rate.",
+      "path": "data/processed/08_context/population_access_grid_nigeria.csv",
+      "key": "population_access",
+      "label": "Population & Access Grid",
+      "category": "context",
+      "category_label": "People & Access",
+      "record_count": 1278,
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/08_context/population_access_grid_nigeria.csv"
+    },
+    {
+      "description": "Major settlement clusters, retaining the 40 highest-population source records per state for a responsive web map.",
+      "source": "World Bank Nigeria Distributed Renewable Energy Atlas",
+      "source_date": "2025-06-12",
+      "license": "CC BY 4.0",
+      "quality": "B",
+      "quality_note": "Web subset of a 154,319-cluster processed inventory. Population and access fields are modelled screening estimates.",
+      "path": "data/processed/08_context/major_settlements_nigeria.csv",
+      "key": "settlements",
+      "label": "Major Settlements",
+      "category": "context",
+      "category_label": "People & Access",
+      "record_count": 1480,
+      "download_url": "https://raw.githubusercontent.com/Diamonds10/Nigeria-gas-atlas/main/data/processed/08_context/major_settlements_nigeria.csv"
     }
   ]
 }

@@ -20,6 +20,7 @@
     --cat-demand: #AD3F76;
     --cat-connectivity: #35548F;
     --cat-renewables: #545B00;
+    --cat-context: #6B4C9A;
 
     --status-good: #0ca30c;
     --status-warning: #b8790a;
@@ -53,6 +54,7 @@
       --cat-demand: #D97BA9;
       --cat-connectivity: #7C9BD9;
       --cat-renewables: #84862D;
+      --cat-context: #B89AE8;
 
       --status-good: #4fd15a;
       --status-warning: #e0a83a;
@@ -83,6 +85,7 @@
     --cat-demand: #D97BA9;
     --cat-connectivity: #7C9BD9;
     --cat-renewables: #84862D;
+    --cat-context: #B89AE8;
     --status-good: #4fd15a;
     --status-warning: #e0a83a;
     --status-serious: #e08258;
@@ -98,7 +101,7 @@
     --surface: #F6F7F2; --surface-raised: #FFFFFF;
     --accent: #B3690E; --accent-ink: #FFFFFF;
     --cat-resource: #9A640E; --cat-infrastructure: #007C90; --cat-environmental: #24763F;
-    --cat-demand: #AD3F76; --cat-connectivity: #35548F; --cat-renewables: #545B00;
+    --cat-demand: #AD3F76; --cat-connectivity: #35548F; --cat-renewables: #545B00; --cat-context: #6B4C9A;
     --status-good: #0ca30c; --status-warning: #b8790a; --status-serious: #c1592f; --status-critical: #b23131;
     --shadow-1: 0 1px 2px rgba(15, 29, 26, 0.08), 0 2px 8px rgba(15, 29, 26, 0.06);
     --shadow-2: 0 4px 16px rgba(15, 29, 26, 0.14), 0 1px 4px rgba(15, 29, 26, 0.10);
