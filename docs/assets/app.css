@@ -547,6 +547,11 @@
   .sub-row input[type="checkbox"]:hover { border-color: var(--accent); }
   .sub-row .glyph { flex-shrink: 0; display: flex; }
   .sub-row .sname { flex: 1; }
+  .sub-row .caveat-flag {
+    color: var(--status-warning);
+    cursor: help;
+    font-size: 11px;
+  }
   .sub-row .scount {
     font-size: 10.5px;
     color: var(--text-muted);

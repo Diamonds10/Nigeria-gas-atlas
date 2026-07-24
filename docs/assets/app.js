@@ -466,6 +466,15 @@
   }
 
   // ---------------- Panel UI ----------------
+  // GOGET's fuel_type field is unreliable at the field level: verified against
+  // the raw source, major gas sites (Soku, Bonny, Gbaran) are labeled "oil".
+  // This split is a straight pass-through of that field, so it's flagged
+  // in-place rather than silently trusted -- see docs/data_sources.md.
+  var CAVEAT_BY_SUB = {
+    fields_oil: "GOGET's fuel_type field is unreliable at the field level — several major gas sites (e.g. Soku, Bonny, Gbaran) are labeled \"oil\" in this source. Treat this split as indicative, not authoritative.",
+    fields_gas: "GOGET's fuel_type field undercounts true gas-producing fields — most Nigerian gas comes from fields this source labels \"oil\" or \"oil and gas\", not \"gas\". Treat this split as indicative, not authoritative.",
+    fields_mixed: "GOGET's fuel_type field is unreliable at the field level — some major gas sites (e.g. Soku, Bonny, Gbaran) are labeled \"oil\" and so are NOT included here. Treat this split as indicative, not authoritative."
+  };
   var listEl = document.getElementById("category-list");
   var CAT_LABELS = { resource: "Resource", infrastructure: "Infrastructure", environmental: "Environmental", demand: "Demand", connectivity: "Connectivity", renewables: "Renewables", context: "People & Access" };
 
@@ -498,10 +507,12 @@
         : sub.geomType === "line"
           ? '<svg width="16" height="12" viewBox="0 0 16 12"><line x1="1" y1="6" x2="15" y2="6" stroke="' + cssVar(CAT_META[catKey].colorVar) + '" stroke-width="2.4" stroke-dasharray="' + (LINEDASH_BY_SUB[subKey] || "") + '" stroke-linecap="round"/></svg>'
           : '<svg width="14" height="12" viewBox="0 0 14 12"><rect x="1" y="1" width="12" height="10" rx="2" fill="' + cssVar(CAT_META[catKey].colorVar) + '" opacity="0.35" stroke="' + cssVar(CAT_META[catKey].colorVar) + '" stroke-width="1.3"/></svg>';
+      var caveat = CAVEAT_BY_SUB[subKey];
+      var caveatHtml = caveat ? ' <span class="caveat-flag" title="' + escapeAttr(caveat) + '">⚠</span>' : '';
       row.innerHTML =
         '<input type="checkbox" ' + (DEFAULT_ON[subKey] ? "checked" : "") + ' data-sub="' + subKey + '"/>' +
         '<span class="glyph">' + glyphHtml + '</span>' +
-        '<span class="sname">' + sub.label + '</span>' +
+        '<span class="sname">' + sub.label + caveatHtml + '</span>' +
         '<span class="scount" data-sub-count="' + subKey + '">' + sub.data.features.length.toLocaleString() + '</span>';
       subWrap.appendChild(row);
       row.querySelector("input").addEventListener("change", function (e) {

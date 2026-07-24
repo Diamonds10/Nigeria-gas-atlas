@@ -35,7 +35,7 @@ CATALOGUE = {
         "source_date": "2026-07-21",
         "license": "CC BY 4.0 inferred; verify before redistribution",
         "quality": "B",
-        "quality_note": "Verified source points; field snapshot dates from August 2023. 33 of 180 GOGET fields are classified oil-only.",
+        "quality_note": "Verified source points; field snapshot dates from August 2023. 33 of 180 GOGET fields are classified oil-only. CAVEAT: fuel_type is unreliable at the field level -- verified against the raw source, major gas sites (Soku, Bonny, Gbaran) are labeled oil here. Treat this split as indicative, not authoritative.",
         "path": "data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
     },
     "fields_gas": {
@@ -44,7 +44,7 @@ CATALOGUE = {
         "source_date": "2026-07-21",
         "license": "CC BY 4.0 inferred; verify before redistribution",
         "quality": "B",
-        "quality_note": "Verified source points; field snapshot dates from August 2023. Only 2 of 180 GOGET fields are classified gas-only -- most Nigerian gas production is associated gas from mixed fields (see Oil & Gas Fields).",
+        "quality_note": "Verified source points; field snapshot dates from August 2023. Only 2 of 180 GOGET fields are classified gas-only. CAVEAT: this undercounts true gas-producing fields -- most Nigerian gas comes from fields this source labels oil or oil and gas, including major gas sites like Soku, Bonny, and Gbaran (see Oil Fields and Oil & Gas Fields above). Treat this split as indicative, not authoritative.",
         "path": "data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
     },
     "fields_mixed": {
@@ -53,7 +53,7 @@ CATALOGUE = {
         "source_date": "2026-07-21",
         "license": "CC BY 4.0 inferred; verify before redistribution",
         "quality": "B",
-        "quality_note": "Verified source points; field snapshot dates from August 2023. 145 of 180 GOGET fields (81%) are classified oil and gas -- the majority case for Nigerian fields.",
+        "quality_note": "Verified source points; field snapshot dates from August 2023. 145 of 180 GOGET fields (81%) are classified oil and gas -- the majority case for Nigerian fields. CAVEAT: fuel_type is unreliable at the field level -- major gas sites (Soku, Bonny, Gbaran) are labeled oil, not oil and gas, and so are NOT included here. Treat this split as indicative, not authoritative.",
         "path": "data/processed/01_resource/goget_fields_nigeria_2023-08.csv",
     },
     "field_polygons_gas": {
